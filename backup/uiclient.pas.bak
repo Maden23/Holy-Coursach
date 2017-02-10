@@ -5,8 +5,8 @@ unit UIClient;
 interface
 
 uses
-  Classes, SysUtils, sqldb, mssqlconn, FileUtil, Forms, Controls, Graphics,
-  Dialogs, StdCtrls, ExtCtrls, DbCtrls;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  ExtCtrls;
 
 type
 

@@ -1,7 +1,7 @@
 object MainCustomerForm: TMainCustomerForm
   Left = 517
   Height = 689
-  Top = 229
+  Top = 219
   Width = 600
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 689
@@ -26,7 +26,7 @@ object MainCustomerForm: TMainCustomerForm
     object Label2: TLabel
       Left = 16
       Height = 25
-      Top = 120
+      Top = 136
       Width = 151
       Caption = 'Пункт назначения:'
       ParentColor = False
@@ -41,9 +41,10 @@ object MainCustomerForm: TMainCustomerForm
     object FinishAdressEdit: TEdit
       Left = 16
       Height = 33
-      Top = 168
+      Top = 192
       Width = 440
       TabOrder = 1
+      Text = 'FinishAdressEdit'
     end
   end
 end
