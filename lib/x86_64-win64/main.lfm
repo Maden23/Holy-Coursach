@@ -1,0 +1,275 @@
+object Form1: TForm1
+  Left = 436
+  Height = 696
+  Top = 157
+  Width = 553
+  HorzScrollBar.Page = 333
+  HorzScrollBar.Range = 333
+  VertScrollBar.Page = 281
+  VertScrollBar.Range = 281
+  Caption = 'Taxi23CenturyFox'
+  ClientHeight = 696
+  ClientWidth = 553
+  LCLVersion = '1.6.2.0'
+  object Label1: TLabel
+    Left = 16
+    Height = 27
+    Top = 16
+    Width = 256
+    Caption = 'Введите адрес подачи:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 16
+    Height = 27
+    Top = 104
+    Width = 278
+    Caption = 'Введите конечный пункт:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object DBEdit1: TDBEdit
+    Left = 16
+    Height = 33
+    Top = 56
+    Width = 336
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 0
+  end
+  object DBEdit2: TDBEdit
+    Left = 16
+    Height = 33
+    Top = 144
+    Width = 336
+    CharCase = ecNormal
+    MaxLength = 0
+    TabOrder = 1
+  end
+  object Label3: TLabel
+    Left = 16
+    Height = 27
+    Top = 192
+    Width = 176
+    Caption = 'Введите время:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 18
+    Height = 45
+    Top = 229
+    Width = 70
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -32
+    Font.Name = 'Arial Narrow'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    MaxValue = 23
+    ParentFont = False
+    TabOrder = 2
+  end
+  object CheckGroup1: TCheckGroup
+    Left = 16
+    Height = 176
+    Top = 287
+    Width = 336
+    AutoFill = True
+    Caption = 'Дополнительные опции'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 144
+    ClientWidth = 332
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 3
+    object CheckBox1: TCheckBox
+      Left = 6
+      Height = 44
+      Top = 6
+      Width = 320
+      Caption = 'Большой багажник'
+      TabOrder = 0
+    end
+    object CheckBox2: TCheckBox
+      Left = 6
+      Height = 44
+      Top = 50
+      Width = 320
+      Caption = 'Детское кресло'
+      TabOrder = 1
+    end
+    object CheckBox3: TCheckBox
+      Left = 6
+      Height = 44
+      Top = 94
+      Width = 320
+      Caption = 'Удиви меня!'
+      TabOrder = 2
+    end
+  end
+  object Label4: TLabel
+    Left = 16
+    Height = 27
+    Top = 479
+    Width = 218
+    Caption = 'Уровень комфорта:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object TrackBar1: TTrackBar
+    Left = 8
+    Height = 29
+    Top = 519
+    Width = 344
+    Max = 5
+    Min = 1
+    OnChange = TrackBar1Change
+    Position = 1
+    TabOrder = 4
+  end
+  object Label5: TLabel
+    Left = 239
+    Height = 41
+    Top = 471
+    Width = 22
+    Caption = '✪'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -36
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 16
+    Height = 27
+    Top = 583
+    Width = 281
+    Caption = 'Количество пассажиров: '
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object TrackBar2: TTrackBar
+    Left = 8
+    Height = 29
+    Top = 623
+    Width = 344
+    Max = 8
+    Min = 1
+    OnChange = TrackBar2Change
+    Position = 1
+    TabOrder = 5
+  end
+  object Label7: TLabel
+    Left = 296
+    Height = 41
+    Top = 575
+    Width = 22
+    Caption = '❶'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -36
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 18
+    Height = 25
+    Top = 551
+    Width = 10
+    Caption = '1'
+    ParentColor = False
+  end
+  object Label9: TLabel
+    Left = 332
+    Height = 25
+    Top = 551
+    Width = 10
+    Caption = '5'
+    ParentColor = False
+  end
+  object Label10: TLabel
+    Left = 18
+    Height = 25
+    Top = 655
+    Width = 10
+    Caption = '1'
+    ParentColor = False
+  end
+  object Label11: TLabel
+    Left = 332
+    Height = 25
+    Top = 655
+    Width = 10
+    Caption = '8'
+    ParentColor = False
+  end
+  object SpinEdit2: TSpinEdit
+    Left = 122
+    Height = 45
+    Top = 229
+    Width = 70
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -32
+    Font.Name = 'Arial Narrow'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    MaxValue = 23
+    ParentFont = False
+    TabOrder = 6
+  end
+  object Label12: TLabel
+    Left = 101
+    Height = 27
+    Top = 238
+    Width = 7
+    Caption = ':'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+end
