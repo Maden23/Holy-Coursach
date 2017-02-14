@@ -1,58 +1,12 @@
 object MainCustomerForm: TMainCustomerForm
-  Left = 431
+  Left = 538
   Height = 459
-  Top = 150
-  Width = 827
+  Top = 159
+  Width = 1476
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 459
-  ClientWidth = 827
+  ClientWidth = 1476
   LCLVersion = '1.6.2.0'
-  object DBGrid1: TDBGrid
-    Left = 8
-    Height = 384
-    Top = 0
-    Width = 816
-    Color = clWindow
-    Columns = <    
-      item
-        Title.Caption = 'id'
-        FieldName = 'id'
-      end    
-      item
-        Title.Caption = 'reg_number'
-        FieldName = 'reg_number'
-      end    
-      item
-        Title.Caption = 'model'
-        FieldName = 'model'
-      end    
-      item
-        Title.Caption = 'color'
-        FieldName = 'color'
-      end    
-      item
-        Title.Caption = 'carcase'
-        FieldName = 'carcase'
-      end    
-      item
-        Title.Caption = 'passenger'
-        FieldName = 'passenger'
-      end    
-      item
-        Title.Caption = 'comfort_rate'
-        FieldName = 'comfort_rate'
-      end    
-      item
-        Title.Caption = 'baby_sit'
-        FieldName = 'baby_sit'
-      end    
-      item
-        Title.Caption = 'wide_trunk'
-        FieldName = 'wide_trunk'
-      end>
-    DataSource = DataSource1
-    TabOrder = 0
-  end
   object Label1: TLabel
     Left = 432
     Height = 25
@@ -68,7 +22,27 @@ object MainCustomerForm: TMainCustomerForm
     Width = 75
     Caption = 'Button1'
     OnClick = Button1Click
+    TabOrder = 0
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 384
+    Top = 0
+    Width = 720
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
     TabOrder = 1
+  end
+  object DBGrid2: TDBGrid
+    Left = 728
+    Height = 384
+    Top = 0
+    Width = 712
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource2
+    TabOrder = 2
   end
   object SQLite3Connection1: TSQLite3Connection
     Connected = True
@@ -85,6 +59,181 @@ object MainCustomerForm: TMainCustomerForm
     Database = SQLite3Connection1
     Options = []
     left = 39
+    top = 10
+  end
+  object DataSource2: TDataSource
+    DataSet = SQLQuery2
+    left = 765
+  end
+  object SQLQuery2: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'last_name'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'first_name'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'father_name'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'age'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'xp'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'available'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'working_time'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'car_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'location'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select * from drivers'
+    )
+    Options = []
+    Params = <>
+    left = 736
+    object SQLQuery2id: TLongintField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery2last_name: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'last_name'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery2first_name: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'first_name'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery2father_name: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'father_name'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery2age: TLongintField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'age'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery2xp: TLongintField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'xp'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery2available: TLongintField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'available'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery2working_time: TLongintField
+      FieldKind = fkData
+      FieldName = 'working_time'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery2car_id: TLongintField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'car_id'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery2location: TLongintField
+      DisplayWidth = 5
+      FieldKind = fkData
+      FieldName = 'location'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    left = 104
     top = 10
   end
   object SQLQuery1: TSQLQuery
@@ -145,9 +294,10 @@ object MainCustomerForm: TMainCustomerForm
     )
     Options = []
     Params = <>
-    left = 68
+    left = 72
     top = 10
     object SQLQuery1id: TLongintField
+      DisplayWidth = 2
       FieldKind = fkData
       FieldName = 'id'
       Index = 0
@@ -157,7 +307,7 @@ object MainCustomerForm: TMainCustomerForm
       Required = False
     end
     object SQLQuery1reg_number: TStringField
-      DisplayWidth = 30
+      DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'reg_number'
       Index = 1
@@ -168,7 +318,7 @@ object MainCustomerForm: TMainCustomerForm
       Size = 255
     end
     object SQLQuery1model: TStringField
-      DisplayWidth = 30
+      DisplayWidth = 20
       FieldKind = fkData
       FieldName = 'model'
       Index = 2
@@ -179,7 +329,7 @@ object MainCustomerForm: TMainCustomerForm
       Size = 255
     end
     object SQLQuery1color: TStringField
-      DisplayWidth = 30
+      DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'color'
       Index = 3
@@ -190,7 +340,7 @@ object MainCustomerForm: TMainCustomerForm
       Size = 255
     end
     object SQLQuery1carcase: TStringField
-      DisplayWidth = 30
+      DisplayWidth = 10
       FieldKind = fkData
       FieldName = 'carcase'
       Index = 4
@@ -201,6 +351,7 @@ object MainCustomerForm: TMainCustomerForm
       Size = 255
     end
     object SQLQuery1passenger: TLongintField
+      DisplayWidth = 2
       FieldKind = fkData
       FieldName = 'passenger'
       Index = 5
@@ -210,6 +361,7 @@ object MainCustomerForm: TMainCustomerForm
       Required = False
     end
     object SQLQuery1comfort_rate: TLongintField
+      DisplayWidth = 2
       FieldKind = fkData
       FieldName = 'comfort_rate'
       Index = 6
@@ -219,6 +371,7 @@ object MainCustomerForm: TMainCustomerForm
       Required = False
     end
     object SQLQuery1baby_sit: TLongintField
+      DisplayWidth = 2
       FieldKind = fkData
       FieldName = 'baby_sit'
       Index = 7
@@ -228,6 +381,7 @@ object MainCustomerForm: TMainCustomerForm
       Required = False
     end
     object SQLQuery1wide_trunk: TLongintField
+      DisplayWidth = 2
       FieldKind = fkData
       FieldName = 'wide_trunk'
       Index = 8
@@ -236,10 +390,5 @@ object MainCustomerForm: TMainCustomerForm
       ReadOnly = False
       Required = False
     end
-  end
-  object DataSource1: TDataSource
-    DataSet = SQLQuery1
-    left = 97
-    top = 10
   end
 end
