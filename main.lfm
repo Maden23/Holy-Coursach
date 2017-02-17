@@ -1,16 +1,15 @@
 object Form1: TForm1
-  Left = 752
-  Height = 798
-  Top = 261
-  Width = 553
-  HorzScrollBar.Page = 333
-  HorzScrollBar.Range = 333
-  VertScrollBar.Page = 281
-  VertScrollBar.Range = 281
+  Left = 374
+  Height = 646
+  Top = 118
+  Width = 490
+  HorzScrollBar.Page = 352
+  VertScrollBar.Page = 646
+  AutoScroll = True
   Caption = 'Taxi23CenturyFox'
-  ClientHeight = 798
-  ClientWidth = 553
-  LCLVersion = '1.6.2.0'
+  ClientHeight = 646
+  ClientWidth = 473
+  LCLVersion = '1.4.4.0'
   object Label1: TLabel
     Left = 16
     Height = 27
@@ -53,7 +52,7 @@ object Form1: TForm1
     ParentColor = False
     ParentFont = False
   end
-  object SpinEdit1: TSpinEdit
+  object Hours: TSpinEdit
     Left = 18
     Height = 45
     Top = 229
@@ -65,7 +64,7 @@ object Form1: TForm1
     Font.Quality = fqDraft
     MaxValue = 23
     ParentFont = False
-    TabOrder = 0
+    TabOrder = 2
   end
   object CheckGroup1: TCheckGroup
     Left = 16
@@ -90,8 +89,8 @@ object Form1: TForm1
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
     ParentFont = False
-    TabOrder = 1
-    object CheckBox1: TCheckBox
+    TabOrder = 4
+    object WideTrunk: TCheckBox
       Left = 6
       Height = 66
       Top = 6
@@ -99,7 +98,7 @@ object Form1: TForm1
       Caption = 'Большой багажник'
       TabOrder = 0
     end
-    object CheckBox2: TCheckBox
+    object BabySeat: TCheckBox
       Left = 6
       Height = 66
       Top = 72
@@ -122,16 +121,16 @@ object Form1: TForm1
     ParentColor = False
     ParentFont = False
   end
-  object TrackBar1: TTrackBar
+  object ComfortRate: TTrackBar
     Left = 8
     Height = 29
     Top = 519
     Width = 344
     Max = 5
     Min = 1
-    OnChange = TrackBar1Change
+    OnChange = ComfortRateChange
     Position = 1
-    TabOrder = 2
+    TabOrder = 5
   end
   object Label5: TLabel
     Left = 239
@@ -161,16 +160,16 @@ object Form1: TForm1
     ParentColor = False
     ParentFont = False
   end
-  object TrackBar2: TTrackBar
+  object Passengers: TTrackBar
     Left = 8
     Height = 29
     Top = 623
     Width = 344
     Max = 8
     Min = 1
-    OnChange = TrackBar2Change
+    OnChange = PassengersChange
     Position = 1
-    TabOrder = 3
+    TabOrder = 6
   end
   object Label7: TLabel
     Left = 296
@@ -188,37 +187,37 @@ object Form1: TForm1
   end
   object Label8: TLabel
     Left = 18
-    Height = 25
+    Height = 15
     Top = 551
-    Width = 10
+    Width = 6
     Caption = '1'
     ParentColor = False
   end
   object Label9: TLabel
     Left = 332
-    Height = 25
+    Height = 15
     Top = 551
-    Width = 10
+    Width = 6
     Caption = '5'
     ParentColor = False
   end
   object Label10: TLabel
     Left = 18
-    Height = 25
+    Height = 15
     Top = 655
-    Width = 10
+    Width = 6
     Caption = '1'
     ParentColor = False
   end
   object Label11: TLabel
     Left = 332
-    Height = 25
+    Height = 15
     Top = 655
-    Width = 10
+    Width = 6
     Caption = '8'
     ParentColor = False
   end
-  object SpinEdit2: TSpinEdit
+  object Minutes: TSpinEdit
     Left = 122
     Height = 45
     Top = 229
@@ -228,9 +227,9 @@ object Form1: TForm1
     Font.Name = 'Arial Narrow'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
-    MaxValue = 23
+    MaxValue = 59
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 3
   end
   object Label12: TLabel
     Left = 101
@@ -259,32 +258,31 @@ object Form1: TForm1
     Font.Quality = fqDraft
     OnClick = Button1Click
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 7
   end
   object EditStart: TEdit
     Left = 16
-    Height = 33
+    Height = 23
     Top = 56
     Width = 336
-    TabOrder = 6
+    TabOrder = 0
   end
   object EditFinish: TEdit
     Left = 16
-    Height = 33
+    Height = 23
     Top = 144
     Width = 336
-    TabOrder = 7
+    TabOrder = 1
   end
   object OrderQuery: TSQLQuery
     FieldDefs = <>
     Database = SQLite3Connection1
     Transaction = SQLTransaction1
     SQL.Strings = (
-      'INSERT INTO ''Orders'' (''id'', ''start_id'', ''finish_id'', ''date_time'','
-      '''comfort_rate'', ''passengers'', ''wide_trunk'', ''baby_seat'') VALUES'
-      '(:start_id, :finish_id, :date_time, :comfort_rate, :passengers, :wide_trunk, :baby_seat)'
+      'INSERT INTO ''Orders'' (''start_id'', ''finish_id'', ''date_time'','
+      '''comfort_rate'', ''passengers'', ''wide_trunk'', ''baby_seat'', ''time_in_minutes'') VALUES'
+      '(:start_id, :finish_id, :date_time, :comfort_rate, :passengers, :wide_trunk, :baby_seat, :time_in_minutes)'
     )
-    Options = []
     Params = <    
       item
         DataType = ftUnknown
@@ -320,6 +318,11 @@ object Form1: TForm1
         DataType = ftUnknown
         Name = 'baby_seat'
         ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'time_in_minutes'
+        ParamType = ptInput
       end>
     left = 376
     top = 696
@@ -330,6 +333,7 @@ object Form1: TForm1
     DatabaseName = 'D:/Holy-Coursach/awesomedatabase.db'
     KeepConnection = False
     Transaction = SQLTransaction1
+    LogEvents = []
     Options = []
     left = 512
     top = 72
@@ -337,7 +341,6 @@ object Form1: TForm1
   object SQLTransaction1: TSQLTransaction
     Active = False
     Database = SQLite3Connection1
-    Options = []
     left = 512
     top = 8
   end
@@ -349,7 +352,6 @@ object Form1: TForm1
       'select id from locations'
       'where adress = :adress;'
     )
-    Options = []
     Params = <    
       item
         DataType = ftUnknown
