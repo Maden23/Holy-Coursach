@@ -17,7 +17,7 @@
       <Unit1>
         <Filename Value="uiclient.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
+        <ComponentName Value="MainCustomerForm"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UIClient"/>
         <IsVisibleTab Value="True"/>
@@ -26,6 +26,10 @@
         <LoadedDesigner Value="True"/>
       </Unit1>
     </Units>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="1">
+      <Position1>
+        <Filename Value="uiclient.pas"/>
+      </Position1>
+    </JumpHistory>
   </ProjectSession>
 </CONFIG>
