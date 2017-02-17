@@ -5,20 +5,20 @@ unit Main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  DbCtrls, ComCtrls, MaskEdit, Spin, ExtCtrls;
+  Classes, SysUtils, sqldb, sqlite3conn, FileUtil, Forms, Controls, Graphics,
+  Dialogs, StdCtrls, DbCtrls, ComCtrls, MaskEdit, Spin, ExtCtrls;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
+    Button1: TButton;
     CheckBox1: TCheckBox;
     CheckBox2: TCheckBox;
-    CheckBox3: TCheckBox;
     CheckGroup1: TCheckGroup;
-    DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
+    EditStart: TEdit;
+    EditFinish: TEdit;
     Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
@@ -33,8 +33,13 @@ type
     Label9: TLabel;
     SpinEdit1: TSpinEdit;
     SpinEdit2: TSpinEdit;
+    SQLite3Connection1: TSQLite3Connection;
+    OrderQuery: TSQLQuery;
+    AdressQuery: TSQLQuery;
+    SQLTransaction1: TSQLTransaction;
     TrackBar1: TTrackBar;
     TrackBar2: TTrackBar;
+    procedure Button1Click(Sender: TObject);
     procedure TrackBar1Change(Sender: TObject);
     procedure TrackBar2Change(Sender: TObject);
   private
@@ -51,6 +56,34 @@ implementation
 {$R *.lfm}
 
 { TForm1 }
+function CheckAdress (adress: string; AdressQuery: TSQLQuery): integer;
+begin
+  result := 0;
+  AdressQuery.Close;
+  AdressQuery.ParamByName('adress').AsString := adress;
+  AdressQuery.Open;
+  result :=  AdressQuery.ParamByName('id').AsInteger;
+
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var str1, str2 : integer;
+   str3: string;
+begin
+  try
+     SQLite3Connection1.Open;
+     SQLTransaction1.Active := True;
+     ShowMessage ('Подключения к базе данных успешно!');
+  except
+     ShowMessage ('Ошибка подключения к базе данных!');
+  end;
+  str1 := CheckAdress(EditStart.Text, AdressQuery);
+  str2 := CheckAdress(EditFinish.Text, AdressQuery);
+  str3 := 'Start = ' + IntToStr(str1) + 'Finish = ' + IntToStr(str2);
+  ShowMessage(str3);
+
+end;
+
 
 procedure TForm1.TrackBar1Change(Sender: TObject);
 begin
@@ -63,6 +96,7 @@ begin
 
   end;
 end;
+
 
 procedure TForm1.TrackBar2Change(Sender: TObject);
 begin

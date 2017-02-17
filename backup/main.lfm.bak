@@ -1,14 +1,14 @@
 object Form1: TForm1
-  Left = 436
-  Height = 696
-  Top = 157
+  Left = 501
+  Height = 797
+  Top = 174
   Width = 553
   HorzScrollBar.Page = 333
   HorzScrollBar.Range = 333
   VertScrollBar.Page = 281
   VertScrollBar.Range = 281
   Caption = 'Taxi23CenturyFox'
-  ClientHeight = 696
+  ClientHeight = 797
   ClientWidth = 553
   LCLVersion = '1.6.2.0'
   object Label1: TLabel
@@ -39,24 +39,6 @@ object Form1: TForm1
     ParentColor = False
     ParentFont = False
   end
-  object DBEdit1: TDBEdit
-    Left = 16
-    Height = 33
-    Top = 56
-    Width = 336
-    CharCase = ecNormal
-    MaxLength = 0
-    TabOrder = 0
-  end
-  object DBEdit2: TDBEdit
-    Left = 16
-    Height = 33
-    Top = 144
-    Width = 336
-    CharCase = ecNormal
-    MaxLength = 0
-    TabOrder = 1
-  end
   object Label3: TLabel
     Left = 16
     Height = 27
@@ -83,7 +65,7 @@ object Form1: TForm1
     Font.Quality = fqDraft
     MaxValue = 23
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 0
   end
   object CheckGroup1: TCheckGroup
     Left = 16
@@ -108,10 +90,10 @@ object Form1: TForm1
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 1
     object CheckBox1: TCheckBox
       Left = 6
-      Height = 44
+      Height = 66
       Top = 6
       Width = 320
       Caption = 'Большой багажник'
@@ -119,19 +101,11 @@ object Form1: TForm1
     end
     object CheckBox2: TCheckBox
       Left = 6
-      Height = 44
-      Top = 50
+      Height = 66
+      Top = 72
       Width = 320
       Caption = 'Детское кресло'
       TabOrder = 1
-    end
-    object CheckBox3: TCheckBox
-      Left = 6
-      Height = 44
-      Top = 94
-      Width = 320
-      Caption = 'Удиви меня!'
-      TabOrder = 2
     end
   end
   object Label4: TLabel
@@ -157,7 +131,7 @@ object Form1: TForm1
     Min = 1
     OnChange = TrackBar1Change
     Position = 1
-    TabOrder = 4
+    TabOrder = 2
   end
   object Label5: TLabel
     Left = 239
@@ -196,7 +170,7 @@ object Form1: TForm1
     Min = 1
     OnChange = TrackBar2Change
     Position = 1
-    TabOrder = 5
+    TabOrder = 3
   end
   object Label7: TLabel
     Left = 296
@@ -256,6 +230,133 @@ object Form1: TForm1
     Font.Quality = fqDraft
     MaxValue = 23
     ParentFont = False
+    TabOrder = 4
+  end
+  object Label12: TLabel
+    Left = 101
+    Height = 27
+    Top = 238
+    Width = 7
+    Caption = ':'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Button1: TButton
+    Left = 16
+    Height = 48
+    Top = 696
+    Width = 336
+    Caption = 'Подтвердить'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    OnClick = Button1Click
+    ParentFont = False
+    TabOrder = 5
+  end
+  object EditStart: TEdit
+    Left = 16
+    Height = 33
+    Top = 56
+    Width = 336
     TabOrder = 6
+  end
+  object EditFinish: TEdit
+    Left = 16
+    Height = 33
+    Top = 144
+    Width = 336
+    TabOrder = 7
+  end
+  object OrderQuery: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'INSERT INTO ''Orders'' (''id'', ''start_id'', ''finish_id'', ''date_time'','
+      '''comfort_rate'', ''passengers'', ''wide_trunk'', ''baby_seat'') VALUES'
+      '(:start_id, :finish_id, :date_time, :comfort_rate, :passengers, :wide_trunk, :baby_seat)'
+    )
+    Options = []
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'start_id'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'finish_id'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'date_time'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'comfort_rate'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'passengers'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'wide_trunk'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'baby_seat'
+        ParamType = ptInput
+      end>
+    left = 376
+    top = 696
+  end
+  object SQLite3Connection1: TSQLite3Connection
+    Connected = False
+    LoginPrompt = False
+    DatabaseName = 'D:/Holy-Coursach/awesomedatabase.db'
+    KeepConnection = False
+    Transaction = SQLTransaction1
+    Options = []
+    left = 512
+    top = 72
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = SQLite3Connection1
+    Options = []
+    left = 512
+    top = 8
+  end
+  object AdressQuery: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select id from locations'
+      'where adress = :adress;'
+    )
+    Options = []
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'adress'
+        ParamType = ptInput
+      end>
+    left = 304
+    top = 8
   end
 end
