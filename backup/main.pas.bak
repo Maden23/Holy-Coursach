@@ -5,8 +5,9 @@ unit Main;
 interface
 
 uses
-  Classes, SysUtils, sqldb, sqlite3conn, FileUtil, Forms, Controls, Graphics,
-  Dialogs, StdCtrls, DbCtrls, ComCtrls, MaskEdit, Spin, ExtCtrls;
+  Classes, SysUtils, sqldb, sqlite3conn, FileUtil, LvlGraphCtrl, Forms,
+  Controls, Graphics, Dialogs, StdCtrls, DbCtrls, ComCtrls, MaskEdit, Spin,
+  ExtCtrls, EditBtn;
 
 type
 
@@ -81,7 +82,7 @@ end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 var str1, str2 : string;
-    time, trunk, seat: integer;
+    time: integer;
    //str3: string;
 begin
   try
@@ -96,22 +97,45 @@ begin
   if (str1 = '0') then
      ShowMessage('Start adress: "' + EditStart.Text + '" does not exist');
   if (str2 = '0') then
-     ShowMessage('Finish adress: "' + EditFinish.Text + '" does not exist');
+     ShowMessage('Finish adress: "' + EditFinish.Text + '" does not exist')
+  else begin
   ShowMessage(EditStart.Text + ' ' + EditFinish.Text);
-
   Time := ConvertToMinutes(Hours.Value, Minutes.Value);
   ShowMessage(IntToStr(Time));
-
-
-  OrderQuery.ParamByName('start_id').AsInteger := StrToInt(str1);
+  OrderQuery.Close;
+  OrderQuery.Prepare;
+  {OrderQuery.ParamByName('start_id').AsInteger := StrToInt(str1);
   OrderQuery.ParamByName('finish_id').AsInteger := StrToInt(str2);
   OrderQuery.ParamByName('date_time').AsDatetime := Now;
   OrderQuery.ParamByName('comfort_rate').AsInteger := ComfortRate.Position;
   OrderQuery.ParamByName('passengers').AsInteger := Passengers.Position;
   OrderQuery.ParamByName('wide_trunk').AsInteger := BoolToInt(WideTrunk.Checked);
   OrderQuery.ParamByName('baby_seat').AsInteger := BoolToInt(BabySeat.Checked);
-  OrderQuery.ParamByName('time_in_minutes').AsInteger := Time;
-  ExecSQL;
+  OrderQuery.ParamByName('time_in_minutes').AsInteger := Time;}
+  ShowMessage('Текущие дата и время: ' + DateTimeToStr(Now));
+  with OrderQuery do
+       begin
+            Params[0].AsInteger := StrToInt(str1);
+            Params[1].AsInteger := StrToInt(str2);
+            Params[2].AsDatetime := Now;
+            Params[3].AsInteger := ComfortRate.Position;
+            Params[4].AsInteger := Passengers.Position;
+            Params[5].AsInteger := BoolToInt(WideTrunk.Checked);
+            Params[6].AsInteger := BoolToInt(BabySeat.Checked);
+            Params[7].AsInteger := Time;
+       end;
+  OrderQuery.ExecSQL;
+
+  end;
+  {with OrderQuery do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'INSERT INTO Orders ("start_id", "finish_id", "date_time","comfort_rate", "passengers", "wide_trunk", "baby_seat", "time_in_minutes") VALUES' +
+             + '(' +  StrToInt(str1)  + StrToInt(str2)  + 'Now' + ComfortRate.Position  + Passengers.Position +
+             + IntToStr(BoolToInt(WideTrunk.Checked)) + IntToStr(BoolToInt(BabySeat.Checked)) + Time + '''' + ');' );
+    ExecSQL;
+  end;}
 
 
 

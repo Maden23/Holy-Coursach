@@ -1,15 +1,15 @@
 object Form1: TForm1
-  Left = 374
-  Height = 646
-  Top = 118
-  Width = 490
+  Left = 402
+  Height = 764
+  Top = 171
+  Width = 390
   HorzScrollBar.Page = 352
-  VertScrollBar.Page = 646
+  VertScrollBar.Page = 744
   AutoScroll = True
   Caption = 'Taxi23CenturyFox'
-  ClientHeight = 646
-  ClientWidth = 473
-  LCLVersion = '1.4.4.0'
+  ClientHeight = 764
+  ClientWidth = 390
+  LCLVersion = '1.6.2.0'
   object Label1: TLabel
     Left = 16
     Height = 27
@@ -187,33 +187,33 @@ object Form1: TForm1
   end
   object Label8: TLabel
     Left = 18
-    Height = 15
+    Height = 25
     Top = 551
-    Width = 6
+    Width = 10
     Caption = '1'
     ParentColor = False
   end
   object Label9: TLabel
     Left = 332
-    Height = 15
+    Height = 25
     Top = 551
-    Width = 6
+    Width = 10
     Caption = '5'
     ParentColor = False
   end
   object Label10: TLabel
     Left = 18
-    Height = 15
+    Height = 25
     Top = 655
-    Width = 6
+    Width = 10
     Caption = '1'
     ParentColor = False
   end
   object Label11: TLabel
     Left = 332
-    Height = 15
+    Height = 25
     Top = 655
-    Width = 6
+    Width = 10
     Caption = '8'
     ParentColor = False
   end
@@ -262,14 +262,14 @@ object Form1: TForm1
   end
   object EditStart: TEdit
     Left = 16
-    Height = 23
+    Height = 33
     Top = 56
     Width = 336
     TabOrder = 0
   end
   object EditFinish: TEdit
     Left = 16
-    Height = 23
+    Height = 33
     Top = 144
     Width = 336
     TabOrder = 1
@@ -279,10 +279,11 @@ object Form1: TForm1
     Database = SQLite3Connection1
     Transaction = SQLTransaction1
     SQL.Strings = (
-      'INSERT INTO ''Orders'' (''start_id'', ''finish_id'', ''date_time'','
-      '''comfort_rate'', ''passengers'', ''wide_trunk'', ''baby_seat'', ''time_in_minutes'') VALUES'
+      'INSERT INTO Orders (start_id, finish_id, date_time,'
+      'comfort_rate, passengers, wide_trunk, baby_seat, time_in_minutes) VALUES'
       '(:start_id, :finish_id, :date_time, :comfort_rate, :passengers, :wide_trunk, :baby_seat, :time_in_minutes)'
     )
+    Options = []
     Params = <    
       item
         DataType = ftUnknown
@@ -324,6 +325,7 @@ object Form1: TForm1
         Name = 'time_in_minutes'
         ParamType = ptInput
       end>
+    ParamCheck = False
     left = 376
     top = 696
   end
@@ -341,6 +343,7 @@ object Form1: TForm1
   object SQLTransaction1: TSQLTransaction
     Active = False
     Database = SQLite3Connection1
+    Options = []
     left = 512
     top = 8
   end
@@ -352,6 +355,7 @@ object Form1: TForm1
       'select id from locations'
       'where adress = :adress;'
     )
+    Options = []
     Params = <    
       item
         DataType = ftUnknown
