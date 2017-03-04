@@ -1,0 +1,231 @@
+object MainCustomerForm: TMainCustomerForm
+  Left = 551
+  Height = 486
+  Top = 145
+  Width = 735
+  Caption = 'Taxi23CenturyFox'
+  ClientHeight = 486
+  ClientWidth = 735
+  LCLVersion = '1.6.2.0'
+  object Button1: TButton
+    Left = 8
+    Height = 33
+    Top = 8
+    Width = 120
+    Caption = 'Orders'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 384
+    Top = 56
+    Width = 720
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 128
+    Height = 33
+    Top = 8
+    Width = 120
+    Caption = 'Drivers'
+    OnClick = Button2Click
+    TabOrder = 2
+  end
+  object Button3: TButton
+    Left = 248
+    Height = 33
+    Top = 8
+    Width = 120
+    Caption = 'Cars'
+    OnClick = Button3Click
+    TabOrder = 3
+  end
+  object Button4: TButton
+    Left = 368
+    Height = 33
+    Top = 8
+    Width = 120
+    Caption = 'Locations'
+    OnClick = Button4Click
+    TabOrder = 4
+  end
+  object SQLite3Connection1: TSQLite3Connection
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'D:/Holy-Coursach/AwesomeDatabase.db'
+    KeepConnection = True
+    Transaction = SQLTransaction1
+    Options = []
+    left = 736
+    top = 16
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = True
+    Database = SQLite3Connection1
+    Options = []
+    left = 736
+    top = 48
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    left = 632
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'reg_number'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'model'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'color'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'carcase'
+        DataType = ftString
+        Precision = -1
+        Size = 255
+      end    
+      item
+        Name = 'passenger'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'comfort_rate'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'baby_sit'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'wide_trunk'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      ''
+    )
+    Options = []
+    Params = <>
+    left = 608
+    object SQLQuery1id: TLongintField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1reg_number: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'reg_number'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1model: TStringField
+      DisplayWidth = 20
+      FieldKind = fkData
+      FieldName = 'model'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1color: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'color'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1carcase: TStringField
+      DisplayWidth = 10
+      FieldKind = fkData
+      FieldName = 'carcase'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 255
+    end
+    object SQLQuery1passenger: TLongintField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'passenger'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1comfort_rate: TLongintField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'comfort_rate'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1baby_sit: TLongintField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'baby_sit'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1wide_trunk: TLongintField
+      DisplayWidth = 2
+      FieldKind = fkData
+      FieldName = 'wide_trunk'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+end

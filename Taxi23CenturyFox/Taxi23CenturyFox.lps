@@ -4,13 +4,13 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="2">
+    <Units Count="3">
       <Unit0>
         <Filename Value="Taxi23CenturyFox.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
         <CursorPos X="51" Y="16"/>
-        <UsageCount Value="199"/>
+        <UsageCount Value="294"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,132 +21,144 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UIClient"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="61"/>
-        <CursorPos X="17" Y="72"/>
-        <UsageCount Value="199"/>
+        <TopLine Value="59"/>
+        <CursorPos X="50" Y="88"/>
+        <UsageCount Value="294"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="uiclient.lfm"/>
+        <ComponentName Value="MainCustomerForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="197"/>
+        <CursorPos X="31" Y="10"/>
+        <UsageCount Value="10"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit2>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="uiclient.pas"/>
-        <Caret Line="70" Column="21" TopLine="55"/>
+        <Filename Value="Taxi23CenturyFox.lpr"/>
+        <Caret Line="10" Column="40"/>
       </Position1>
       <Position2>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="69" Column="21" TopLine="54"/>
+        <Caret Line="72" Column="17" TopLine="61"/>
       </Position2>
       <Position3>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="68" Column="21" TopLine="53"/>
+        <Caret Line="71" Column="17" TopLine="60"/>
       </Position3>
       <Position4>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="67" Column="21" TopLine="52"/>
+        <Caret Line="70" Column="17" TopLine="59"/>
       </Position4>
       <Position5>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="66" Column="21" TopLine="51"/>
+        <Caret Line="69" Column="17" TopLine="58"/>
       </Position5>
       <Position6>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="65" Column="21" TopLine="50"/>
+        <Caret Line="68" Column="17" TopLine="57"/>
       </Position6>
       <Position7>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="64" Column="21" TopLine="49"/>
+        <Caret Line="67" Column="17" TopLine="56"/>
       </Position7>
       <Position8>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="63" Column="21" TopLine="48"/>
+        <Caret Line="66" Column="17" TopLine="55"/>
       </Position8>
       <Position9>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="62" Column="21" TopLine="47"/>
+        <Caret Line="65" Column="17" TopLine="54"/>
       </Position9>
       <Position10>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="61" Column="21" TopLine="46"/>
+        <Caret Line="64" Column="17" TopLine="53"/>
       </Position10>
       <Position11>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="60" Column="21" TopLine="45"/>
+        <Caret Line="63" Column="17" TopLine="52"/>
       </Position11>
       <Position12>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="59" Column="21" TopLine="44"/>
+        <Caret Line="62" Column="17" TopLine="51"/>
       </Position12>
       <Position13>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="58" Column="21" TopLine="43"/>
+        <Caret Line="61" Column="17" TopLine="50"/>
       </Position13>
       <Position14>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="57" Column="21" TopLine="42"/>
+        <Caret Line="60" Column="17" TopLine="49"/>
       </Position14>
       <Position15>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="56" Column="21" TopLine="41"/>
+        <Caret Line="59" Column="17" TopLine="48"/>
       </Position15>
       <Position16>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="55" Column="21" TopLine="40"/>
+        <Caret Line="60" Column="17" TopLine="49"/>
       </Position16>
       <Position17>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="54" Column="21" TopLine="39"/>
+        <Caret Line="59" Column="17" TopLine="48"/>
       </Position17>
       <Position18>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="53" Column="21" TopLine="38"/>
+        <Caret Line="60" Column="17" TopLine="49"/>
       </Position18>
       <Position19>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="52" Column="21" TopLine="37"/>
+        <Caret Line="61" Column="17" TopLine="50"/>
       </Position19>
       <Position20>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="51" Column="21" TopLine="36"/>
+        <Caret Line="54" Column="6" TopLine="45"/>
       </Position20>
       <Position21>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="50" Column="21" TopLine="35"/>
+        <Caret Line="53" Column="6" TopLine="44"/>
       </Position21>
       <Position22>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="51" Column="19" TopLine="35"/>
+        <Caret Line="57" Column="31" TopLine="46"/>
       </Position22>
       <Position23>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="52" Column="19" TopLine="36"/>
+        <Caret Line="61" TopLine="28"/>
       </Position23>
       <Position24>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="63" Column="19" TopLine="47"/>
+        <Caret Line="55" Column="6" TopLine="28"/>
       </Position24>
       <Position25>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="64" Column="19" TopLine="48"/>
+        <Caret Line="68" Column="45" TopLine="35"/>
       </Position25>
       <Position26>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="74" Column="19" TopLine="58"/>
+        <Caret Line="54" Column="36" TopLine="40"/>
       </Position26>
       <Position27>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="75" Column="19" TopLine="59"/>
+        <Caret Line="79" Column="39" TopLine="46"/>
       </Position27>
       <Position28>
-        <Filename Value="Taxi23CenturyFox.lpr"/>
+        <Filename Value="uiclient.pas"/>
+        <Caret Line="88" Column="44" TopLine="59"/>
       </Position28>
       <Position29>
         <Filename Value="uiclient.pas"/>
-        <Caret Line="76" Column="19" TopLine="60"/>
+        <Caret Line="60" Column="42" TopLine="43"/>
       </Position29>
       <Position30>
-        <Filename Value="Taxi23CenturyFox.lpr"/>
-        <Caret Line="10" Column="40"/>
+        <Filename Value="uiclient.pas"/>
+        <Caret Line="88" Column="49" TopLine="59"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

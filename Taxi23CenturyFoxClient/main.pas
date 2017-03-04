@@ -5,7 +5,7 @@ unit Main;
 interface
 
 uses
-  Classes, SysUtils, sqldb, sqlite3conn, FileUtil, Forms,
+  Classes, SysUtils, sqldb, db, sqlite3conn, FileUtil, Forms,
   Controls, Graphics, Dialogs, StdCtrls, DbCtrls, ComCtrls, Spin,
   ExtCtrls, EditBtn;
 
@@ -14,8 +14,9 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    Button1: TButton;
-    TestQuery: TSQLQuery;
+    btnConfirm: TButton;
+    Panel1: TPanel;
+    TimeEdit: TTimeEdit;
     WideTrunk: TCheckBox;
     BabySeat: TCheckBox;
     CheckGroup1: TCheckGroup;
@@ -41,7 +42,7 @@ type
     SQLTransaction1: TSQLTransaction;
     ComfortRate: TTrackBar;
     Passengers: TTrackBar;
-    procedure Button1Click(Sender: TObject);
+    procedure btnConfirmClick(Sender: TObject);
     procedure ComfortRateChange(Sender: TObject);
     procedure PassengersChange(Sender: TObject);
   private
@@ -81,7 +82,7 @@ begin
      result := 1;
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.btnConfirmClick(Sender: TObject);
 var str1, str2 : string;
     time: integer;
 begin
@@ -100,19 +101,21 @@ begin
      ShowMessage('Finish adress: "' + EditFinish.Text + '" does not exist')
   else
      begin
-        Time := ConvertToMinutes(Hours.Value, Minutes.Value);
+        //Time := ConvertToMinutes(Hours.Value, Minutes.Value);
         with OrderQuery do
              begin
                   Open;
                   Insert;
-                  Fields[1].AsInteger := StrToInt(str1);
-                  Fields[2].AsInteger := StrToInt(str2);
-                  Fields[3].AsDatetime := Now;
-                  Fields[4].AsInteger := ComfortRate.Position;
-                  Fields[5].AsInteger := Passengers.Position;
-                  Fields[6].AsInteger := BoolToInt(WideTrunk.Checked);
-                  Fields[7].AsInteger := BoolToInt(BabySeat.Checked);
-                  Fields[8].AsInteger := Time;
+                  Fields[1].AsDatetime := Now;
+                  Fields[2].AsInteger := StrToInt(str1);
+                  Fields[3].AsInteger := StrToInt(str2);
+                  Fields[4].AsDatetime := TimeEdit.Time ;
+                  Fields[5].AsInteger := ComfortRate.Position;
+                  Fields[6].AsInteger := Passengers.Position;
+                  Fields[7].AsInteger := BoolToInt(WideTrunk.Checked);
+                  Fields[8].AsInteger := BoolToInt(BabySeat.Checked);
+                  //Fields[8].AsInteger := Time;
+                  //Fields.AsDatetime :=
                   try
 
                      Post;
