@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, sqldb, db, sqlite3conn, FileUtil, Forms,
   Controls, Graphics, Dialogs, StdCtrls, DbCtrls, ComCtrls, Spin,
-  ExtCtrls, EditBtn;
+  ExtCtrls, EditBtn, DBGrids;
 
 type
 
