@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, sqldb, db, sqlite3conn, FileUtil, Forms,
   Controls, Graphics, Dialogs, StdCtrls, DbCtrls, ComCtrls, Spin,
-  ExtCtrls, EditBtn;
+  ExtCtrls, EditBtn, DBGrids;
 
 type
 
@@ -15,7 +15,11 @@ type
 
   TForm1 = class(TForm)
     btnConfirm: TButton;
+    DataSource1: TDataSource;
+    DBLookupComboBox1: TDBLookupComboBox;
+    DBLookupComboBox2: TDBLookupComboBox;
     Panel1: TPanel;
+    SQLQuery1: TSQLQuery;
     TimeEdit: TTimeEdit;
     WideTrunk: TCheckBox;
     BabySeat: TCheckBox;

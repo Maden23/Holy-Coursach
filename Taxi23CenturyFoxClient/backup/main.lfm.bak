@@ -1,15 +1,15 @@
 object Form1: TForm1
-  Left = 984
+  Left = 281
   Height = 765
-  Top = 181
-  Width = 367
+  Top = 144
+  Width = 383
   HorzScrollBar.Page = 352
   HorzScrollBar.Range = 352
   VertScrollBar.Page = 744
   VertScrollBar.Range = 744
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 765
-  ClientWidth = 367
+  ClientWidth = 383
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
@@ -197,33 +197,33 @@ object Form1: TForm1
     end
     object Label8: TLabel
       Left = 11
-      Height = 25
+      Height = 15
       Top = 536
-      Width = 10
+      Width = 6
       Caption = '1'
       ParentColor = False
     end
     object Label9: TLabel
       Left = 325
-      Height = 25
+      Height = 15
       Top = 536
-      Width = 10
+      Width = 6
       Caption = '5'
       ParentColor = False
     end
     object Label10: TLabel
       Left = 11
-      Height = 25
+      Height = 15
       Top = 640
-      Width = 10
+      Width = 6
       Caption = '1'
       ParentColor = False
     end
     object Label11: TLabel
       Left = 325
-      Height = 25
+      Height = 15
       Top = 640
-      Width = 10
+      Width = 6
       Caption = '8'
       ParentColor = False
     end
@@ -271,9 +271,9 @@ object Form1: TForm1
       TabOrder = 5
     end
     object EditStart: TEdit
-      Left = 9
+      Left = 408
       Height = 35
-      Top = 41
+      Top = 40
       Width = 336
       Font.CharSet = RUSSIAN_CHARSET
       Font.Height = -24
@@ -284,9 +284,9 @@ object Form1: TForm1
       TabOrder = 6
     end
     object EditFinish: TEdit
-      Left = 9
+      Left = 376
       Height = 35
-      Top = 129
+      Top = 120
       Width = 336
       Font.CharSet = RUSSIAN_CHARSET
       Font.Height = -24
@@ -312,6 +312,40 @@ object Form1: TForm1
       ParentFont = False
       TabOrder = 8
     end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 9
+      Height = 23
+      Top = 40
+      Width = 286
+      DataSource = DataSource1
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -21
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ListFieldIndex = 0
+      ListSource = DataSource1
+      LookupCache = False
+      ParentFont = False
+      TabOrder = 9
+    end
+    object DBLookupComboBox2: TDBLookupComboBox
+      Left = 9
+      Height = 23
+      Top = 128
+      Width = 286
+      DataSource = DataSource1
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -21
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ListFieldIndex = 0
+      ListSource = DataSource1
+      LookupCache = False
+      ParentFont = False
+      TabOrder = 10
+    end
   end
   object OrderQuery: TSQLQuery
     FieldDefs = <>
@@ -333,7 +367,7 @@ object Form1: TForm1
     top = 688
   end
   object SQLite3Connection1: TSQLite3Connection
-    Connected = True
+    Connected = False
     LoginPrompt = False
     DatabaseName = 'D:/Holy-Coursach/awesomedatabase.db'
     KeepConnection = False
@@ -344,7 +378,7 @@ object Form1: TForm1
     top = 72
   end
   object SQLTransaction1: TSQLTransaction
-    Active = True
+    Active = False
     Database = SQLite3Connection1
     Options = []
     left = 512
@@ -367,5 +401,22 @@ object Form1: TForm1
       end>
     left = 312
     top = 8
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = SQLite3Connection1
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select adress from locations;'
+    )
+    Options = []
+    Params = <>
+    left = 320
+    top = 72
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    left = 320
+    top = 136
   end
 end
