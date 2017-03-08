@@ -20,6 +20,7 @@ type
     DBLookupComboBox1: TDBLookupComboBox;
     DBLookupComboBox2: TDBLookupComboBox;
     Connection: TMySQL56Connection;
+    Label1: TLabel;
     Panel1: TPanel;
     SQLQuery1: TSQLQuery;
     SQLQuery1adress: TStringField;
@@ -30,7 +31,6 @@ type
     CheckGroup1: TCheckGroup;
     EditStart: TEdit;
     EditFinish: TEdit;
-    Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
@@ -51,6 +51,7 @@ type
     Passengers: TTrackBar;
     procedure btnConfirmClick(Sender: TObject);
     procedure ComfortRateChange(Sender: TObject);
+    procedure Panel1Click(Sender: TObject);
     procedure PassengersChange(Sender: TObject);
   private
     { private declarations }
@@ -156,6 +157,11 @@ begin
        5: Label5.Caption := '✪✪✪✪✪';
 
   end;
+end;
+
+procedure TForm1.Panel1Click(Sender: TObject);
+begin
+
 end;
 
 
