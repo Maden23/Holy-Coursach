@@ -1,0 +1,84 @@
+object Form2: TForm2
+  Left = 355
+  Height = 428
+  Top = 225
+  Width = 338
+  BorderStyle = bsToolWindow
+  Caption = 'Детали заказа'
+  ClientHeight = 428
+  ClientWidth = 338
+  LCLVersion = '1.6.2.0'
+  object Panel1: TPanel
+    Left = 13
+    Height = 408
+    Top = 8
+    Width = 315
+    ClientHeight = 408
+    ClientWidth = 315
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 8
+      Height = 25
+      Top = 8
+      Width = 119
+      Caption = 'Адрес подачи:'
+      ParentColor = False
+    end
+    object Label2: TLabel
+      Left = 8
+      Height = 25
+      Top = 48
+      Width = 137
+      Caption = 'Конечный пункт:'
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 8
+      Height = 25
+      Top = 88
+      Width = 121
+      Caption = 'Время подачи:'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 8
+      Height = 25
+      Top = 128
+      Width = 200
+      Caption = 'Дополнительные опции:'
+      ParentColor = False
+    end
+    object Label5: TLabel
+      Left = 8
+      Height = 25
+      Top = 200
+      Width = 162
+      Caption = 'Уровень комфорта:'
+      ParentColor = False
+    end
+    object Label6: TLabel
+      Left = 8
+      Height = 25
+      Top = 240
+      Width = 203
+      Caption = 'Количество пассажиров:'
+      ParentColor = False
+    end
+    object Label7: TLabel
+      Left = 8
+      Height = 25
+      Top = 296
+      Width = 45
+      Caption = 'Цена:'
+      ParentColor = False
+    end
+    object Button1: TButton
+      Left = 8
+      Height = 41
+      Top = 352
+      Width = 296
+      Caption = 'Потвердить'
+      TabOrder = 0
+    end
+  end
+end

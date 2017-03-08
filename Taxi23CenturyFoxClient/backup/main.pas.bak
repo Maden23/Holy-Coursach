@@ -5,7 +5,7 @@ unit Main;
 interface
 
 uses
-  Classes, SysUtils, sqldb, db, sqlite3conn, FileUtil, Forms,
+  Classes, SysUtils, sqldb, mysql56conn, db, sqlite3conn, FileUtil, Forms,
   Controls, Graphics, Dialogs, StdCtrls, DbCtrls, ComCtrls, Spin,
   ExtCtrls, EditBtn, DBGrids;
 
@@ -16,10 +16,14 @@ type
   TForm1 = class(TForm)
     btnConfirm: TButton;
     DataSource1: TDataSource;
+    DataSource2: TDataSource;
     DBLookupComboBox1: TDBLookupComboBox;
     DBLookupComboBox2: TDBLookupComboBox;
+    Connection: TMySQL56Connection;
     Panel1: TPanel;
     SQLQuery1: TSQLQuery;
+    SQLQuery1adress: TStringField;
+    SQLQuery1id: TAutoIncField;
     TimeEdit: TTimeEdit;
     WideTrunk: TCheckBox;
     BabySeat: TCheckBox;
@@ -40,7 +44,6 @@ type
     Label9: TLabel;
     Hours: TSpinEdit;
     Minutes: TSpinEdit;
-    SQLite3Connection1: TSQLite3Connection;
     OrderQuery: TSQLQuery;
     AdressQuery: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
@@ -63,15 +66,15 @@ implementation
 {$R *.lfm}
 
 { TForm1 }
-function CheckAdress (adress: string; AdressQuery: TSQLQuery): string;
-begin
-  result := '0';
-  AdressQuery.Close;
-  AdressQuery.ParamByName('adress').AsString := adress; //парам - туда
-  AdressQuery.Open;
-  result :=  IntToStr(AdressQuery.FieldByName('id').Asinteger); //филд - обратна
-
-end;
+//function CheckAdress (adress: string; AdressQuery: TSQLQuery): string;
+//begin
+//  result := '0';
+//  AdressQuery.Close;
+//  AdressQuery.ParamByName('adress').AsString := adress; //парам - туда
+//  AdressQuery.Open;
+//  result :=  IntToStr(AdressQuery.FieldByName('id').Asinteger); //филд - обратна
+//
+//end;
 
 function ConvertToMinutes (hours: integer; minutes: integer): integer;
 begin
@@ -85,46 +88,52 @@ begin
   else
      result := 1;
 end;
+procedure GetAdress (var start: integer; var finish: integer);
+begin
+     start := Form1.DBLookupComboBox1.KeyValue;
+     finish := Form1.DBLookupComboBox2.KeyValue;
+     Form1.SQLQuery1.Close;
+end;
 
 procedure TForm1.btnConfirmClick(Sender: TObject);
-var str1, str2 : string;
-    time: integer;
+var start, finish : integer;
+    //time: integer;
 begin
   try
-     SQLite3Connection1.Open;
+     Connection.Open;
      SQLTransaction1.Active := True;
   except
      ShowMessage ('Ошибка подключения к базе данных!');
   end;
 
-  str1 := CheckAdress(EditStart.Text, AdressQuery);
-  str2 := CheckAdress(EditFinish.Text, AdressQuery);
-  if (str1 = '0') then
-     ShowMessage('Start adress: "' + EditStart.Text + '" does not exist');
-  if (str2 = '0') then
-     ShowMessage('Finish adress: "' + EditFinish.Text + '" does not exist')
-  else
-     begin
+  //str1 := CheckAdress(EditStart.Text, AdressQuery);
+  //str2 := CheckAdress(EditFinish.Text, AdressQuery);
+  //if (str1 = '0') then
+  //   ShowMessage('Start adress: "' + EditStart.Text + '" does not exist');
+  //if (str2 = '0') then
+  //   ShowMessage('Finish adress: "' + EditFinish.Text + '" does not exist')
+  //else
+  //   begin
         //Time := ConvertToMinutes(Hours.Value, Minutes.Value);
+        GetAdress(start,finish);
         with OrderQuery do
              begin
                   Open;
                   Insert;
                   Fields[1].AsDatetime := Now;
-                  Fields[2].AsInteger := StrToInt(str1);
-                  Fields[3].AsInteger := StrToInt(str2);
+                  Fields[2].AsInteger := start;// StrToInt(str1);
+                  Fields[3].AsInteger := finish;//StrToInt(str2);
                   Fields[4].AsDatetime := TimeEdit.Time ;
                   Fields[5].AsInteger := ComfortRate.Position;
                   Fields[6].AsInteger := Passengers.Position;
                   Fields[7].AsInteger := BoolToInt(WideTrunk.Checked);
                   Fields[8].AsInteger := BoolToInt(BabySeat.Checked);
                   //Fields[8].AsInteger := Time;
-                  //Fields.AsDatetime :=
                   try
-
                      Post;
                      ApplyUpdates;
                      SQLTransaction1.Commit;
+                     ShowMessage('Заказ принят');
                   except ShowMessage('Запрос не выполнен!');
                   end;
              end;
@@ -132,8 +141,8 @@ begin
          {ShowMessage(str1 +', '+str2+', '+datetimetostr(now)+', '+inttostr(ComfortRate.Position)
                           +', '+inttostr(Passengers.Position)+', '+inttostr(BoolToInt(WideTrunk.Checked))
                           +', '+inttostr(BoolToInt(BabySeat.Checked))+', '+inttostr(Time)); }
-     end;
-     ShowMessage('Заказ принят');
+     //end;
+
 end;
 
 
@@ -148,6 +157,7 @@ begin
 
   end;
 end;
+
 
 
 procedure TForm1.PassengersChange(Sender: TObject);

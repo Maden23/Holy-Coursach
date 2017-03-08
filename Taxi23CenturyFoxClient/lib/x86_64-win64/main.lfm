@@ -1,33 +1,34 @@
 object Form1: TForm1
-  Left = 546
-  Height = 765
-  Top = 144
-  Width = 373
+  Left = 583
+  Height = 551
+  Top = 168
+  Width = 361
   HorzScrollBar.Page = 352
   HorzScrollBar.Range = 352
   VertScrollBar.Page = 744
   VertScrollBar.Range = 744
+  BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
-  ClientHeight = 765
-  ClientWidth = 373
+  ClientHeight = 551
+  ClientWidth = 361
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
-    Left = 8
-    Height = 730
-    Top = 8
+    Left = 0
+    Height = 554
+    Top = 0
     Width = 360
-    ClientHeight = 730
+    ClientHeight = 554
     ClientWidth = 360
     TabOrder = 0
     object Label1: TLabel
       Left = 9
-      Height = 27
-      Top = 1
-      Width = 256
+      Height = 18
+      Top = 8
+      Width = 169
       Caption = 'Введите адрес подачи:'
       Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -24
+      Font.Height = -16
       Font.Name = 'Arial'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -35,13 +36,13 @@ object Form1: TForm1
       ParentFont = False
     end
     object Label2: TLabel
-      Left = 9
-      Height = 27
-      Top = 89
-      Width = 278
+      Left = 8
+      Height = 18
+      Top = 64
+      Width = 179
       Caption = 'Введите конечный пункт:'
       Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -24
+      Font.Height = -16
       Font.Name = 'Arial'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -50,12 +51,12 @@ object Form1: TForm1
     end
     object Label3: TLabel
       Left = 9
-      Height = 27
-      Top = 177
-      Width = 176
+      Height = 18
+      Top = 128
+      Width = 117
       Caption = 'Введите время:'
       Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -24
+      Font.Height = -16
       Font.Name = 'Arial'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -63,7 +64,7 @@ object Form1: TForm1
       ParentFont = False
     end
     object Hours: TSpinEdit
-      Left = 385
+      Left = 391
       Height = 45
       Top = 201
       Width = 70
@@ -78,8 +79,8 @@ object Form1: TForm1
     end
     object CheckGroup1: TCheckGroup
       Left = 9
-      Height = 176
-      Top = 272
+      Height = 96
+      Top = 192
       Width = 336
       AutoFill = True
       Caption = 'Дополнительные опции'
@@ -91,10 +92,10 @@ object Form1: TForm1
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 1
-      ClientHeight = 144
+      ClientHeight = 73
       ClientWidth = 332
       Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -24
+      Font.Height = -16
       Font.Name = 'Arial'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -102,7 +103,7 @@ object Form1: TForm1
       TabOrder = 1
       object WideTrunk: TCheckBox
         Left = 6
-        Height = 66
+        Height = 31
         Top = 6
         Width = 320
         Caption = 'Большой багажник'
@@ -110,21 +111,21 @@ object Form1: TForm1
       end
       object BabySeat: TCheckBox
         Left = 6
-        Height = 66
-        Top = 72
+        Height = 30
+        Top = 37
         Width = 320
         Caption = 'Детское кресло'
         TabOrder = 1
       end
     end
     object Label4: TLabel
-      Left = 9
-      Height = 27
-      Top = 464
-      Width = 218
+      Left = 12
+      Height = 18
+      Top = 304
+      Width = 144
       Caption = 'Уровень комфорта:'
       Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -24
+      Font.Height = -16
       Font.Name = 'Arial'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -132,9 +133,9 @@ object Form1: TForm1
       ParentFont = False
     end
     object ComfortRate: TTrackBar
-      Left = 1
+      Left = 12
       Height = 29
-      Top = 504
+      Top = 328
       Width = 344
       Max = 5
       Min = 1
@@ -143,13 +144,13 @@ object Form1: TForm1
       TabOrder = 2
     end
     object Label5: TLabel
-      Left = 232
-      Height = 41
-      Top = 456
-      Width = 22
+      Left = 162
+      Height = 33
+      Top = 296
+      Width = 19
       Caption = '✪'
       Font.CharSet = ANSI_CHARSET
-      Font.Height = -36
+      Font.Height = -29
       Font.Name = 'Arial'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -157,13 +158,13 @@ object Form1: TForm1
       ParentFont = False
     end
     object Label6: TLabel
-      Left = 9
-      Height = 27
-      Top = 568
-      Width = 281
+      Left = 14
+      Height = 18
+      Top = 384
+      Width = 183
       Caption = 'Количество пассажиров: '
       Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -24
+      Font.Height = -16
       Font.Name = 'Arial'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -171,9 +172,9 @@ object Form1: TForm1
       ParentFont = False
     end
     object Passengers: TTrackBar
-      Left = 1
+      Left = 11
       Height = 29
-      Top = 608
+      Top = 408
       Width = 344
       Max = 8
       Min = 1
@@ -182,13 +183,13 @@ object Form1: TForm1
       TabOrder = 3
     end
     object Label7: TLabel
-      Left = 289
-      Height = 41
-      Top = 560
-      Width = 22
+      Left = 201
+      Height = 33
+      Top = 376
+      Width = 19
       Caption = '❶'
       Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -36
+      Font.Height = -29
       Font.Name = 'Arial'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -196,36 +197,60 @@ object Form1: TForm1
       ParentFont = False
     end
     object Label8: TLabel
-      Left = 11
-      Height = 25
-      Top = 536
-      Width = 10
+      Left = 20
+      Height = 16
+      Top = 360
+      Width = 7
       Caption = '1'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
       ParentColor = False
+      ParentFont = False
     end
     object Label9: TLabel
-      Left = 325
-      Height = 25
-      Top = 536
-      Width = 10
+      Left = 339
+      Height = 16
+      Top = 360
+      Width = 7
       Caption = '5'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
       ParentColor = False
+      ParentFont = False
     end
     object Label10: TLabel
-      Left = 11
-      Height = 25
-      Top = 640
-      Width = 10
+      Left = 20
+      Height = 16
+      Top = 440
+      Width = 7
       Caption = '1'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
       ParentColor = False
+      ParentFont = False
     end
     object Label11: TLabel
-      Left = 325
-      Height = 25
-      Top = 640
-      Width = 10
+      Left = 339
+      Height = 16
+      Top = 440
+      Width = 7
       Caption = '8'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
       ParentColor = False
+      ParentFont = False
     end
     object Minutes: TSpinEdit
       Left = 465
@@ -256,13 +281,13 @@ object Form1: TForm1
       ParentFont = False
     end
     object btnConfirm: TButton
-      Left = 9
+      Left = 14
       Height = 48
-      Top = 681
+      Top = 496
       Width = 336
       Caption = 'Подтвердить'
       Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -24
+      Font.Height = -19
       Font.Name = 'Arial'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -298,13 +323,13 @@ object Form1: TForm1
     end
     object TimeEdit: TTimeEdit
       Left = 11
-      Height = 35
-      Top = 217
+      Height = 26
+      Top = 152
       Width = 110
       ButtonWidth = 23
       NumGlyphs = 1
       Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -24
+      Font.Height = -16
       Font.Name = 'Arial'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
@@ -312,55 +337,39 @@ object Form1: TForm1
       ParentFont = False
       TabOrder = 8
     end
-    object DBLookupComboBox1: TDBLookupComboBox
-      Left = 9
-      Height = 32
-      Top = 40
-      Width = 286
-      AutoComplete = True
-      AutoDropDown = True
-      DataSource = DataSource1
-      Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -21
-      Font.Name = 'Arial'
-      Font.Pitch = fpVariable
-      Font.Quality = fqDraft
-      KeyField = 'id'
-      ListField = 'adress'
-      ListFieldIndex = 0
-      ListSource = DataSource1
-      LookupCache = False
-      ParentFont = False
-      Sorted = True
-      TabOrder = 9
-    end
-    object DBLookupComboBox2: TDBLookupComboBox
-      Left = 9
-      Height = 32
-      Top = 128
-      Width = 286
-      AutoComplete = True
-      AutoDropDown = True
-      DataSource = DataSource1
-      Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -21
-      Font.Name = 'Arial'
-      Font.Pitch = fpVariable
-      Font.Quality = fqDraft
-      KeyField = 'id'
-      ListField = 'adress'
-      ListFieldIndex = 0
-      ListSource = DataSource1
-      LookupCache = False
-      ParentFont = False
-      Sorted = True
-      TabOrder = 10
-    end
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 10
+    Height = 33
+    Top = 32
+    Width = 342
+    AutoComplete = True
+    AutoDropDown = True
+    KeyField = 'id'
+    ListField = 'adress'
+    ListFieldIndex = 0
+    ListSource = DataSource1
+    LookupCache = False
+    TabOrder = 1
+  end
+  object DBLookupComboBox2: TDBLookupComboBox
+    Left = 10
+    Height = 33
+    Top = 88
+    Width = 342
+    AutoComplete = True
+    AutoDropDown = True
+    KeyField = 'id'
+    ListField = 'adress'
+    ListFieldIndex = 0
+    ListSource = DataSource1
+    LookupCache = False
+    TabOrder = 2
   end
   object OrderQuery: TSQLQuery
     FieldDefs = <>
     AutoCalcFields = False
-    Database = SQLite3Connection1
+    Database = Connection
     Transaction = SQLTransaction1
     SQL.Strings = (
       'select * from orders;'
@@ -373,30 +382,19 @@ object Form1: TForm1
     Options = []
     Params = <>
     ParamCheck = False
-    left = 368
-    top = 688
-  end
-  object SQLite3Connection1: TSQLite3Connection
-    Connected = True
-    LoginPrompt = False
-    DatabaseName = 'D:/Holy-Coursach/awesomedatabase.db'
-    KeepConnection = False
-    Transaction = SQLTransaction1
-    LogEvents = []
-    Options = []
-    left = 512
-    top = 72
+    left = 24
+    top = 464
   end
   object SQLTransaction1: TSQLTransaction
     Active = True
-    Database = SQLite3Connection1
+    Database = Connection
     Options = []
     left = 512
     top = 8
   end
   object AdressQuery: TSQLQuery
     FieldDefs = <>
-    Database = SQLite3Connection1
+    Database = Connection
     Transaction = SQLTransaction1
     SQL.Strings = (
       'select id from locations'
@@ -412,6 +410,32 @@ object Form1: TForm1
     left = 312
     top = 8
   end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    left = 232
+  end
+  object DataSource2: TDataSource
+    DataSet = SQLQuery1
+    left = 232
+    top = 64
+  end
+  object Connection: TMySQL56Connection
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'awesomedatabase'
+    KeepConnection = True
+    Params.Strings = (
+      'Port=3306'
+    )
+    Password = '1111'
+    Transaction = SQLTransaction1
+    UserName = 'root'
+    CharSet = 'utf8'
+    HostName = 'localhost'
+    Options = []
+    left = 512
+    top = 56
+  end
   object SQLQuery1: TSQLQuery
     IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
@@ -422,24 +446,38 @@ object Form1: TForm1
       end    
       item
         Name = 'adress'
-        DataType = ftString
+        DataType = ftFixedChar
         Precision = -1
-        Size = 255
+        Size = 150
       end>
     Active = True
-    Database = SQLite3Connection1
+    Database = Connection
     Transaction = SQLTransaction1
     SQL.Strings = (
       'select * from locations;'
     )
     Options = []
     Params = <>
-    left = 320
+    left = 312
     top = 72
-  end
-  object DataSource1: TDataSource
-    DataSet = SQLQuery1
-    left = 320
-    top = 136
+    object SQLQuery1id: TAutoIncField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1adress: TStringField
+      FieldKind = fkData
+      FieldName = 'adress'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
   end
 end

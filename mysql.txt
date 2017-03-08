@@ -1,0 +1,68 @@
+﻿mysql> CREATE TABLE `Cars` (
+    ->   `id` int(11) NOT NULL,
+    ->   `reg_number` text COLLATE utf8_bin NOT NULL,
+    ->   `model` text COLLATE utf8_bin NOT NULL,
+    ->   `color` text COLLATE utf8_bin NOT NULL,
+    ->   `carcase` text COLLATE utf8_bin NOT NULL,
+    ->   `passenger` int(11) NOT NULL,
+    ->   `comfort_rate` int(11) NOT NULL,
+    ->   `baby_sit` int(11) NOT NULL,
+    ->   `wide_trunk` int(11) NOT NULL
+    -> ) ;
+
+mysql> ALTER TABLE `Cars`
+    ->   ADD PRIMARY KEY (`id`);
+
+mysql> ALTER TABLE `Cars`
+    ->   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+mysql> INSERT INTO `Cars` (`reg_number`, `model`, `color`, `carcase`, `passenger`, `comfort_rate`, `baby_sit`, `wide_trunk`) VALUES
+    -> ('P235OK77', 'Volkswagen Polo', 'Белый', 'Седан', 5, 2, 1, 0),
+    -> ('A673HC99', 'Hyundai Solaris', 'Серый', 'Седан', 5, 2, 1, 0),
+    -> ('B723TO197', 'Kia Rio', 'Синий', 'Седан', 5, 2, 0, 0),
+    -> ('C568KM777', 'Renault Logan', 'Серебристый', 'Седан', 5, 2, 0, 0),
+    -> ('T725AC97', 'Chevrolet Lacetti', 'Белый', 'Универсал', 5, 2, 1, 1),
+    -> ('X435HC199', 'Lada Granta', 'Черный', 'Седан', 5, 1, 0, 0),
+    -> ('H124EE97', 'Ford S-Max', 'Желтый', 'Минивэн', 7, 3, 1, 1),
+    -> ('T323AT199', 'Nissan Teana', 'Черный', 'Седан', 5, 4, 0, 0),
+    -> ('K555MP77', 'Mercedes-Benz S-Class', 'Черный', 'Седан', 5, 5, 0, 0),
+    -> ('A671AB77', 'Chevrolet Cruze', 'Желтый', 'Универсал', 5, 2, 1, 1),
+    -> ('H809TH77', 'Volkswagen Caravelle', 'Серебристый', 'Минивэн', 8, 3, 1, 1),
+    -> ('P325YC177', 'Lada Vesta', 'Серебристый', 'Седан', 5, 2, 1, 0);
+
+mysql> CREATE TABLE `Drivers` (
+    ->   `id` int(11) NOT NULL,
+    ->   `last_name` text COLLATE utf8_bin NOT NULL,
+    ->   `first_name` text COLLATE utf8_bin NOT NULL,
+    ->   `father_name` text COLLATE utf8_bin NOT NULL,
+    ->   `age` int(11) NOT NULL,
+    ->   `xp` int(11) NOT NULL,
+    ->   `available` int(1) NOT NULL,
+    ->   `working_time` int(11) NOT NULL,
+    ->   `car_id` int(11) NOT NULL,
+    ->   `location` int(11) NOT NULL
+    -> );
+
+mysql> ALTER TABLE `Drivers`
+    ->   ADD PRIMARY KEY (`id`);
+
+mysql> ALTER TABLE `Drivers`
+    ->   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+mysql> INSERT INTO `Drivers` (`last_name`, `first_name`, `father_name`, `age`, `xp`, `available`, `working_time`, `car_id`, `location`) VALUES
+    -> ('Киселёв', 'Егор', 'Олегович', 19, 1, 1, 8, 1, 1),
+    -> ('Зубов', 'Виктор', 'Михайлович', 65, 33, 1, 8, 2, 2),
+    -> ('Лебедев', 'Андрей', 'Андреевич', 28, 7, 1, 8, 3, 3),
+    -> ('Евсеев', 'Никита', 'Алексеевич', 31, 6, 1, 8, 4, 4),
+    -> ('Яковлев', 'Юрий', 'Вениаминович', 57, 28, 1, 8, 5, 5),
+    -> ('Щербаков', 'Игорь', 'Евгеньевич', 26, 3, 1, 8, 6, 6),
+    -> ('Гаврилов', 'Иван', 'Александрович', 36, 15, 1, 8, 7, 7),
+    -> ('Лихачёв', 'Никита', 'Валерьевич', 20, 2, 1, 8, 8, 8),
+    -> ('Фомин', 'Николай', 'Сергеевич', 44, 19, 1, 8, 9, 9),
+    -> ('Веселов', 'Дмитрий', 'Артемьевич', 25, 6, 1, 8, 10, 10),
+    -> ('Поляков', 'Владимир', 'Васильевич', 34, 6, 1, 8, 11, 11),
+    -> ('Молчанов', 'Антон', 'Кириллович', 30, 11, 1, 8, 12, 12);
+
+mysql> create table Orders (`id` int(1) PRIMARY KEY AUTO_INCREMENT,`created` datetime NOT NULL, `start_id` int(11) NOT NULL,
+    -> `finish_id` int(11) NOT NULL, `date_time` datetime NOT NULL, `comfort_rate` int(1) NOT NULL,
+    -> `passengers` int(1) NOT NULL, `wide_trunk` int(1) NOT NULL, `baby_seat` int(1) NOT NULL);

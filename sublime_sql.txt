@@ -1,8 +1,8 @@
-.open /Users/Ivan/Documents/Coursach/Holy-Coursach/awesomedatabase.db
+﻿.open /Users/Ivan/Documents/Coursach/Holy-Coursach/awesomedatabase.db
 
 create table 'Locations' ('id' INTEGER PRIMARY KEY AUTOINCREMENT, 'adress' string NOT NULL); 
 
-INSERT INTO `Orders` ('id', `start_id`, 'finish_id', 'date_time', 
+INSERT INTO `Orders` (`id`, `start_id`, 'finish_id', 'date_time', 
 	`comfort_rate`, `passengers`, `wide_trunk`, 'baby_seat') VALUES
 (1, 1, 2, '2017-02-17 16:38:40', 2, 2, 0, 1);
 
