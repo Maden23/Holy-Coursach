@@ -1,84 +1,181 @@
-object Form2: TForm2
-  Left = 355
-  Height = 428
-  Top = 225
-  Width = 338
+object frmDetails: TfrmDetails
+  Left = 559
+  Height = 401
+  Top = 509
+  Width = 330
+  AutoSize = True
   BorderStyle = bsToolWindow
   Caption = 'Детали заказа'
-  ClientHeight = 428
-  ClientWidth = 338
+  ClientHeight = 401
+  ClientWidth = 330
+  OnShow = FormShow
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
     Left = 13
-    Height = 408
+    Height = 384
     Top = 8
-    Width = 315
-    ClientHeight = 408
-    ClientWidth = 315
+    Width = 307
+    Align = alCustom
+    BorderWidth = 1
+    ClientHeight = 384
+    ClientWidth = 307
     TabOrder = 0
     object Label1: TLabel
-      Left = 8
+      Left = 2
       Height = 25
-      Top = 8
+      Top = 2
       Width = 119
       Caption = 'Адрес подачи:'
       ParentColor = False
     end
     object Label2: TLabel
-      Left = 8
+      Left = 2
       Height = 25
-      Top = 48
+      Top = 42
       Width = 137
       Caption = 'Конечный пункт:'
       ParentColor = False
     end
     object Label3: TLabel
-      Left = 8
+      Left = 2
       Height = 25
-      Top = 88
+      Top = 82
       Width = 121
       Caption = 'Время подачи:'
       ParentColor = False
     end
     object Label4: TLabel
-      Left = 8
+      Left = 2
       Height = 25
-      Top = 128
+      Top = 122
       Width = 200
       Caption = 'Дополнительные опции:'
       ParentColor = False
     end
     object Label5: TLabel
-      Left = 8
+      Left = 0
       Height = 25
-      Top = 200
+      Top = 168
       Width = 162
       Caption = 'Уровень комфорта:'
       ParentColor = False
     end
     object Label6: TLabel
-      Left = 8
+      Left = 0
       Height = 25
-      Top = 240
+      Top = 215
       Width = 203
       Caption = 'Количество пассажиров:'
       ParentColor = False
     end
     object Label7: TLabel
-      Left = 8
+      Left = 0
       Height = 25
-      Top = 296
+      Top = 281
       Width = 45
       Caption = 'Цена:'
       ParentColor = False
     end
     object Button1: TButton
-      Left = 8
-      Height = 41
-      Top = 352
-      Width = 296
+      AnchorSideTop.Control = Label14
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = Panel1
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = Panel1
+      AnchorSideBottom.Side = asrBottom
+      Left = -8
+      Height = 35
+      Top = 347
+      Width = 313
+      Align = alCustom
+      Anchors = [akLeft, akRight, akBottom]
+      AutoSize = True
+      BorderSpacing.Top = 20
       Caption = 'Потвердить'
+      OnClick = Button1Click
       TabOrder = 0
     end
+    object Label8: TLabel
+      Left = 129
+      Height = 25
+      Top = 2
+      Width = 51
+      Caption = 'Label8'
+      ParentColor = False
+    end
+    object Label9: TLabel
+      Left = 146
+      Height = 25
+      Top = 42
+      Width = 51
+      Caption = 'Label9'
+      ParentColor = False
+    end
+    object Label10: TLabel
+      Left = 129
+      Height = 25
+      Top = 82
+      Width = 61
+      Caption = 'Label10'
+      ParentColor = False
+    end
+    object Label11: TLabel
+      Left = 209
+      Height = 25
+      Top = 122
+      Width = 61
+      Caption = 'Label11'
+      ParentColor = False
+    end
+    object Label12: TLabel
+      Left = 176
+      Height = 25
+      Top = 168
+      Width = 61
+      Caption = 'Label12'
+      ParentColor = False
+    end
+    object Label13: TLabel
+      Left = 216
+      Height = 25
+      Top = 215
+      Width = 61
+      Caption = 'Label13'
+      ParentColor = False
+    end
+    object Label14: TLabel
+      Left = 55
+      Height = 25
+      Top = 281
+      Width = 61
+      Caption = 'Label14'
+      ParentColor = False
+    end
+  end
+  object DataQuery: TSQLQuery
+    FieldDefs = <>
+    Database = DataModule1.Connection
+    Options = []
+    Params = <>
+    left = 344
+    top = 16
+  end
+  object OrderQuery: TSQLQuery
+    FieldDefs = <>
+    AutoCalcFields = False
+    Database = DataModule1.Connection
+    SQL.Strings = (
+      'select * from orders;'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO Orders (created, start_id, finish_id, date_time,'
+      'comfort_rate, passengers, wide_trunk, baby_seat) VALUES'
+      '(:created, :start_id, :finish_id, :date_time, :comfort_rate, :passengers, :wide_trunk, :baby_seat);'
+    )
+    Options = []
+    Params = <>
+    ParamCheck = False
+    left = 256
+    top = 296
   end
 end

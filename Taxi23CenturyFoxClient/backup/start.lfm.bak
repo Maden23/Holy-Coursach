@@ -1,0 +1,44 @@
+object frmStart: TfrmStart
+  Left = 559
+  Height = 409
+  Top = 152
+  Width = 393
+  Caption = 'Taxi23CenturyFox'
+  ClientHeight = 409
+  ClientWidth = 393
+  LCLVersion = '1.6.2.0'
+  object Driver: TButton
+    Left = 8
+    Height = 57
+    Top = 280
+    Width = 376
+    Caption = 'Водитель'
+    OnClick = DriverClick
+    TabOrder = 0
+  end
+  object Passenger: TButton
+    Left = 8
+    Height = 57
+    Top = 344
+    Width = 376
+    Caption = 'Пассажир'
+    OnClick = PassengerClick
+    TabOrder = 1
+  end
+  object ExcuseMeSir: TLabel
+    Left = 128
+    Height = 25
+    Top = 176
+    Width = 149
+    Caption = 'Вы, простите, кто?'
+    ParentColor = False
+  end
+  object Beast: TButton
+    Left = 8
+    Height = 57
+    Top = 216
+    Width = 376
+    Caption = 'Тварь дрожащая'
+    TabOrder = 2
+  end
+end

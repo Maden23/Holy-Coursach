@@ -1,8 +1,8 @@
-object Form1: TForm1
-  Left = 691
+object frmMain: TfrmMain
+  Left = 960
   Height = 551
-  Top = 177
-  Width = 632
+  Top = 162
+  Width = 670
   HorzScrollBar.Page = 352
   HorzScrollBar.Range = 352
   VertScrollBar.Page = 744
@@ -10,7 +10,7 @@ object Form1: TForm1
   BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 551
-  ClientWidth = 632
+  ClientWidth = 670
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
@@ -21,7 +21,6 @@ object Form1: TForm1
     ClientHeight = 570
     ClientWidth = 360
     TabOrder = 0
-    OnClick = Panel1Click
     object Label2: TLabel
       Left = 9
       Height = 25
@@ -325,36 +324,8 @@ object Form1: TForm1
     LookupCache = False
     TabOrder = 2
   end
-  object OrderQuery: TSQLQuery
-    FieldDefs = <>
-    AutoCalcFields = False
-    Database = Connection
-    Transaction = SQLTransaction1
-    SQL.Strings = (
-      'select * from orders;'
-    )
-    InsertSQL.Strings = (
-      'INSERT INTO Orders (created, start_id, finish_id, date_time,'
-      'comfort_rate, passengers, wide_trunk, baby_seat) VALUES'
-      '(:created, :start_id, :finish_id, :date_time, :comfort_rate, :passengers, :wide_trunk, :baby_seat);'
-    )
-    Options = []
-    Params = <>
-    ParamCheck = False
-    left = 400
-    top = 488
-  end
-  object SQLTransaction1: TSQLTransaction
-    Active = True
-    Database = Connection
-    Options = []
-    left = 568
-    top = 8
-  end
   object AdressQuery: TSQLQuery
     FieldDefs = <>
-    Database = Connection
-    Transaction = SQLTransaction1
     SQL.Strings = (
       'select id from locations'
       'where adress = :adress;'
@@ -378,23 +349,6 @@ object Form1: TForm1
     left = 408
     top = 72
   end
-  object Connection: TMySQL56Connection
-    Connected = True
-    LoginPrompt = False
-    DatabaseName = 'awesomedatabase'
-    KeepConnection = True
-    Params.Strings = (
-      'Port=3306'
-    )
-    Password = '1111'
-    Transaction = SQLTransaction1
-    UserName = 'root'
-    CharSet = 'utf8'
-    HostName = 'localhost'
-    Options = []
-    left = 576
-    top = 72
-  end
   object SQLQuery1: TSQLQuery
     IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
@@ -410,8 +364,8 @@ object Form1: TForm1
         Size = 150
       end>
     Active = True
-    Database = Connection
-    Transaction = SQLTransaction1
+    Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
       'select * from locations;'
     )

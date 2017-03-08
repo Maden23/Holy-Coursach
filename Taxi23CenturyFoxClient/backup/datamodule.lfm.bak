@@ -1,0 +1,31 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 200
+  HorizontalOffset = 569
+  VerticalOffset = 203
+  Width = 176
+  object Connection: TMySQL56Connection
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'awesomedatabase'
+    KeepConnection = True
+    Params.Strings = (
+      'Port=3306'
+    )
+    Password = '1111'
+    Transaction = SQLTransaction1
+    UserName = 'root'
+    CharSet = 'utf8'
+    HostName = 'localhost'
+    Options = []
+    left = 32
+    top = 8
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = Connection
+    Options = []
+    left = 96
+    top = 16
+  end
+end
