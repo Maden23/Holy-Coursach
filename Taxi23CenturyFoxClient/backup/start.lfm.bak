@@ -1,7 +1,7 @@
 object frmStart: TfrmStart
-  Left = 517
+  Left = 189
   Height = 639
-  Top = 173
+  Top = 275
   Width = 960
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 639

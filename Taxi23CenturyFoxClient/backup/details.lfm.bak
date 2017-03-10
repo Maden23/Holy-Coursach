@@ -1,7 +1,7 @@
 object frmDetails: TfrmDetails
-  Left = 759
+  Left = 503
   Height = 401
-  Top = 342
+  Top = 206
   Width = 330
   AutoSize = True
   BorderStyle = bsToolWindow

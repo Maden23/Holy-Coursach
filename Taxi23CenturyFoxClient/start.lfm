@@ -1,7 +1,7 @@
 object frmStart: TfrmStart
-  Left = 189
+  Left = 443
   Height = 639
-  Top = 275
+  Top = 116
   Width = 960
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 639
@@ -32435,6 +32435,7 @@ object frmStart: TfrmStart
     }
   end
   object ImgDriver: TImage
+    Cursor = crHandPoint
     Left = 38
     Height = 26
     Top = 584
@@ -32529,6 +32530,7 @@ object frmStart: TfrmStart
     }
   end
   object ImgDispatcher: TImage
+    Cursor = crHandPoint
     Left = 246
     Height = 26
     Top = 584
@@ -33095,6 +33097,7 @@ object frmStart: TfrmStart
     }
   end
   object ImgPassenger: TImage
+    Cursor = crHandPoint
     Left = 465
     Height = 26
     Top = 584
