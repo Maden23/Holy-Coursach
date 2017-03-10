@@ -5,7 +5,8 @@ unit start;
 interface
 
 uses
-  Main, Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Main, Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs,
+  StdCtrls, ExtCtrls;
 
 type
 
@@ -13,10 +14,16 @@ type
 
   TfrmStart = class(TForm)
     Driver: TButton;
-    Beast: TButton;
+    Dispatcher: TButton;
+    Background: TImage;
+    ImgDispatcher: TImage;
+    ImgPassenger: TImage;
+    ImgDriver: TImage;
     Passenger: TButton;
-    ExcuseMeSir: TLabel;
+    procedure DispatcherClick(Sender: TObject);
     procedure DriverClick(Sender: TObject);
+    procedure ImgDispatcherClick(Sender: TObject);
+    procedure ImgPassengerClick(Sender: TObject);
     procedure PassengerClick(Sender: TObject);
   private
     { private declarations }
@@ -34,6 +41,22 @@ implementation
 { TfrmStart }
 
 procedure TfrmStart.DriverClick(Sender: TObject);
+begin
+
+end;
+
+procedure TfrmStart.ImgDispatcherClick(Sender: TObject);
+begin
+
+end;
+
+procedure TfrmStart.ImgPassengerClick(Sender: TObject);
+begin
+  frmMain.Show;
+  frmStart.Hide;
+end;
+
+procedure TfrmStart.DispatcherClick(Sender: TObject);
 begin
 
 end;

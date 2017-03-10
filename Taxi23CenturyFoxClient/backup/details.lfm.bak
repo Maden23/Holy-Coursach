@@ -1,7 +1,7 @@
 object frmDetails: TfrmDetails
-  Left = 559
+  Left = 759
   Height = 401
-  Top = 509
+  Top = 342
   Width = 330
   AutoSize = True
   BorderStyle = bsToolWindow
@@ -22,57 +22,57 @@ object frmDetails: TfrmDetails
     TabOrder = 0
     object Label1: TLabel
       Left = 2
-      Height = 25
+      Height = 15
       Top = 2
-      Width = 119
+      Width = 79
       Caption = 'Адрес подачи:'
       ParentColor = False
     end
     object Label2: TLabel
       Left = 2
-      Height = 25
+      Height = 15
       Top = 42
-      Width = 137
+      Width = 94
       Caption = 'Конечный пункт:'
       ParentColor = False
     end
     object Label3: TLabel
       Left = 2
-      Height = 25
+      Height = 15
       Top = 82
-      Width = 121
+      Width = 81
       Caption = 'Время подачи:'
       ParentColor = False
     end
     object Label4: TLabel
       Left = 2
-      Height = 25
+      Height = 15
       Top = 122
-      Width = 200
+      Width = 137
       Caption = 'Дополнительные опции:'
       ParentColor = False
     end
     object Label5: TLabel
       Left = 0
-      Height = 25
+      Height = 15
       Top = 168
-      Width = 162
+      Width = 108
       Caption = 'Уровень комфорта:'
       ParentColor = False
     end
     object Label6: TLabel
       Left = 0
-      Height = 25
+      Height = 15
       Top = 215
-      Width = 203
+      Width = 138
       Caption = 'Количество пассажиров:'
       ParentColor = False
     end
     object Label7: TLabel
       Left = 0
-      Height = 25
+      Height = 15
       Top = 281
-      Width = 45
+      Width = 31
       Caption = 'Цена:'
       ParentColor = False
     end
@@ -84,8 +84,8 @@ object frmDetails: TfrmDetails
       AnchorSideBottom.Control = Panel1
       AnchorSideBottom.Side = asrBottom
       Left = -8
-      Height = 35
-      Top = 347
+      Height = 25
+      Top = 357
       Width = 313
       Align = alCustom
       Anchors = [akLeft, akRight, akBottom]
@@ -97,57 +97,57 @@ object frmDetails: TfrmDetails
     end
     object Label8: TLabel
       Left = 129
-      Height = 25
+      Height = 15
       Top = 2
-      Width = 51
+      Width = 34
       Caption = 'Label8'
       ParentColor = False
     end
     object Label9: TLabel
       Left = 146
-      Height = 25
+      Height = 15
       Top = 42
-      Width = 51
+      Width = 34
       Caption = 'Label9'
       ParentColor = False
     end
     object Label10: TLabel
       Left = 129
-      Height = 25
+      Height = 15
       Top = 82
-      Width = 61
+      Width = 40
       Caption = 'Label10'
       ParentColor = False
     end
     object Label11: TLabel
       Left = 209
-      Height = 25
+      Height = 15
       Top = 122
-      Width = 61
+      Width = 40
       Caption = 'Label11'
       ParentColor = False
     end
     object Label12: TLabel
       Left = 176
-      Height = 25
+      Height = 15
       Top = 168
-      Width = 61
+      Width = 40
       Caption = 'Label12'
       ParentColor = False
     end
     object Label13: TLabel
       Left = 216
-      Height = 25
+      Height = 15
       Top = 215
-      Width = 61
+      Width = 40
       Caption = 'Label13'
       ParentColor = False
     end
     object Label14: TLabel
       Left = 55
-      Height = 25
+      Height = 15
       Top = 281
-      Width = 61
+      Width = 40
       Caption = 'Label14'
       ParentColor = False
     end
@@ -155,6 +155,7 @@ object frmDetails: TfrmDetails
   object DataQuery: TSQLQuery
     FieldDefs = <>
     Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
     Options = []
     Params = <>
     left = 344
@@ -164,6 +165,7 @@ object frmDetails: TfrmDetails
     FieldDefs = <>
     AutoCalcFields = False
     Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
       'select * from orders;'
     )

@@ -1,7 +1,7 @@
 object frmStart: TfrmStart
-  Left = 559
+  Left = 450
   Height = 409
-  Top = 152
+  Top = 98
   Width = 393
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 409
@@ -27,9 +27,9 @@ object frmStart: TfrmStart
   end
   object ExcuseMeSir: TLabel
     Left = 128
-    Height = 25
+    Height = 15
     Top = 176
-    Width = 149
+    Width = 101
     Caption = 'Вы, простите, кто?'
     ParentColor = False
   end

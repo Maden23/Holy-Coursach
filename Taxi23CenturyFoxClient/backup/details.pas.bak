@@ -77,7 +77,7 @@ begin
                Label11.Caption := 'Нет';
       end;
   Label12.Caption := InttoStr(frmMain.ComfortRate.Position);
-  Label13.Caption := InttoStr(frmMain.Passenger.Position);
+  Label13.Caption := InttoStr(frmMain.Passengers.Position);
 end;
 
 procedure TfrmDetails.Button1Click(Sender: TObject);

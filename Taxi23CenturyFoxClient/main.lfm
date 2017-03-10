@@ -1,39 +1,39 @@
 object frmMain: TfrmMain
-  Left = 960
-  Height = 551
-  Top = 162
-  Width = 670
+  Left = 379
+  Height = 639
+  Top = 198
+  Width = 375
   HorzScrollBar.Page = 352
   HorzScrollBar.Range = 352
   VertScrollBar.Page = 744
   VertScrollBar.Range = 744
   BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
-  ClientHeight = 551
-  ClientWidth = 670
+  ClientHeight = 639
+  ClientWidth = 375
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
     Left = 0
-    Height = 570
+    Height = 639
     Top = 0
-    Width = 360
-    ClientHeight = 570
-    ClientWidth = 360
+    Width = 375
+    ClientHeight = 639
+    ClientWidth = 375
     TabOrder = 0
     object Label2: TLabel
       Left = 9
-      Height = 25
+      Height = 15
       Top = 80
-      Width = 206
+      Width = 139
       Caption = 'Введите конечный пункт:'
       ParentColor = False
     end
     object Label3: TLabel
       Left = 9
-      Height = 25
+      Height = 15
       Top = 144
-      Width = 126
+      Width = 83
       Caption = 'Введите время:'
       ParentColor = False
     end
@@ -66,12 +66,12 @@ object frmMain: TfrmMain
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 1
-      ClientHeight = 74
+      ClientHeight = 84
       ClientWidth = 332
       TabOrder = 1
       object WideTrunk: TCheckBox
         Left = 6
-        Height = 31
+        Height = 36
         Top = 6
         Width = 320
         Caption = 'Большой багажник'
@@ -79,25 +79,25 @@ object frmMain: TfrmMain
       end
       object BabySeat: TCheckBox
         Left = 6
-        Height = 31
-        Top = 37
+        Height = 36
+        Top = 42
         Width = 320
         Caption = 'Детское кресло'
         TabOrder = 1
       end
     end
     object Label4: TLabel
-      Left = 16
-      Height = 25
-      Top = 314
-      Width = 162
+      Left = 19
+      Height = 15
+      Top = 352
+      Width = 108
       Caption = 'Уровень комфорта:'
       ParentColor = False
     end
     object ComfortRate: TTrackBar
-      Left = 10
+      Left = 8
       Height = 29
-      Top = 344
+      Top = 376
       Width = 344
       Max = 5
       Min = 1
@@ -106,9 +106,9 @@ object frmMain: TfrmMain
       TabOrder = 2
     end
     object Label5: TLabel
-      Left = 192
+      Left = 131
       Height = 33
-      Top = 312
+      Top = 342
       Width = 19
       Caption = '✪'
       Font.CharSet = ANSI_CHARSET
@@ -121,16 +121,16 @@ object frmMain: TfrmMain
     end
     object Label6: TLabel
       Left = 19
-      Height = 25
-      Top = 394
-      Width = 208
+      Height = 15
+      Top = 432
+      Width = 141
       Caption = 'Количество пассажиров: '
       ParentColor = False
     end
     object Passengers: TTrackBar
       Left = 10
       Height = 29
-      Top = 424
+      Top = 456
       Width = 344
       Max = 8
       Min = 1
@@ -139,9 +139,9 @@ object frmMain: TfrmMain
       TabOrder = 3
     end
     object Label7: TLabel
-      Left = 232
+      Left = 161
       Height = 33
-      Top = 392
+      Top = 422
       Width = 19
       Caption = '❶'
       Font.CharSet = RUSSIAN_CHARSET
@@ -153,9 +153,9 @@ object frmMain: TfrmMain
       ParentFont = False
     end
     object Label8: TLabel
-      Left = 19
+      Left = 17
       Height = 16
-      Top = 376
+      Top = 408
       Width = 7
       Caption = '1'
       Font.CharSet = RUSSIAN_CHARSET
@@ -167,9 +167,9 @@ object frmMain: TfrmMain
       ParentFont = False
     end
     object Label9: TLabel
-      Left = 338
+      Left = 336
       Height = 16
-      Top = 376
+      Top = 408
       Width = 7
       Caption = '5'
       Font.CharSet = RUSSIAN_CHARSET
@@ -183,7 +183,7 @@ object frmMain: TfrmMain
     object Label10: TLabel
       Left = 19
       Height = 16
-      Top = 456
+      Top = 488
       Width = 7
       Caption = '1'
       Font.CharSet = RUSSIAN_CHARSET
@@ -197,7 +197,7 @@ object frmMain: TfrmMain
     object Label11: TLabel
       Left = 338
       Height = 16
-      Top = 456
+      Top = 488
       Width = 7
       Caption = '8'
       Font.CharSet = RUSSIAN_CHARSET
@@ -239,7 +239,7 @@ object frmMain: TfrmMain
     object btnConfirm: TButton
       Left = 14
       Height = 48
-      Top = 496
+      Top = 512
       Width = 336
       Caption = 'Оформить заказ'
       OnClick = btnConfirmClick
@@ -289,16 +289,16 @@ object frmMain: TfrmMain
     end
     object Label1: TLabel
       Left = 9
-      Height = 25
+      Height = 15
       Top = 8
-      Width = 186
+      Width = 123
       Caption = 'Введите адрес подачи:'
       ParentColor = False
     end
   end
   object DBLookupComboBox1: TDBLookupComboBox
     Left = 8
-    Height = 33
+    Height = 23
     Top = 40
     Width = 342
     AutoComplete = True
@@ -312,7 +312,7 @@ object frmMain: TfrmMain
   end
   object DBLookupComboBox2: TDBLookupComboBox
     Left = 8
-    Height = 33
+    Height = 23
     Top = 112
     Width = 342
     AutoComplete = True
@@ -350,7 +350,6 @@ object frmMain: TfrmMain
     top = 72
   end
   object SQLQuery1: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id'
@@ -363,7 +362,6 @@ object frmMain: TfrmMain
         Precision = -1
         Size = 150
       end>
-    Active = True
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
