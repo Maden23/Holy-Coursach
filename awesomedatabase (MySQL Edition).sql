@@ -16,27 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cars`
---
-
-DROP TABLE IF EXISTS `cars`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cars` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `reg_number` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `model` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `color` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `carcase` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `passenger` int(11) NOT NULL,
-  `comfort_rate` int(11) NOT NULL,
-  `baby_sit` int(11) NOT NULL,
-  `wide_trunk` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `cars`
 --
 
@@ -45,28 +24,6 @@ LOCK TABLES `cars` WRITE;
 INSERT INTO `cars` VALUES (1,'P235OK77','Volkswagen Polo','Белый','Седан',5,2,1,0),(2,'A673HC99','Hyundai Solaris','Серый','Седан',5,2,1,0),(3,'B723TO197','Kia Rio','Синий','Седан',5,2,0,0),(4,'C568KM777','Renault Logan','Серебристый','Седан',5,2,0,0),(5,'T725AC97','Chevrolet Lacetti','Белый','Универсал',5,2,1,1),(6,'X435HC199','Lada Granta','Черный','Седан',5,1,0,0),(7,'H124EE97','Ford S-Max','Желтый','Минивэн',7,3,1,1),(8,'T323AT199','Nissan Teana','Черный','Седан',5,4,0,0),(9,'K555MP77','Mercedes-Benz S-Class','Черный','Седан',5,5,0,0),(10,'A671AB77','Chevrolet Cruze','Желтый','Универсал',5,2,1,1),(11,'H809TH77','Volkswagen Caravelle','Серебристый','Минивэн',8,3,1,1),(12,'P325YC177','Lada Vesta','Серебристый','Седан',5,2,1,0);
 /*!40000 ALTER TABLE `cars` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `drivers`
---
-
-DROP TABLE IF EXISTS `drivers`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `drivers` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `last_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `first_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `father_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `age` int(11) NOT NULL,
-  `xp` int(11) NOT NULL,
-  `available` int(1) NOT NULL,
-  `working_time` int(11) NOT NULL,
-  `car_id` int(11) NOT NULL,
-  `location` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `drivers`
@@ -79,18 +36,14 @@ INSERT INTO `drivers` VALUES (1,'Киселёв','Егор','Олегович',1
 UNLOCK TABLES;
 
 --
--- Table structure for table `locations`
+-- Dumping data for table `edges`
 --
 
-DROP TABLE IF EXISTS `locations`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `locations` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `adress` char(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+LOCK TABLES `edges` WRITE;
+/*!40000 ALTER TABLE `edges` DISABLE KEYS */;
+INSERT INTO `edges` VALUES (1,2,3,1),(2,3,4,1),(3,52,3,1),(4,52,4,1),(5,4,5,1),(6,6,7,1),(7,7,8,1),(8,8,9,1),(9,9,5,1),(10,6,2,1),(11,8,3,1),(12,9,4,1),(13,10,6,1),(14,10,11,1),(15,11,8,1),(16,11,12,1),(17,12,9,1),(18,12,66,1),(19,66,5,1),(20,5,57,1),(21,66,57,1),(22,64,65,1),(23,64,10,1),(24,65,12,1),(25,65,57,1),(26,5,55,1),(27,57,55,1),(28,5,48,1),(29,48,55,1),(30,5,49,1),(31,49,48,1),(32,13,14,1),(33,14,15,1),(34,14,64,1),(35,15,65,1),(36,15,16,1),(37,16,17,1),(38,17,58,1),(39,16,58,1),(40,58,57,1),(41,58,59,1),(42,59,18,1),(43,18,19,1),(44,19,20,1),(45,20,21,1),(46,14,21,1),(47,59,61,1),(48,61,26,1),(49,26,22,1),(50,22,20,1),(51,26,27,1),(52,22,27,1),(53,22,23,1),(54,27,23,1),(55,23,24,1),(56,24,25,1),(57,21,25,1),(58,27,28,1),(59,28,29,1),(60,25,29,1);
+/*!40000 ALTER TABLE `edges` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Dumping data for table `locations`
@@ -98,30 +51,9 @@ CREATE TABLE `locations` (
 
 LOCK TABLES `locations` WRITE;
 /*!40000 ALTER TABLE `locations` DISABLE KEYS */;
-INSERT INTO `locations` VALUES (1,'Мытищи-Сити'),(2,'Вече МИЭМа'),(3,'БК'),(4,'Платформа Молодёжка'),(5,'Дубки-Таун'),(6,'Шаурма-Плейс'),(7,'Кафе \"Варяги\"'),(8,'ЖЭК'),(9,'Славянский Бульвар'),(10,'ЮСБ-Порт'),(11,'Кинотеатр \"Греки\"'),(12,'Рублинштейна, 24'),(13,'Частная клиника \"Палата №6\"'),(14,'Кладбище \"Светлый путь\"'),(15,'Шаверма-Пойнт');
+INSERT INTO `locations` VALUES (1,'Кремль'),(2,'Медведково'),(3,'Свиблово'),(4,'ВДНХ'),(5,'Проспект Мира'),(6,'Алтуфьево'),(7,'Бибирево'),(8,'Отрадное'),(9,'Тимирязевский'),(10,'Речной вокзал'),(11,'Войковский'),(12,'Сокол'),(13,'Митино'),(14,'Строгино'),(15,'Кунцево'),(16,'Фили'),(17,'Москва-Сити'),(18,'Парк Горького'),(19,'Стадион Лужники'),(20,'МГУ'),(21,'Тропарево'),(22,'Новые Черемушки'),(23,'Коньково'),(24,'Ясенево'),(25,'Битцевский парк'),(26,'Нагорный'),(27,'Чертаново'),(28,'Бирюлово'),(29,'Бутово'),(30,'Нагатино'),(31,'Коломенское'),(32,'Царицыно'),(33,'Печатники'),(34,'Люблино'),(35,'Марьино'),(36,'Текстильщики'),(37,'Кузьминки'),(38,'Выхино'),(39,'Жулебино'),(40,'Шоссе Энтузиастов'),(41,'Перово'),(42,'Новогирево'),(43,'Новокосино'),(44,'Бауманский'),(45,'Измайлово'),(46,'Первомайский'),(47,'Щелковский'),(48,'Площадь трех вокзалов'),(49,'Сокольники'),(50,'Черкизовский'),(51,'Ростокино'),(52,'Ботанический сад'),(53,'Ярославский'),(54,'Мытищи'),(55,'Чистые пруды'),(56,'Лубянка'),(57,'Тверская улица'),(58,'Арбат'),(59,'Храм Христа Спасителя'),(60,'Большой театр'),(61,'Павелецкий вокзал'),(62,'Таганская улица'),(63,'Курский вокзал');
 /*!40000 ALTER TABLE `locations` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `orders`
---
-
-DROP TABLE IF EXISTS `orders`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `orders` (
-  `id` int(1) NOT NULL AUTO_INCREMENT,
-  `created` datetime NOT NULL,
-  `start_id` int(11) NOT NULL,
-  `finish_id` int(11) NOT NULL,
-  `DATE_TIME` time NOT NULL,
-  `comfort_rate` int(1) NOT NULL,
-  `passengers` int(1) NOT NULL,
-  `wide_trunk` int(1) NOT NULL,
-  `baby_seat` int(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `orders`
@@ -142,4 +74,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-08  5:04:51
+-- Dump completed on 2017-03-10 21:08:22
