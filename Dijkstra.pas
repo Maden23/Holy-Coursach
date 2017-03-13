@@ -2,7 +2,6 @@ program dijkstra;
 const
    inf = 9999;
    n = 5;
-//мамуля, привет, я взламываю комп, не пугайся
 type matrix = array [1..n, 1..n] of integer;
      mass = array [1..n] of integer;
      endless = array of integer;
@@ -19,18 +18,21 @@ var i, j: integer;
 begin
    min := inf;
    for i:=0 to length(Q)-1 do
-      if d[Q[i]] < min then
+      if (d[Q[i]] < min) {and (d[Q[i]] <> 0)} then
          begin
             min := d[Q[i]];
             index := Q[i];
          end;
    i := 0;
    
-   while (Q[i] <> index) and (i < length(Q)) do
+   while (i < length(Q)) and (Q[i] <> index) do
       inc(i);
-   Q[i] := Q[length(Q)-1];
-   setlength(Q, length(Q)-1);
-   result := min;
+   if i < length(q) then 
+    begin
+      Q[i] := Q[length(Q)-1];
+      setlength(Q, length(Q)-1);
+    end;
+result := index;
 end;
     
 begin
@@ -64,7 +66,7 @@ for i:=0 to n-1 do
 while length(q) > 0 do
    begin
       curr := ExtractMin(d, Q);
-      for i:=0 to n-1 do
+      for i:=1 to n do
             if (d[i] > d[curr] + a[curr][i]) then
                begin
                   d[i] := d[curr] + a[curr][i];
@@ -72,5 +74,9 @@ while length(q) > 0 do
                   //ChangePriority(Q, i, d[i]);
                end;
    end;
+
+writeln('Distance: ');   
+for i:=1 to n do
+  writeln(d[i]);
 
 end.
