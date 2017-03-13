@@ -7,7 +7,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Main, lazcontrols, details, DataModule, start
+  Forms, Main, lazcontrols, details, DataModule, start, graph, driver
   { you can add units after this };
 
 {$R *.res}
@@ -19,6 +19,7 @@ begin
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TfrmDetails, frmDetails);
   Application.CreateForm(TfrmMain, frmMain);
+  Application.CreateForm(Tfrm, frm);
   Application.Run;
 end.
 

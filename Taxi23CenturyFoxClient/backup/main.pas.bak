@@ -81,10 +81,10 @@ begin
      start := frmMain.DBLookupComboBox1.KeyValue;
      finish := frmMain.DBLookupComboBox2.KeyValue;
      frmMain.SQLQuery1.Close;
+
 end;
 
 procedure TfrmMain.btnConfirmClick(Sender: TObject);
-var start, finish : integer;
 begin
   try
      DataModule1.Connection.Open;

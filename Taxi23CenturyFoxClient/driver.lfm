@@ -1,0 +1,40 @@
+object frm: Tfrm
+  Left = 587
+  Height = 932
+  Top = 21
+  Width = 929
+  Caption = 'frm'
+  ClientHeight = 932
+  ClientWidth = 929
+  LCLVersion = '1.6.2.0'
+  object Button1: TButton
+    Left = 24
+    Height = 193
+    Top = 24
+    Width = 880
+    Caption = 'КНОПИЩЕ'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -144
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    OnClick = Button1Click
+    ParentFont = False
+    TabOrder = 0
+  end
+  object Memo1: TMemo
+    Left = 24
+    Height = 704
+    Top = 224
+    Width = 880
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -16
+    Font.Name = 'Arial Narrow'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    ScrollBars = ssAutoVertical
+    TabOrder = 1
+  end
+end

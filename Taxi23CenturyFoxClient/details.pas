@@ -45,7 +45,7 @@ var
 implementation
 
 uses
-  Main;
+  Main, Start;
 
 {$R *.lfm}
 
@@ -104,10 +104,13 @@ begin
                Post;
                ApplyUpdates;
                DataModule1.SQLTransaction1.Commit;
-               except ShowMessage('Запрос не выполнен!');
+            except
+               ShowMessage('Запрос не выполнен!');
             end;
 
        end;
+  Close;
+  frmStart.Show;
 end;
 
 end.

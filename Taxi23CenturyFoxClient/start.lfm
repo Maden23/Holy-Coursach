@@ -1,12 +1,14 @@
 object frmStart: TfrmStart
-  Left = 443
+  Left = 948
   Height = 639
-  Top = 116
+  Top = 349
   Width = 960
+  BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 639
   ClientWidth = 960
   Color = 33023
+  Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Driver: TButton
     Left = 360
@@ -32440,7 +32442,7 @@ object frmStart: TfrmStart
     Height = 26
     Top = 584
     Width = 155
-    OnClick = ImgDispatcherClick
+    OnClick = ImgDriverClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869637E0A000089504E47
       0D0A1A0A0000000D494844520000009C0000001A08060000004251358800000A
@@ -32535,7 +32537,7 @@ object frmStart: TfrmStart
     Height = 26
     Top = 584
     Width = 170
-    OnClick = ImgDispatcherClick
+    OnClick = ImgDriverClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636B45000089504E47
       0D0A1A0A0000000D49484452000000AB0000001A0806000000C87EACC9000000

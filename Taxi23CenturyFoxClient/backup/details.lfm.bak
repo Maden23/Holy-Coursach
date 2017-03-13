@@ -1,78 +1,79 @@
 object frmDetails: TfrmDetails
-  Left = 503
+  Left = 878
   Height = 401
-  Top = 206
-  Width = 330
+  Top = 243
+  Width = 296
   AutoSize = True
   BorderStyle = bsToolWindow
   Caption = 'Детали заказа'
   ClientHeight = 401
-  ClientWidth = 330
+  ClientWidth = 296
   OnShow = FormShow
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
     Left = 13
     Height = 384
     Top = 8
-    Width = 307
+    Width = 281
     Align = alCustom
+    AutoSize = True
     BorderWidth = 1
     ClientHeight = 384
-    ClientWidth = 307
+    ClientWidth = 281
     TabOrder = 0
     object Label1: TLabel
-      Left = 2
-      Height = 15
+      Left = 4
+      Height = 25
       Top = 2
-      Width = 79
+      Width = 119
       Caption = 'Адрес подачи:'
       ParentColor = False
     end
     object Label2: TLabel
-      Left = 2
-      Height = 15
+      Left = 4
+      Height = 25
       Top = 42
-      Width = 94
+      Width = 137
       Caption = 'Конечный пункт:'
       ParentColor = False
     end
     object Label3: TLabel
-      Left = 2
-      Height = 15
+      Left = 4
+      Height = 25
       Top = 82
-      Width = 81
+      Width = 121
       Caption = 'Время подачи:'
       ParentColor = False
     end
     object Label4: TLabel
-      Left = 2
-      Height = 15
+      Left = 4
+      Height = 25
       Top = 122
-      Width = 137
+      Width = 200
       Caption = 'Дополнительные опции:'
       ParentColor = False
     end
     object Label5: TLabel
-      Left = 0
-      Height = 15
+      Left = 2
+      Height = 25
       Top = 168
-      Width = 108
+      Width = 162
       Caption = 'Уровень комфорта:'
       ParentColor = False
     end
     object Label6: TLabel
-      Left = 0
-      Height = 15
+      Left = 2
+      Height = 25
       Top = 215
-      Width = 138
+      Width = 203
       Caption = 'Количество пассажиров:'
       ParentColor = False
     end
     object Label7: TLabel
-      Left = 0
-      Height = 15
+      Left = 2
+      Height = 25
       Top = 281
-      Width = 31
+      Width = 45
       Caption = 'Цена:'
       ParentColor = False
     end
@@ -84,9 +85,9 @@ object frmDetails: TfrmDetails
       AnchorSideBottom.Control = Panel1
       AnchorSideBottom.Side = asrBottom
       Left = -8
-      Height = 25
-      Top = 357
-      Width = 313
+      Height = 35
+      Top = 347
+      Width = 287
       Align = alCustom
       Anchors = [akLeft, akRight, akBottom]
       AutoSize = True
@@ -96,58 +97,58 @@ object frmDetails: TfrmDetails
       TabOrder = 0
     end
     object Label8: TLabel
-      Left = 129
-      Height = 15
+      Left = 131
+      Height = 25
       Top = 2
-      Width = 34
+      Width = 51
       Caption = 'Label8'
       ParentColor = False
     end
     object Label9: TLabel
-      Left = 146
-      Height = 15
+      Left = 148
+      Height = 25
       Top = 42
-      Width = 34
+      Width = 51
       Caption = 'Label9'
       ParentColor = False
     end
     object Label10: TLabel
-      Left = 129
-      Height = 15
+      Left = 131
+      Height = 25
       Top = 82
-      Width = 40
+      Width = 61
       Caption = 'Label10'
       ParentColor = False
     end
     object Label11: TLabel
-      Left = 209
-      Height = 15
+      Left = 211
+      Height = 25
       Top = 122
-      Width = 40
+      Width = 61
       Caption = 'Label11'
       ParentColor = False
     end
     object Label12: TLabel
-      Left = 176
-      Height = 15
+      Left = 178
+      Height = 25
       Top = 168
-      Width = 40
+      Width = 61
       Caption = 'Label12'
       ParentColor = False
     end
     object Label13: TLabel
-      Left = 216
-      Height = 15
+      Left = 218
+      Height = 25
       Top = 215
-      Width = 40
+      Width = 61
       Caption = 'Label13'
       ParentColor = False
     end
     object Label14: TLabel
-      Left = 55
-      Height = 15
+      Left = 57
+      Height = 25
       Top = 281
-      Width = 40
+      Width = 61
       Caption = 'Label14'
       ParentColor = False
     end

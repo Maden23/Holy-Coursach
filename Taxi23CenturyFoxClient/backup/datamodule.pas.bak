@@ -5,7 +5,7 @@ unit DataModule;
 interface
 
 uses
-  Classes, SysUtils, mysql56conn, sqldb, FileUtil;
+  Classes, SysUtils, mysql56conn, sqldb, db, FileUtil;
 
 type
 
@@ -13,6 +13,13 @@ type
 
   TDataModule1 = class(TDataModule)
     Connection: TMySQL56Connection;
+    DataSource1: TDataSource;
+    EdgesQuery: TSQLQuery;
+    EdgesQuerydistance: TLongintField;
+    EdgesQueryfirst_node: TLongintField;
+    EdgesQueryid_edge: TAutoIncField;
+    EdgesQuerysecond_node: TLongintField;
+    SQLQuery1: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
   private
     { private declarations }
