@@ -143,9 +143,9 @@ begin
   if (hours = 0) and (min >= 10) then
      Label16.Caption := '00' + ' : ' + IntToStr(min);
   if (hours <> 0) and (min < 10) then
-     Label16.Caption := '0' + ' : ' + '0' + IntToStr(min);
+     Label16.Caption := '0' + IntToStr(hours) + ' : ' + '0' + IntToStr(min);
   if (hours <> 0) and (min >= 10) then
-     Label16.Caption := '0' + ' : ' + IntToStr(min);
+     Label16.Caption := '0' + IntToStr(hours) + ' : ' + IntToStr(min);
 end;
 
 procedure TfrmDetails.Button1Click(Sender: TObject);
