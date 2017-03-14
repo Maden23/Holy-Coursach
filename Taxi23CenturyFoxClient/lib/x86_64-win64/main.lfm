@@ -1,8 +1,8 @@
 object frmMain: TfrmMain
-  Left = 908
+  Left = 697
   Height = 639
-  Top = 349
-  Width = 379
+  Top = 196
+  Width = 380
   HorzScrollBar.Page = 352
   HorzScrollBar.Range = 352
   VertScrollBar.Page = 744
@@ -10,7 +10,7 @@ object frmMain: TfrmMain
   BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 639
-  ClientWidth = 379
+  ClientWidth = 380
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel

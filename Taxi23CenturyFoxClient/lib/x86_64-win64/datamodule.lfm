@@ -1,8 +1,8 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
   Height = 201
-  HorizontalOffset = 891
-  VerticalOffset = 294
+  HorizontalOffset = 1096
+  VerticalOffset = 392
   Width = 385
   object Connection: TMySQL56Connection
     Connected = True

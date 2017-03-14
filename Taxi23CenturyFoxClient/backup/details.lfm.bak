@@ -1,13 +1,13 @@
 object frmDetails: TfrmDetails
-  Left = 584
-  Height = 401
-  Top = 207
-  Width = 296
+  Left = 876
+  Height = 402
+  Top = 311
+  Width = 307
   AutoSize = True
   BorderStyle = bsToolWindow
   Caption = 'Детали заказа'
-  ClientHeight = 401
-  ClientWidth = 296
+  ClientHeight = 402
+  ClientWidth = 307
   OnShow = FormShow
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel

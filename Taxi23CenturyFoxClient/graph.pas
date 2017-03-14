@@ -22,11 +22,12 @@ implementation
 
 procedure FormAdjecencyMatrix (amount: integer; var a: matrix);
 var i, j, id, n, m: integer;
+const inf = 9999;
 begin
   {Иницицализация всех возможных ребер}
   for i:=1 to amount do
      for j:=1 to amount do
-        a[i][j] := 0;
+        a[i][j] := inf;
   {Заполнение матрицы существующими ребрами}
   DataModule1.EdgesQuery.Open;
   //for id:=1 to amount do
@@ -61,11 +62,13 @@ begin
 
    while (i < length(Q)) and (Q[i] <> index) do
       inc(i);
+      //repeat inc(i) until (i = length(Q)-1) or (Q[i] = index);
    if i < length(q) then
     begin
       Q[i] := Q[length(Q)-1];
       setlength(Q, length(Q)-1);
     end;
+
 result := index;
 end;
 
@@ -77,32 +80,28 @@ var
     q: endless; //queue
     i, j, curr: integer;
 begin
-
-for i:=1 to amount do
-   d[i] := inf;
-
-for i:=1 to amount do
-   p[i] := 0;
-
-d[s] := 0; //distance of current node S
-
-for i:=1 to amount do
-   begin
-      setlength(q, length(q)+1);
-      q[i-1] := i;
-   end;
-
-while length(q) > 0 do
-   begin
-      curr := ExtractMin(d, Q);
-      for i:=1 to amount do
-            if (d[i] > d[curr] + a[curr][i]) then
+     for i:=1 to amount do
+         d[i] := inf;
+     for i:=1 to amount do
+         p[i] := 0;
+     d[s] := 0; //distance of current node S
+     for i:=1 to amount do
+         begin
+              setlength(q, length(q)+1);
+              q[i-1] := i; //i-1
+         end;
+         while length(q) > 0 do
                begin
-                  d[i] := d[curr] + a[curr][i];
-                  p[i] := curr;
+                    curr := ExtractMin(d, Q);
+                    for i:=1 to amount do
+                        if(d[i] > d[curr] + a[curr][i]) then
+                           begin
+                                d[i] := d[curr] + a[curr][i];
+                                p[i] := curr;
+                                //ShowMessage ('Distance changed for id: '+inttostr(i)+'; new: '+inttostr(d[i]));
+                           end;
                end;
-   end;
-result := d;
+     Dijkstra := d;
 end;
 
 end.

@@ -93,13 +93,12 @@ function CountTime(start, finish: integer): string;
 var i, dist: integer;
     d: mass;
   begin
-    DataModule1.SQLQuery1.Open;
+    {DataModule1.SQLQuery1.Open;
     amount := DataModule1.SQLQuery1.FieldByName('amount').AsInteger;
     setlength(a, amount+1); // 0-я строка и столбец не будут учитываться
       for i:=1 to amount do
          setlength(a[i], amount+1);
-
-    FormAdjecencyMatrix(amount, a);
+       FormAdjecencyMatrix(amount, a);}
     d := Dijkstra(a, start, amount);
     dist := d[finish];
     result := IntToStr(dist);
@@ -126,6 +125,8 @@ begin
   Label13.Caption := InttoStr(frmMain.Passengers.Position);
   Label14.Caption := Price(frmMain.DBLookupComboBox1.KeyValue, frmMain.DBLookupComboBox2.KeyValue, frmMain.ComfortRate.Position);
   Label16.Caption := CountTime(frmMain.DBLookupComboBox1.KeyValue, frmMain.DBLookupComboBox2.KeyValue);
+  //ShowMessage('Цена: ' + Label14.Caption+' Время: '+Label16.Caption);
+
 end;
 
 procedure TfrmDetails.Button1Click(Sender: TObject);

@@ -1,12 +1,12 @@
 object frmStart: TfrmStart
-  Left = 298
+  Left = 697
   Height = 639
-  Top = 177
+  Top = 270
   Width = 960
   BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 639
+  ClientWidth = 960
   Color = 33023
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
