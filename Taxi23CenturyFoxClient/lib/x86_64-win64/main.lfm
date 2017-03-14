@@ -1,8 +1,8 @@
 object frmMain: TfrmMain
-  Left = 432
+  Left = 908
   Height = 639
-  Top = 209
-  Width = 377
+  Top = 349
+  Width = 379
   HorzScrollBar.Page = 352
   HorzScrollBar.Range = 352
   VertScrollBar.Page = 744
@@ -10,7 +10,7 @@ object frmMain: TfrmMain
   BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 639
-  ClientWidth = 377
+  ClientWidth = 379
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
@@ -316,14 +316,14 @@ object frmMain: TfrmMain
   object DBLookupComboBox2: TDBLookupComboBox
     Left = 8
     Height = 33
-    Top = 112
+    Top = 120
     Width = 342
     AutoComplete = True
     AutoDropDown = True
     KeyField = 'id'
     ListField = 'adress'
     ListFieldIndex = 0
-    ListSource = DataSource1
+    ListSource = DataSource2
     LookupCache = False
     Sorted = True
     TabOrder = 2

@@ -10,16 +10,17 @@ uses
 
 type
   matrix = array of array of integer;
+  mass = array [1..100] of integer;
+  endless = array of integer;
 
-procedure FormAdjecencyMatrix (amount: integer;
-          var a: matrix);
+procedure FormAdjecencyMatrix (amount: integer; var a: matrix);
 
+function Dijkstra(var a: matrix; var s: integer; amount: integer): mass;
 
 
 implementation
 
-procedure FormAdjecencyMatrix (amount: integer;
-          var a: matrix);
+procedure FormAdjecencyMatrix (amount: integer; var a: matrix);
 var i, j, id, n, m: integer;
 begin
   {Иницицализация всех возможных ребер}
@@ -43,6 +44,66 @@ begin
       end;
 end;
 
+function ExtractMin (d: mass; var Q: endless): integer;
+const
+  inf = 9999;
+var i, j: integer;
+    index, min: integer;
+begin
+   min := inf;
+   for i:=0 to length(Q)-1 do
+      if (d[Q[i]] < min) {and (d[Q[i]] <> 0)} then
+         begin
+            min := d[Q[i]];
+            index := Q[i];
+         end;
+   i := 0;
+
+   while (i < length(Q)) and (Q[i] <> index) do
+      inc(i);
+   if i < length(q) then
+    begin
+      Q[i] := Q[length(Q)-1];
+      setlength(Q, length(Q)-1);
+    end;
+result := index;
+end;
+
+function Dijkstra(var a: matrix; var s: integer; amount: integer): mass;
+const
+  inf = 9999;
+var
+    d, p: mass; //distance
+    q: endless; //queue
+    i, j, curr: integer;
+begin
+
+for i:=1 to amount do
+   d[i] := inf;
+
+for i:=1 to amount do
+   p[i] := 0;
+
+d[s] := 0; //distance of current node S
+
+for i:=1 to amount do
+   begin
+      setlength(q, length(q)+1);
+      q[i-1] := i;
+   end;
+
+while length(q) > 0 do
+   begin
+      curr := ExtractMin(d, Q);
+      for i:=1 to amount do
+            if (d[i] > d[curr] + a[curr][i]) then
+               begin
+                  d[i] := d[curr] + a[curr][i];
+                  p[i] := curr;
+               end;
+   end;
+result := d;
+end;
 
 end.
 

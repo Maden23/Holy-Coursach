@@ -1,9 +1,9 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Height = 200
-  HorizontalOffset = 558
-  VerticalOffset = 198
-  Width = 384
+  Height = 201
+  HorizontalOffset = 891
+  VerticalOffset = 294
+  Width = 385
   object Connection: TMySQL56Connection
     Connected = True
     LoginPrompt = False
@@ -29,6 +29,7 @@ object DataModule1: TDataModule1
     top = 8
   end
   object EdgesQuery: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id_edge'
@@ -50,10 +51,11 @@ object DataModule1: TDataModule1
         DataType = ftInteger
         Precision = -1
       end>
+    Active = True
     Database = Connection
     Transaction = SQLTransaction1
     SQL.Strings = (
-      'select * from edges where first_node < 64 and second_node < 64;'
+      'select * from edges;'
     )
     Options = []
     Params = <>

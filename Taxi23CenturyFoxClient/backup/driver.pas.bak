@@ -33,9 +33,11 @@ procedure ShowMatrix(var a: matrix; Memo1: TMemo);
 var i, j: integer;
   begin
      for i:=1 to length(a)-1 do
+         begin
          for j:=1 to length(a)-1 do
              Memo1.Lines[i] := Memo1.Lines[i] + ' ' + inttostr(a[i][j]);
-
+         Memo1.Lines.Add('');
+         end;
   end;
 
 procedure Tfrm.Button1Click(Sender: TObject);
