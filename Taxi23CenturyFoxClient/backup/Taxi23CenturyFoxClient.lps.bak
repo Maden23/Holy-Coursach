@@ -8,7 +8,7 @@
       <Unit0>
         <Filename Value="Taxi23CenturyFoxClient.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="11"/>
+        <EditorIndex Value="7"/>
         <CursorPos Y="16"/>
         <UsageCount Value="172"/>
         <Loaded Value="True"/>
@@ -34,8 +34,8 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="103"/>
-        <CursorPos X="40" Y="101"/>
+        <TopLine Value="60"/>
+        <CursorPos X="43" Y="92"/>
         <UsageCount Value="130"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -84,13 +84,12 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
         <CursorPos X="28" Y="55"/>
-        <ComponentState Value="1"/>
         <UsageCount Value="123"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="main.lfm"/>
-        <EditorIndex Value="12"/>
+        <EditorIndex Value="8"/>
         <CursorPos X="38" Y="20"/>
         <UsageCount Value="82"/>
         <Loaded Value="True"/>
@@ -104,11 +103,10 @@
       </Unit8>
       <Unit9>
         <Filename Value="C:\lazarus\lcl\include\control.inc"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="4757"/>
         <CursorPos Y="4776"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="C:\lazarus\fpc\3.0.0\source\packages\fcl-db\src\base\db.pas"/>
@@ -140,11 +138,10 @@
       </Unit13>
       <Unit14>
         <Filename Value="C:\lazarus\lcl\include\dblookup.inc"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="413"/>
         <CursorPos Y="435"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit14>
       <Unit15>
         <Filename Value="unit1.lfm"/>
@@ -169,22 +166,20 @@
       </Unit17>
       <Unit18>
         <Filename Value="C:\lazarus\lcl\include\dblookupcombobox.inc"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="80"/>
         <CursorPos X="42" Y="97"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit18>
       <Unit19>
         <Filename Value="C:\lazarus\lcl\include\customcombobox.inc"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="892"/>
         <CursorPos Y="909"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit19>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="21" HistoryIndex="20">
       <Position1>
         <Filename Value="graph.pas"/>
         <Caret Line="93" TopLine="70"/>
@@ -254,57 +249,21 @@
         <Caret Line="90" TopLine="73"/>
       </Position17>
       <Position18>
-        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
-        <Caret Line="4774" TopLine="4757"/>
+        <Filename Value="details.pas"/>
+        <Caret Line="131" TopLine="114"/>
       </Position18>
       <Position19>
-        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
-        <Caret Line="4776" TopLine="4757"/>
+        <Filename Value="details.pas"/>
+        <Caret Line="133" Column="3" TopLine="117"/>
       </Position19>
       <Position20>
         <Filename Value="details.pas"/>
-        <Caret Line="131" TopLine="114"/>
+        <Caret Line="129" TopLine="118"/>
       </Position20>
       <Position21>
-        <Filename Value="C:\lazarus\lcl\include\dblookupcombobox.inc"/>
-        <Caret Line="97" TopLine="80"/>
-      </Position21>
-      <Position22>
-        <Filename Value="C:\lazarus\lcl\include\customcombobox.inc"/>
-        <Caret Line="909" TopLine="892"/>
-      </Position22>
-      <Position23>
-        <Filename Value="C:\lazarus\lcl\include\dblookupcombobox.inc"/>
-        <Caret Line="97" TopLine="80"/>
-      </Position23>
-      <Position24>
-        <Filename Value="C:\lazarus\lcl\include\dblookup.inc"/>
-        <Caret Line="430" TopLine="413"/>
-      </Position24>
-      <Position25>
-        <Filename Value="C:\lazarus\lcl\include\dblookup.inc"/>
-        <Caret Line="431" TopLine="413"/>
-      </Position25>
-      <Position26>
-        <Filename Value="C:\lazarus\lcl\include\dblookup.inc"/>
-        <Caret Line="434" TopLine="413"/>
-      </Position26>
-      <Position27>
-        <Filename Value="C:\lazarus\lcl\include\dblookup.inc"/>
-        <Caret Line="435" TopLine="413"/>
-      </Position27>
-      <Position28>
-        <Filename Value="details.pas"/>
-        <Caret Line="133" Column="3" TopLine="117"/>
-      </Position28>
-      <Position29>
-        <Filename Value="details.pas"/>
-        <Caret Line="129" TopLine="118"/>
-      </Position29>
-      <Position30>
         <Filename Value="details.pas"/>
         <Caret Line="130" TopLine="118"/>
-      </Position30>
+      </Position21>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
