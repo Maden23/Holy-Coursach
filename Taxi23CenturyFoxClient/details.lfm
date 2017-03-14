@@ -12,68 +12,68 @@ object frmDetails: TfrmDetails
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
     Left = 13
-    Height = 384
+    Height = 374
     Top = 8
-    Width = 281
+    Width = 260
     Align = alCustom
     AutoSize = True
     BorderWidth = 1
-    ClientHeight = 384
-    ClientWidth = 281
+    ClientHeight = 374
+    ClientWidth = 260
     TabOrder = 0
     object Label1: TLabel
       Left = 4
-      Height = 25
+      Height = 15
       Top = 2
-      Width = 119
+      Width = 79
       Caption = 'Адрес подачи:'
       ParentColor = False
     end
     object Label2: TLabel
       Left = 4
-      Height = 25
+      Height = 15
       Top = 42
-      Width = 137
+      Width = 94
       Caption = 'Конечный пункт:'
       ParentColor = False
     end
     object Label3: TLabel
       Left = 4
-      Height = 25
+      Height = 15
       Top = 82
-      Width = 121
+      Width = 81
       Caption = 'Время подачи:'
       ParentColor = False
     end
     object Label4: TLabel
       Left = 4
-      Height = 25
+      Height = 15
       Top = 122
-      Width = 200
+      Width = 137
       Caption = 'Дополнительные опции:'
       ParentColor = False
     end
     object Label5: TLabel
       Left = 2
-      Height = 25
+      Height = 15
       Top = 168
-      Width = 162
+      Width = 108
       Caption = 'Уровень комфорта:'
       ParentColor = False
     end
     object Label6: TLabel
       Left = 2
-      Height = 25
+      Height = 15
       Top = 215
-      Width = 203
+      Width = 138
       Caption = 'Количество пассажиров:'
       ParentColor = False
     end
     object Label7: TLabel
       Left = 2
-      Height = 25
+      Height = 15
       Top = 281
-      Width = 45
+      Width = 31
       Caption = 'Цена:'
       ParentColor = False
     end
@@ -85,9 +85,9 @@ object frmDetails: TfrmDetails
       AnchorSideBottom.Control = Panel1
       AnchorSideBottom.Side = asrBottom
       Left = -8
-      Height = 35
+      Height = 25
       Top = 347
-      Width = 287
+      Width = 266
       Align = alCustom
       Anchors = [akLeft, akRight, akBottom]
       AutoSize = True
@@ -98,73 +98,73 @@ object frmDetails: TfrmDetails
     end
     object Label8: TLabel
       Left = 131
-      Height = 25
+      Height = 15
       Top = 2
-      Width = 51
+      Width = 34
       Caption = 'Label8'
       ParentColor = False
     end
     object Label9: TLabel
       Left = 148
-      Height = 25
+      Height = 15
       Top = 42
-      Width = 51
+      Width = 34
       Caption = 'Label9'
       ParentColor = False
     end
     object Label10: TLabel
       Left = 131
-      Height = 25
+      Height = 15
       Top = 82
-      Width = 61
+      Width = 40
       Caption = 'Label10'
       ParentColor = False
     end
     object Label11: TLabel
       Left = 211
-      Height = 25
+      Height = 15
       Top = 122
-      Width = 61
+      Width = 40
       Caption = 'Label11'
       ParentColor = False
     end
     object Label12: TLabel
       Left = 178
-      Height = 25
+      Height = 15
       Top = 168
-      Width = 61
+      Width = 40
       Caption = 'Label12'
       ParentColor = False
     end
     object Label13: TLabel
       Left = 218
-      Height = 25
+      Height = 15
       Top = 215
-      Width = 61
+      Width = 40
       Caption = 'Label13'
       ParentColor = False
     end
     object Label14: TLabel
       Left = 57
-      Height = 25
+      Height = 15
       Top = 281
-      Width = 61
+      Width = 40
       Caption = 'Label14'
       ParentColor = False
     end
     object Label15: TLabel
       Left = 4
-      Height = 25
+      Height = 15
       Top = 312
-      Width = 56
+      Width = 38
       Caption = 'Время:'
       ParentColor = False
     end
     object Label16: TLabel
       Left = 72
-      Height = 25
+      Height = 15
       Top = 313
-      Width = 61
+      Width = 40
       Caption = 'Label16'
       ParentColor = False
     end

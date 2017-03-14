@@ -72,18 +72,24 @@ var i, j, dist, money: integer;
     setlength(a, amount+1); // 0-я строка и столбец не будут учитываться
       for i:=1 to amount do
          setlength(a[i], amount+1);
-
     FormAdjecencyMatrix(amount, a);
-    money := 99;
+
+    if comfort = 1 then
+       money := 59
+    else
+       if (comfort = 2) or (comfort = 3) then
+          money := 99
+       else
+          money := 149;
     dist := Dijkstra(a, start, amount)[finish];
     if dist > 5 then
        begin
          case comfort of
-           1: money := money + 15*dist;
-           2: money := money + 20*dist;
-           3: money := money + 25*dist;
-           4: money := money + 30*dist;
-           5: money := money + 40*dist;
+           1: money := money + 15*(dist-5);
+           2: money := money + 20*(dist-5);
+           3: money := money + 25*(dist-5);
+           4: money := money + 30*(dist-5);
+           5: money := money + 40*(dist-5);
          end;
        end;
     result := IntToStr(money);
