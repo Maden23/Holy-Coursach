@@ -1,25 +1,25 @@
 object frmDetails: TfrmDetails
-  Left = 480
-  Height = 402
-  Top = 115
-  Width = 307
+  Left = 466
+  Height = 394
+  Top = 156
+  Width = 225
   AutoSize = True
   BorderStyle = bsToolWindow
   Caption = 'Детали заказа'
-  ClientHeight = 402
-  ClientWidth = 307
+  ClientHeight = 394
+  ClientWidth = 225
   OnShow = FormShow
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
     Left = 13
     Height = 374
     Top = 8
-    Width = 260
+    Width = 202
     Align = alCustom
     AutoSize = True
     BorderWidth = 1
     ClientHeight = 374
-    ClientWidth = 260
+    ClientWidth = 202
     TabOrder = 0
     object Label1: TLabel
       Left = 4
@@ -84,10 +84,10 @@ object frmDetails: TfrmDetails
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = Panel1
       AnchorSideBottom.Side = asrBottom
-      Left = -8
+      Left = 0
       Height = 25
       Top = 347
-      Width = 266
+      Width = 200
       Align = alCustom
       Anchors = [akLeft, akRight, akBottom]
       AutoSize = True
@@ -97,7 +97,7 @@ object frmDetails: TfrmDetails
       TabOrder = 0
     end
     object Label8: TLabel
-      Left = 131
+      Left = 96
       Height = 15
       Top = 2
       Width = 34
@@ -105,7 +105,7 @@ object frmDetails: TfrmDetails
       ParentColor = False
     end
     object Label9: TLabel
-      Left = 148
+      Left = 107
       Height = 15
       Top = 42
       Width = 34
@@ -113,7 +113,7 @@ object frmDetails: TfrmDetails
       ParentColor = False
     end
     object Label10: TLabel
-      Left = 131
+      Left = 96
       Height = 15
       Top = 82
       Width = 40
@@ -121,7 +121,7 @@ object frmDetails: TfrmDetails
       ParentColor = False
     end
     object Label11: TLabel
-      Left = 211
+      Left = 160
       Height = 15
       Top = 122
       Width = 40
@@ -129,7 +129,7 @@ object frmDetails: TfrmDetails
       ParentColor = False
     end
     object Label12: TLabel
-      Left = 178
+      Left = 120
       Height = 15
       Top = 168
       Width = 40
@@ -137,20 +137,27 @@ object frmDetails: TfrmDetails
       ParentColor = False
     end
     object Label13: TLabel
-      Left = 218
+      Left = 152
       Height = 15
-      Top = 215
+      Top = 216
       Width = 40
       Caption = 'Label13'
       ParentColor = False
     end
     object Label14: TLabel
-      Left = 57
-      Height = 15
-      Top = 281
-      Width = 40
+      Left = 40
+      Height = 22
+      Top = 278
+      Width = 73
       Caption = 'Label14'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -19
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
       ParentColor = False
+      ParentFont = False
     end
     object Label15: TLabel
       Left = 4
@@ -161,12 +168,19 @@ object frmDetails: TfrmDetails
       ParentColor = False
     end
     object Label16: TLabel
-      Left = 101
-      Height = 15
-      Top = 312
-      Width = 40
+      Left = 88
+      Height = 22
+      Top = 309
+      Width = 73
       Caption = 'Label16'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -19
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
       ParentColor = False
+      ParentFont = False
     end
   end
   object DataQuery: TSQLQuery
