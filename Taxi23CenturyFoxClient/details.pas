@@ -133,7 +133,7 @@ begin
 
   Label12.Caption := InttoStr(frmMain.ComfortRate.Position);
   Label13.Caption := InttoStr(frmMain.Passengers.Position);
-  Label14.Caption := ' ~ ' + Price(frmMain.DBLookupComboBox1.KeyValue, frmMain.DBLookupComboBox2.KeyValue, frmMain.ComfortRate.Position) + ' ₽ ';
+  Label14.Caption := Price(frmMain.DBLookupComboBox1.KeyValue, frmMain.DBLookupComboBox2.KeyValue, frmMain.ComfortRate.Position);
 
   min := CountTime(frmMain.DBLookupComboBox1.KeyValue, frmMain.DBLookupComboBox2.KeyValue);
   hours := min div 60;
