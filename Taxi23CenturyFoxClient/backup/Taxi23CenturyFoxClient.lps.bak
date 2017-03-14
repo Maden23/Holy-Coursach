@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="7"/>
         <CursorPos Y="16"/>
-        <UsageCount Value="172"/>
+        <UsageCount Value="173"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -22,7 +22,7 @@
         <UnitName Value="Main"/>
         <TopLine Value="89"/>
         <CursorPos X="3" Y="89"/>
-        <UsageCount Value="172"/>
+        <UsageCount Value="173"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -34,9 +34,9 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="60"/>
-        <CursorPos X="43" Y="92"/>
-        <UsageCount Value="130"/>
+        <TopLine Value="116"/>
+        <CursorPos X="53" Y="148"/>
+        <UsageCount Value="131"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -48,9 +48,8 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="DataModule"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="4"/>
         <CursorPos X="3" Y="8"/>
-        <UsageCount Value="129"/>
+        <UsageCount Value="130"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -63,7 +62,8 @@
         <EditorIndex Value="1"/>
         <TopLine Value="38"/>
         <CursorPos X="9" Y="8"/>
-        <UsageCount Value="128"/>
+        <ComponentState Value="1"/>
+        <UsageCount Value="129"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -73,7 +73,7 @@
         <EditorIndex Value="5"/>
         <TopLine Value="74"/>
         <CursorPos Y="101"/>
-        <UsageCount Value="123"/>
+        <UsageCount Value="124"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -83,9 +83,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="28" Y="55"/>
-        <UsageCount Value="123"/>
+        <TopLine Value="23"/>
+        <CursorPos Y="61"/>
+        <ComponentState Value="1"/>
+        <UsageCount Value="124"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="main.lfm"/>
@@ -179,7 +182,7 @@
         <UsageCount Value="10"/>
       </Unit19>
     </Units>
-    <JumpHistory Count="21" HistoryIndex="20">
+    <JumpHistory Count="23" HistoryIndex="22">
       <Position1>
         <Filename Value="graph.pas"/>
         <Caret Line="93" TopLine="70"/>
@@ -264,17 +267,14 @@
         <Filename Value="details.pas"/>
         <Caret Line="130" TopLine="118"/>
       </Position21>
+      <Position22>
+        <Filename Value="details.pas"/>
+        <Caret Line="133" Column="35" TopLine="113"/>
+      </Position22>
+      <Position23>
+        <Filename Value="details.pas"/>
+        <Caret Line="140" Column="62" TopLine="102"/>
+      </Position23>
     </JumpHistory>
   </ProjectSession>
-  <Debugging>
-    <BreakPoints Count="1">
-      <Item1>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="driver.pas"/>
-        <Line Value="61"/>
-      </Item1>
-    </BreakPoints>
-  </Debugging>
 </CONFIG>

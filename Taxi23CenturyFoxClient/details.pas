@@ -95,7 +95,7 @@ var i, j, dist, money: integer;
     result := IntToStr(money);
   end;
 
-function CountTime(start, finish: integer): string;
+function CountTime(start, finish: integer): integer; //string;
 var i, dist: integer;
     d: mass;
   begin
@@ -107,10 +107,13 @@ var i, dist: integer;
        FormAdjecencyMatrix(amount, a);}
     d := Dijkstra(a, start, amount);
     dist := d[finish];
-    result := IntToStr(dist);
+    result := dist; //IntToStr(dist);
   end;
 
 procedure TfrmDetails.FormShow(Sender: TObject);
+var
+    min: integer;
+    hours: integer;
 begin
   Label8.Caption := frmMain.DBLookupComboBox1.Text;
   Label9.Caption := frmMain.DBLookupComboBox2.Text;
@@ -127,12 +130,22 @@ begin
            else
                Label11.Caption := 'Нет';
       end;
+
   Label12.Caption := InttoStr(frmMain.ComfortRate.Position);
   Label13.Caption := InttoStr(frmMain.Passengers.Position);
   Label14.Caption := Price(frmMain.DBLookupComboBox1.KeyValue, frmMain.DBLookupComboBox2.KeyValue, frmMain.ComfortRate.Position);
-  Label16.Caption := CountTime(frmMain.DBLookupComboBox1.KeyValue, frmMain.DBLookupComboBox2.KeyValue);
-  //ShowMessage('Цена: ' + Label14.Caption+' Время: '+Label16.Caption);
 
+  min := CountTime(frmMain.DBLookupComboBox1.KeyValue, frmMain.DBLookupComboBox2.KeyValue);
+  hours := min div 60;
+  min := min mod 60;
+  if (hours = 0) and (min < 10) then
+     Label16.Caption := '00' + ' : ' + '0' + IntToStr(min);
+  if (hours = 0) and (min >= 10) then
+     Label16.Caption := '00' + ' : ' + IntToStr(min);
+  if (hours <> 0) and (min < 10) then
+     Label16.Caption := '0' + IntToStr(hours) + ' : ' + '0' + IntToStr(min);
+  if (hours <> 0) and (min >= 10) then
+     Label16.Caption := '0' + IntToStr(hours) + ' : ' + IntToStr(min);
 end;
 
 procedure TfrmDetails.Button1Click(Sender: TObject);

@@ -4,8 +4,8 @@ object frm: Tfrm
   Top = 40
   Width = 536
   Caption = 'frm'
-  ClientHeight = 640
-  ClientWidth = 536
+  ClientHeight = 0
+  ClientWidth = 0
   LCLVersion = '1.6.2.0'
   object Button1: TButton
     Left = 24

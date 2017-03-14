@@ -1,7 +1,7 @@
 object frmDetails: TfrmDetails
-  Left = 876
+  Left = 480
   Height = 402
-  Top = 311
+  Top = 115
   Width = 307
   AutoSize = True
   BorderStyle = bsToolWindow
@@ -156,14 +156,14 @@ object frmDetails: TfrmDetails
       Left = 4
       Height = 15
       Top = 312
-      Width = 38
-      Caption = 'Время:'
+      Width = 75
+      Caption = 'Время в пути:'
       ParentColor = False
     end
     object Label16: TLabel
-      Left = 72
+      Left = 101
       Height = 15
-      Top = 313
+      Top = 312
       Width = 40
       Caption = 'Label16'
       ParentColor = False
