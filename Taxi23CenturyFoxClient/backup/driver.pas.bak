@@ -14,6 +14,7 @@ type
     Button1: TButton;
     Memo1: TMemo;
     procedure Button1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
   private
     { private declarations }
   public
@@ -59,6 +60,11 @@ begin
          setlength(a[i], amount+1);
      FormAdjecencyMatrix(amount, a);
      ShowMatrix(a, Memo1);
+end;
+
+procedure TfrmDriver.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+     frmStart.Show;
 end;
 
 

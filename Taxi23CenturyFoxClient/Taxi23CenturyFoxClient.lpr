@@ -8,7 +8,7 @@ uses
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, Main, lazcontrols, details, DataModule, start, graph, driver, dispatch,
-  info
+  info, help
   { you can add units after this };
 
 {$R *.res}
@@ -23,6 +23,7 @@ begin
   Application.CreateForm(TfrmDriver, frmDriver);
   Application.CreateForm(TfrmDispatch, frmDispatch);
   Application.CreateForm(TfrmInfo, frmInfo);
+  Application.CreateForm(TfrmHelp, frmHelp);
   Application.Run;
 end.
 

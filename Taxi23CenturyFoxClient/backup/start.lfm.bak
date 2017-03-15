@@ -43,9 +43,10 @@ object frmStart: TfrmStart
   end
   object Background: TImage
     Left = 0
-    Height = 641
+    Height = 639
     Top = 0
     Width = 960
+    OnClick = BackgroundClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869634735100089504E47
       0D0A1A0A0000000D49484452000003C00000027F0806000000B73DBA8F000020
@@ -34039,6 +34040,7 @@ object frmStart: TfrmStart
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+    OnClick = HelpClick
   end
   object Info: TLabel
     Cursor = crHandPoint

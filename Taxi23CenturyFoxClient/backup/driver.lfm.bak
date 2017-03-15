@@ -6,6 +6,7 @@ object frmDriver: TfrmDriver
   Caption = 'frmDriver'
   ClientHeight = 974
   ClientWidth = 1830
+  OnClose = FormClose
   LCLVersion = '1.6.2.0'
   WindowState = wsMaximized
   object Button1: TButton
