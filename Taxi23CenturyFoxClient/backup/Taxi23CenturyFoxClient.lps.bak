@@ -20,6 +20,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
+        <IsVisibleTab Value="True"/>
         <TopLine Value="92"/>
         <CursorPos X="35" Y="109"/>
         <UsageCount Value="180"/>
@@ -80,7 +81,6 @@
         <ComponentName Value="frmDriver"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <TopLine Value="40"/>
         <CursorPos X="6" Y="67"/>

@@ -149,35 +149,43 @@ end;
 
 procedure TfrmDetails.Button1Click(Sender: TObject);
 begin
-  try
-     DataModule1.Connection.Open;
-     DataModule1.SQLTransaction1.Active := True;
-  except
-     ShowMessage ('Ошибка подключения к базе данных!');
-  end;
-  with OrderQuery do
-       begin
-            Open;
-            Insert;
-            Fields[1].AsDatetime := Now;
-            Fields[2].AsInteger := frmMain.DBLookupComboBox1.KeyValue;;
-            Fields[3].AsInteger := frmMain.DBLookupComboBox2.KeyValue;;
-            Fields[4].AsDatetime := frmMain.TimeEdit.Time ;
-            Fields[5].AsInteger := frmMain.ComfortRate.Position;
-            Fields[6].AsInteger := frmMain.Passengers.Position;
-            Fields[7].AsInteger := BoolToInt(frmMain.WideTrunk.Checked);
-            Fields[8].AsInteger := BoolToInt(frmMain.BabySeat.Checked);
-            try
-               Post;
-               ApplyUpdates;
-               DataModule1.SQLTransaction1.Commit;
-            except
-               ShowMessage('Запрос не выполнен!');
-            end;
+  if frmMain.DBLookupComboBox1.KeyValue <> frmMain.DBLookupComboBox2.KeyValue then
+     begin
+      try
+         DataModule1.Connection.Open;
+         DataModule1.SQLTransaction1.Active := True;
+      except
+         ShowMessage ('Ошибка подключения к базе данных!');
+      end;
+      with OrderQuery do
+           begin
+                Open;
+                Insert;
+                Fields[1].AsDatetime := Now;
+                Fields[2].AsInteger := frmMain.DBLookupComboBox1.KeyValue;;
+                Fields[3].AsInteger := frmMain.DBLookupComboBox2.KeyValue;;
+                Fields[4].AsDatetime := frmMain.TimeEdit.Time ;
+                Fields[5].AsInteger := frmMain.ComfortRate.Position;
+                Fields[6].AsInteger := frmMain.Passengers.Position;
+                Fields[7].AsInteger := BoolToInt(frmMain.WideTrunk.Checked);
+                Fields[8].AsInteger := BoolToInt(frmMain.BabySeat.Checked);
+                try
+                   Post;
+                   ApplyUpdates;
+                   DataModule1.SQLTransaction1.Commit;
+                except
+                   ShowMessage('Запрос не выполнен!');
+                end;
 
-       end;
-  Close;
-  frmStart.Show;
+           end;
+      Close;
+      frmStart.Show;
+     end
+  else
+      begin
+           ShowMessage('Адрес подачи не может совпадать с конечным адресом');
+           frmDetails.Close;
+      end;
 end;
 
 end.
