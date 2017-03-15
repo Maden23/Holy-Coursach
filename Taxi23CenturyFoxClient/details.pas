@@ -180,6 +180,7 @@ begin
            end;
       Close;
       frmStart.Show;
+      ShowMessage('Заказ принят!');
      end
   else
       begin

@@ -19,9 +19,13 @@ type
     ImgDispatcher: TImage;
     ImgPassenger: TImage;
     ImgDriver: TImage;
+    Esc: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
     Passenger: TButton;
     procedure DispatcherClick(Sender: TObject);
     procedure DriverClick(Sender: TObject);
+    procedure EscClick(Sender: TObject);
     procedure ImgDispatcherClick(Sender: TObject);
     procedure ImgDriverClick(Sender: TObject);
     procedure ImgPassengerClick(Sender: TObject);
@@ -67,6 +71,11 @@ end;
 procedure TfrmStart.DriverClick(Sender: TObject);
 begin
 
+end;
+
+procedure TfrmStart.EscClick(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure TfrmStart.PassengerClick(Sender: TObject);
