@@ -1,7 +1,7 @@
 object frmStart: TfrmStart
-  Left = 697
+  Left = 583
   Height = 639
-  Top = 270
+  Top = 246
   Width = 960
   BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
@@ -32537,7 +32537,7 @@ object frmStart: TfrmStart
     Height = 26
     Top = 584
     Width = 170
-    OnClick = ImgDriverClick
+    OnClick = ImgDispatcherClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869636B45000089504E47
       0D0A1A0A0000000D49484452000000AB0000001A0806000000C87EACC9000000

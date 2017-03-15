@@ -6,7 +6,7 @@ interface
 
 uses
   DataModule, details, Classes, SysUtils, sqldb, mysql56conn, db, sqlite3conn, FileUtil, Forms,
-  Controls, Graphics, Dialogs, StdCtrls, DbCtrls, ComCtrls, Spin,
+  Controls, Graphics, Dialogs, StdCtrls, DbCtrls, ComCtrls,
   ExtCtrls, EditBtn, DBGrids;
 
 type
@@ -28,8 +28,6 @@ type
     WideTrunk: TCheckBox;
     BabySeat: TCheckBox;
     CheckGroup1: TCheckGroup;
-    EditStart: TEdit;
-    EditFinish: TEdit;
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
@@ -41,9 +39,6 @@ type
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
-    Hours: TSpinEdit;
-    Minutes: TSpinEdit;
-    AdressQuery: TSQLQuery;
     ComfortRate: TTrackBar;
     Passengers: TTrackBar;
     procedure btnConfirmClick(Sender: TObject);

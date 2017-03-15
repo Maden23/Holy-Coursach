@@ -1,0 +1,84 @@
+object frmDispatch: TfrmDispatch
+  Left = 613
+  Height = 617
+  Top = 301
+  Width = 1023
+  Caption = 'Диспетчер'
+  ClientHeight = 617
+  ClientWidth = 1023
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '1.6.2.0'
+  object DBGrid1: TDBGrid
+    Left = 10
+    Height = 544
+    Top = 56
+    Width = 1000
+    Align = alCustom
+    AutoEdit = False
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object Orders: TButton
+    Left = 10
+    Height = 33
+    Top = 8
+    Width = 150
+    Caption = 'Orders'
+    OnClick = OrdersClick
+    TabOrder = 1
+  end
+  object Drivers: TButton
+    Left = 168
+    Height = 33
+    Top = 8
+    Width = 150
+    Caption = 'Drivers'
+    OnClick = DriversClick
+    TabOrder = 2
+  end
+  object Locations: TButton
+    Left = 328
+    Height = 33
+    Top = 8
+    Width = 150
+    Caption = 'Locations'
+    OnClick = LocationsClick
+    TabOrder = 3
+  end
+  object Cars: TButton
+    Left = 488
+    Height = 33
+    Top = 8
+    Width = 150
+    Caption = 'Cars'
+    OnClick = CarsClick
+    TabOrder = 4
+  end
+  object Edges: TButton
+    Left = 648
+    Height = 33
+    Top = 8
+    Width = 150
+    Caption = 'Edges'
+    OnClick = EdgesClick
+    TabOrder = 5
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
+    Options = []
+    Params = <>
+    left = 944
+    top = 24
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    left = 973
+    top = 24
+  end
+end

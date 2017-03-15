@@ -1,26 +1,26 @@
 object frmMain: TfrmMain
-  Left = 697
-  Height = 639
-  Top = 196
-  Width = 380
+  Left = 818
+  Height = 573
+  Top = 202
+  Width = 373
   HorzScrollBar.Page = 352
   HorzScrollBar.Range = 352
   VertScrollBar.Page = 744
   VertScrollBar.Range = 744
   BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
-  ClientHeight = 639
-  ClientWidth = 380
+  ClientHeight = 573
+  ClientWidth = 373
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
     Left = 0
-    Height = 639
+    Height = 575
     Top = 0
     Width = 375
-    ClientHeight = 639
+    ClientHeight = 575
     ClientWidth = 375
-    TabOrder = 0
+    TabOrder = 2
     object Label2: TLabel
       Left = 9
       Height = 25
@@ -36,20 +36,6 @@ object frmMain: TfrmMain
       Width = 126
       Caption = 'Введите время:'
       ParentColor = False
-    end
-    object Hours: TSpinEdit
-      Left = 391
-      Height = 45
-      Top = 201
-      Width = 70
-      Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -32
-      Font.Name = 'Arial Narrow'
-      Font.Pitch = fpVariable
-      Font.Quality = fqDraft
-      MaxValue = 23
-      ParentFont = False
-      TabOrder = 0
     end
     object CheckGroup1: TCheckGroup
       Left = 10
@@ -106,12 +92,13 @@ object frmMain: TfrmMain
       TabOrder = 2
     end
     object Label5: TLabel
-      AnchorSideLeft.Control = Label7
+      AnchorSideLeft.Control = Label4
       AnchorSideLeft.Side = asrBottom
-      Left = 180
+      Left = 186
       Height = 33
-      Top = 342
+      Top = 350
       Width = 19
+      BorderSpacing.Left = 5
       Caption = '✪'
       Font.CharSet = ANSI_CHARSET
       Font.Height = -29
@@ -141,10 +128,13 @@ object frmMain: TfrmMain
       TabOrder = 3
     end
     object Label7: TLabel
-      Left = 161
+      AnchorSideLeft.Control = Label6
+      AnchorSideLeft.Side = asrBottom
+      Left = 233
       Height = 33
-      Top = 422
+      Top = 428
       Width = 19
+      BorderSpacing.Left = 6
       Caption = '❶'
       Font.CharSet = RUSSIAN_CHARSET
       Font.Height = -29
@@ -210,20 +200,6 @@ object frmMain: TfrmMain
       ParentColor = False
       ParentFont = False
     end
-    object Minutes: TSpinEdit
-      Left = 465
-      Height = 45
-      Top = 201
-      Width = 70
-      Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -32
-      Font.Name = 'Arial Narrow'
-      Font.Pitch = fpVariable
-      Font.Quality = fqDraft
-      MaxValue = 59
-      ParentFont = False
-      TabOrder = 4
-    end
     object Label12: TLabel
       Left = 457
       Height = 27
@@ -245,33 +221,7 @@ object frmMain: TfrmMain
       Width = 336
       Caption = 'Оформить заказ'
       OnClick = btnConfirmClick
-      TabOrder = 5
-    end
-    object EditStart: TEdit
-      Left = 408
-      Height = 35
-      Top = 40
-      Width = 336
-      Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -24
-      Font.Name = 'Arial'
-      Font.Pitch = fpVariable
-      Font.Quality = fqDraft
-      ParentFont = False
-      TabOrder = 6
-    end
-    object EditFinish: TEdit
-      Left = 376
-      Height = 35
-      Top = 120
-      Width = 336
-      Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -24
-      Font.Name = 'Arial'
-      Font.Pitch = fpVariable
-      Font.Quality = fqDraft
-      ParentFont = False
-      TabOrder = 7
+      TabOrder = 4
     end
     object TimeEdit: TTimeEdit
       Left = 9
@@ -287,7 +237,7 @@ object frmMain: TfrmMain
       Font.Quality = fqDraft
       MaxLength = 0
       ParentFont = False
-      TabOrder = 8
+      TabOrder = 0
     end
     object Label1: TLabel
       Left = 9
@@ -311,12 +261,12 @@ object frmMain: TfrmMain
     ListSource = DataSource1
     LookupCache = False
     Sorted = True
-    TabOrder = 1
+    TabOrder = 0
   end
   object DBLookupComboBox2: TDBLookupComboBox
     Left = 8
     Height = 33
-    Top = 120
+    Top = 112
     Width = 342
     AutoComplete = True
     AutoDropDown = True
@@ -326,22 +276,7 @@ object frmMain: TfrmMain
     ListSource = DataSource2
     LookupCache = False
     Sorted = True
-    TabOrder = 2
-  end
-  object AdressQuery: TSQLQuery
-    FieldDefs = <>
-    SQL.Strings = (
-      'select id from locations'
-      'where adress = :adress;'
-    )
-    Options = []
-    Params = <    
-      item
-        DataType = ftUnknown
-        Name = 'adress'
-        ParamType = ptInput
-      end>
-    left = 456
+    TabOrder = 1
   end
   object DataSource1: TDataSource
     DataSet = SQLQuery1

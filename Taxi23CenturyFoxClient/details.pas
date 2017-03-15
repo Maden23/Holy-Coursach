@@ -33,7 +33,6 @@ type
     Label9: TLabel;
     OrderQuery: TSQLQuery;
     Panel1: TPanel;
-    DataQuery: TSQLQuery;
     procedure Button1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private

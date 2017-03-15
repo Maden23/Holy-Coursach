@@ -1,17 +1,17 @@
-object frm: Tfrm
-  Left = 738
-  Height = 640
-  Top = 40
-  Width = 536
-  Caption = 'frm'
-  ClientHeight = 0
-  ClientWidth = 0
+object frmDriver: TfrmDriver
+  Left = -98
+  Height = 974
+  Top = 41
+  Width = 1830
+  Caption = 'frmDriver'
+  ClientHeight = 974
+  ClientWidth = 1830
   LCLVersion = '1.6.2.0'
   object Button1: TButton
     Left = 24
     Height = 73
     Top = 24
-    Width = 488
+    Width = 1880
     Caption = 'СФОРМИРОВАТЬ ГРАФ'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -37
@@ -25,16 +25,16 @@ object frm: Tfrm
   end
   object Memo1: TMemo
     Left = 24
-    Height = 488
-    Top = 128
-    Width = 488
+    Height = 864
+    Top = 112
+    Width = 1880
     Font.CharSet = RUSSIAN_CHARSET
-    Font.Height = -16
+    Font.Height = -14
     Font.Name = 'Arial Narrow'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
     ParentFont = False
-    ScrollBars = ssAutoVertical
+    ScrollBars = ssAutoBoth
     TabOrder = 1
   end
 end

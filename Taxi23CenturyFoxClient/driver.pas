@@ -9,8 +9,8 @@ uses
 
 type
   matrix = array of array of integer;
-  { Tfrm }
-  Tfrm = class(TForm)
+  { TfrmDriver }
+  TfrmDriver = class(TForm)
     Button1: TButton;
     Memo1: TMemo;
     procedure Button1Click(Sender: TObject);
@@ -21,26 +21,27 @@ type
   end;
 
 var
-  frm: Tfrm;
+  frmDriver: TfrmDriver;
 
 implementation
 
 {$R *.lfm}
 
 
-{ Tfrm }
+{ TfrmDriver }
 procedure ShowMatrix(var a: matrix; Memo1: TMemo);
 var i, j: integer;
   begin
      for i:=1 to length(a)-1 do
          begin
          for j:=1 to length(a)-1 do
-             Memo1.Lines[i] := Memo1.Lines[i] + ' ' + inttostr(a[i][j]);
+             Memo1.Text := Memo1.Text + inttostr(a[i][j]) + ' ';
+         Memo1.Text := Memo1.Text + #13;
          Memo1.Lines.Add('');
          end;
   end;
 
-procedure Tfrm.Button1Click(Sender: TObject);
+procedure TfrmDriver.Button1Click(Sender: TObject);
 var a: matrix;
     i, amount: integer;
 begin
