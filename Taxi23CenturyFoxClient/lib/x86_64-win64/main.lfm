@@ -1,8 +1,8 @@
 object frmMain: TfrmMain
-  Left = 818
+  Left = 806
   Height = 573
-  Top = 202
-  Width = 373
+  Top = 301
+  Width = 377
   HorzScrollBar.Page = 352
   HorzScrollBar.Range = 352
   VertScrollBar.Page = 744
@@ -10,7 +10,7 @@ object frmMain: TfrmMain
   BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 573
-  ClientWidth = 373
+  ClientWidth = 377
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
@@ -227,15 +227,18 @@ object frmMain: TfrmMain
       Left = 9
       Height = 26
       Top = 176
-      Width = 110
+      Width = 143
+      ButtonOnlyWhenFocused = True
       ButtonWidth = 23
+      AutoSize = False
       NumGlyphs = 1
+      FocusOnButtonClick = True
       Font.CharSet = RUSSIAN_CHARSET
       Font.Height = -16
       Font.Name = 'Arial'
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
-      MaxLength = 0
+      MaxLength = 5
       ParentFont = False
       TabOrder = 0
     end
@@ -298,9 +301,9 @@ object frmMain: TfrmMain
       end    
       item
         Name = 'adress'
-        DataType = ftFixedChar
+        DataType = ftString
         Precision = -1
-        Size = 150
+        Size = 66
       end>
     Active = True
     Database = DataModule1.Connection

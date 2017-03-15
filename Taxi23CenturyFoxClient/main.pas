@@ -87,27 +87,6 @@ begin
   except
      ShowMessage ('Ошибка подключения к базе данных!');
   end;
-  //GetAdress(start,finish);
-  //with OrderQuery do
-  //     begin
-  //          Open;
-  //          Insert;
-  //          Fields[1].AsDatetime := Now;
-  //          Fields[2].AsInteger := start;
-  //          Fields[3].AsInteger := finish;
-  //          Fields[4].AsDatetime := TimeEdit.Time ;
-  //          Fields[5].AsInteger := ComfortRate.Position;
-  //          Fields[6].AsInteger := Passengers.Position;
-  //          Fields[7].AsInteger := BoolToInt(WideTrunk.Checked);
-  //          Fields[8].AsInteger := BoolToInt(BabySeat.Checked);
-  //          try
-  //             Post;
-  //             ApplyUpdates;
-  //             SQLTransaction1.Commit;
-  //             except ShowMessage('Запрос не выполнен!');
-  //          end;
-  //     end;
-
     frmDetails.ShowModal;
 end;
 
@@ -140,6 +119,8 @@ begin
 
   end;
 end;
+
+
 
 end.
 

@@ -1,7 +1,7 @@
 object frmStart: TfrmStart
-  Left = 583
+  Left = 274
   Height = 639
-  Top = 246
+  Top = 310
   Width = 960
   BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'

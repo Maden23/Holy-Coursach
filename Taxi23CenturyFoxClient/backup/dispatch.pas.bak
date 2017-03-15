@@ -6,7 +6,7 @@ interface
 
 uses
   DataModule, sqldb, db, Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
-  Dialogs, DBGrids, StdCtrls;
+  Dialogs, DBGrids, StdCtrls, ExtCtrls;
 
 type
 
@@ -20,6 +20,7 @@ type
     Edges: TButton;
     DataSource1: TDataSource;
     DBGrid1: TDBGrid;
+    Panel1: TPanel;
     SQLQuery1: TSQLQuery;
     procedure CarsClick(Sender: TObject);
     procedure DriversClick(Sender: TObject);

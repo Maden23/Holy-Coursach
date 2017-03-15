@@ -14,6 +14,7 @@ type
     Button1: TButton;
     Memo1: TMemo;
     procedure Button1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
   private
     { private declarations }
   public
@@ -26,7 +27,7 @@ var
 implementation
 
 {$R *.lfm}
-
+ uses start;
 
 { TfrmDriver }
 procedure ShowMatrix(var a: matrix; Memo1: TMemo);
@@ -40,6 +41,11 @@ var i, j: integer;
          Memo1.Lines.Add('');
          end;
   end;
+
+{procedure TfrmDriver.Close(Sender: TObject);
+begin
+   frmStart.Show;
+end; }
 
 procedure TfrmDriver.Button1Click(Sender: TObject);
 var a: matrix;
@@ -55,6 +61,13 @@ begin
      FormAdjecencyMatrix(amount, a);
      ShowMatrix(a, Memo1);
 end;
+
+procedure TfrmDriver.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+     frmStart.Show;
+end;
+
+
 
 
 

@@ -1,18 +1,20 @@
 object frmDriver: TfrmDriver
-  Left = -98
+  Left = 374
   Height = 974
-  Top = 41
+  Top = 471
   Width = 1830
   Caption = 'frmDriver'
   ClientHeight = 974
   ClientWidth = 1830
+  OnClose = FormClose
   LCLVersion = '1.6.2.0'
+  WindowState = wsMaximized
   object Button1: TButton
     Left = 24
     Height = 73
     Top = 24
     Width = 1880
-    Caption = 'СФОРМИРОВАТЬ ГРАФ'
+    Caption = 'СФОРМИРОВАТЬ МАТРИЦУ СМЕЖНОСТИ'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -37
     Font.Name = 'Arial'
