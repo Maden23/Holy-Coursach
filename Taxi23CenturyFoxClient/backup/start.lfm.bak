@@ -34023,7 +34023,7 @@ object frmStart: TfrmStart
     ParentFont = False
     OnClick = EscClick
   end
-  object Label1: TLabel
+  object Help: TLabel
     Cursor = crHandPoint
     Left = 859
     Height = 32
@@ -34040,7 +34040,8 @@ object frmStart: TfrmStart
     ParentColor = False
     ParentFont = False
   end
-  object Label2: TLabel
+  object Info: TLabel
+    Cursor = crHandPoint
     Left = 801
     Height = 32
     Top = 13
@@ -34055,5 +34056,6 @@ object frmStart: TfrmStart
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+    OnClick = InfoClick
   end
 end

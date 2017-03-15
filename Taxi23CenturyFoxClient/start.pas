@@ -5,7 +5,7 @@ unit start;
 interface
 
 uses
-  dispatch, driver, Main, sqldb, Classes, SysUtils, FileUtil, Forms, Controls,
+  dispatch, driver, info, Main, sqldb, Classes, SysUtils, FileUtil, Forms, Controls,
   Graphics, Dialogs, StdCtrls, ExtCtrls, DbCtrls;
 
 type
@@ -20,8 +20,8 @@ type
     ImgPassenger: TImage;
     ImgDriver: TImage;
     Esc: TLabel;
-    Label1: TLabel;
-    Label2: TLabel;
+    Help: TLabel;
+    Info: TLabel;
     Passenger: TButton;
     procedure DispatcherClick(Sender: TObject);
     procedure DriverClick(Sender: TObject);
@@ -29,6 +29,7 @@ type
     procedure ImgDispatcherClick(Sender: TObject);
     procedure ImgDriverClick(Sender: TObject);
     procedure ImgPassengerClick(Sender: TObject);
+    procedure InfoClick(Sender: TObject);
     procedure PassengerClick(Sender: TObject);
   private
     { private declarations }
@@ -61,6 +62,11 @@ procedure TfrmStart.ImgPassengerClick(Sender: TObject);
 begin
   frmMain.Show;
   frmStart.Hide;
+end;
+
+procedure TfrmStart.InfoClick(Sender: TObject);
+begin
+  frmInfo.Show;
 end;
 
 procedure TfrmStart.DispatcherClick(Sender: TObject);
