@@ -1,7 +1,7 @@
 object frmDriver: TfrmDriver
-  Left = 390
+  Left = 362
   Height = 974
-  Top = 318
+  Top = 258
   Width = 1830
   Caption = 'frmDriver'
   ClientHeight = 974
