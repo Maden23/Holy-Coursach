@@ -45,6 +45,7 @@ var
   frmDetails: TfrmDetails;
   a: matrix;
   s, amount: integer;
+  chairs: integer;
 
 implementation
 
@@ -118,14 +119,23 @@ begin
   Label9.Caption := frmMain.DBLookupComboBox2.Text;
   Label10.Caption := frmMain.TimeEdit.Text;
   if (frmMain.WideTrunk.Checked = true)
-     and (frmMain.BabySeat.Checked = true) then
+     and (frmMain.BabySeat.Checked = true)
+         and (frmMain.AmountOfSeats.Text = '1') then
          Label11.Caption := 'Большой багажник, детское кресло'
+  else if (frmMain.WideTrunk.Checked = true)
+          and (frmMain.BabySeat.Checked = true)
+              and (frmMain.AmountOfSeats.Text = '2') then
+                 Label11.Caption := 'Большой багажник, 2 детских кресла'
   else
       begin
            if frmMain.WideTrunk.Checked = true then
                Label11.Caption := 'Большой багажник'
-           else if frmMain.BabySeat.Checked = true then
-               Label11.Caption := 'Детское кресло'
+           else if (frmMain.BabySeat.Checked = true)
+                   and (frmMain.AmountOfSeats.Text = '1') then
+                       Label11.Caption := 'Детское кресло'
+           else if (frmMain.BabySeat.Checked = true)
+                   and (frmMain.AmountOfSeats.Text = '2') then
+                       Label11.Caption := '2 детских кресла'
            else
                Label11.Caption := 'Нет';
       end;
@@ -168,7 +178,7 @@ begin
                 Fields[5].AsInteger := frmMain.ComfortRate.Position;
                 Fields[6].AsInteger := frmMain.Passengers.Position;
                 Fields[7].AsInteger := BoolToInt(frmMain.WideTrunk.Checked);
-                Fields[8].AsInteger := BoolToInt(frmMain.BabySeat.Checked);
+                Fields[8].AsInteger := StrToInt(frmMain.AmountOfSeats.Text);
                 try
                    Post;
                    ApplyUpdates;

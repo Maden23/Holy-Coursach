@@ -5,14 +5,38 @@ unit driver;
 interface
 
 uses
-  DataModule, graph, Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  DataModule, graph, db, sqldb, Classes, SysUtils, FileUtil, Forms, Controls,
+  Graphics, Dialogs, StdCtrls, ExtCtrls, DBGrids, DbCtrls;
 
 type
   matrix = array of array of integer;
   { TfrmDriver }
   TfrmDriver = class(TForm)
+    AvailableOrderQuerycreated: TDateTimeField;
+    AvailableOrderQueryfinish_id: TLongintField;
+    AvailableOrderQuerystart_id: TLongintField;
     Button1: TButton;
+    AcceptOrder: TButton;
+    AvailableOrdersDS: TDataSource;
+    FinishOrder: TButton;
+    CancelOrder: TButton;
+    BuildRoute: TButton;
+    Image2: TImage;
+    AvailableOrders: TDBGrid;
+    SelectedOrders: TDBGrid;
+    Image1: TImage;
+    Label1: TLabel;
+    ID: TLabel;
+    DriverName: TLabel;
+    Lisence: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Automobile: TLabel;
     Memo1: TMemo;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    AvailableOrderQuery: TSQLQuery;
     procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
   private

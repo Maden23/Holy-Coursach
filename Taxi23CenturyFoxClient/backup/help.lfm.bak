@@ -1,12 +1,13 @@
 object frmHelp: TfrmHelp
-  Left = 373
-  Height = 533
+  Left = 406
+  Height = 534
   Top = 166
   Width = 800
   Caption = 'Помощь'
-  ClientHeight = 533
+  ClientHeight = 534
   ClientWidth = 800
-  Position = poDesktopCenter
+  OnClose = FormClose
+  Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Background: TImage
     Left = 0
@@ -15680,7 +15681,7 @@ object frmHelp: TfrmHelp
       6082
     }
   end
-  object StaticText1: TStaticText
+  object PreviewText: TStaticText
     Left = 52
     Height = 232
     Top = 49
@@ -15697,7 +15698,7 @@ object frmHelp: TfrmHelp
     TabOrder = 0
   end
   object Label1: TLabel
-    Cursor = crNo
+    Cursor = crHandPoint
     Left = 97
     Height = 27
     Top = 288
@@ -15712,9 +15713,10 @@ object frmHelp: TfrmHelp
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+    OnClick = Label1Click
   end
   object Label2: TLabel
-    Cursor = crNo
+    Cursor = crHandPoint
     Left = 91
     Height = 27
     Top = 355
@@ -15729,9 +15731,10 @@ object frmHelp: TfrmHelp
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+    OnClick = Label2Click
   end
   object Label3: TLabel
-    Cursor = crNo
+    Cursor = crHandPoint
     Left = 93
     Height = 27
     Top = 420
@@ -15746,6 +15749,7 @@ object frmHelp: TfrmHelp
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
+    OnClick = Label3Click
   end
   object Label4: TLabel
     Cursor = crHandPoint
@@ -15765,12 +15769,12 @@ object frmHelp: TfrmHelp
     ParentFont = False
     OnClick = Label4Click
   end
-  object StaticText2: TStaticText
+  object LispText: TStaticText
     Left = 37
     Height = 232
-    Top = 46
+    Top = 38
     Width = 435
-    Caption = '    Когда-то меня звали Ник Вайлд... Я вырос и родился в Америке, '#13#10'где работал полицейским более 10 лет. Я очень любил свою работу. '#13#10'Надо признать, это было славное время...'#13#10'    Но оно прошло. Знаете, слухи про загнивающий запад вовсе не слухи. '#13#10'Моя любимая страна вместе со своими партнерами скатилась '#13#10'в нравственную и бездуховную пропасть. У меня не было другого'#13#10'выбора кроме, как уехать из этой дыры... Мой выбор пал'#13#10'на великую Россию. Я буквально загорелся идеей приехать сюда!'#13#10'И вот теперь я работаю консультантом в местном таксопарке.'#13#10'Можете мне не верить, называть меня агентом Госдепа - мне все равно!'#13#10'Но я очень горжусь своей новой профессией и буквально с каждым днем'#13#10'чувствую, как помогаю поднимать своим трудом Россию с колен...'
+    Caption = '    Когда-то меня звали Ник Вайлд... Я вырос и родился в Америке, '#13#10'где работал полицейским более 10 лет. Я очень любил свою работу. '#13#10'Надо признать, это было славное время...'#13#10'    Но оно прошло. Знаете, слухи про загнивающий запад вовсе не слухи. '#13#10'Моя любимая страна вместе со своими партнерами скатилась '#13#10'в нравственную и бездуховную пропасть. У меня не было другого'#13#10'выбора кроме, как уехать из этой дыры... Мой выбор пал'#13#10'на великую Россию. Я буквально загорелся идеей приехать сюда!'#13#10'В Москве меня сразу же крестили, дали имя Лисп и трудоустроили.'#13#10'И вот теперь я работаю консультантом в местном таксопарке.'#13#10'Можете мне не верить, называть меня агентом Госдепа - мне все равно!'#13#10'Но я очень горжусь своей новой профессией и буквально с каждым днем'#13#10'чувствую, как помогаю поднимать своим трудом Россию с колен...'
     Font.CharSet = RUSSIAN_CHARSET
     Font.Color = clBlack
     Font.Height = -13
@@ -15780,6 +15784,57 @@ object frmHelp: TfrmHelp
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 1
+    Visible = False
+  end
+  object DriverText: TStaticText
+    Left = 37
+    Height = 232
+    Top = 40
+    Width = 411
+    Caption = 'Режим "Водитель" предназначен для водителей компании "Taxi 23rd Century Fox". Для входа в данный режим необходимо ввести уникальный ID водителя и пароль. В данном режиме водитель может просмотреть свою статистику и личные данные, а также проверить наличие доступных заказов.'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -20
+    Font.Name = 'Arial Narrow'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    Visible = False
+  end
+  object DispatcherText: TStaticText
+    Left = 37
+    Height = 226
+    Top = 32
+    Width = 403
+    Caption = 'Режим "Диспетчер" предназначен для диспетчеров компании "Taxi 23rd Century Fox". Для входа в данный режим необходимо ввести единый ключ доступа, доступ к которому имеют все диспетчеры таксопарка. Данный режим позволяет получить доступ к базе данных, где хранятся сведения о водителях, автомобилях и заказах. А также позволяет распределять заказы между водителями вручную.'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -20
+    Font.Name = 'Arial Narrow'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    Visible = False
+  end
+  object PassengerText: TStaticText
+    Left = 40
+    Height = 232
+    Top = 40
+    Width = 411
+    Caption = 'Режим "Пассажир" позволяет заказать такси любому желающему. Введите адрес подачи такси, пункт назначения, время подачи. Выберите уровень комфорта, количество пассажиров и дополнительные опции. Программа сама рассчитает примерную стоимость поездки и время в пути. Просто и удобно!'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -20
+    Font.Name = 'Arial Narrow'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
     Visible = False
   end
 end

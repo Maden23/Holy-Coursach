@@ -1,15 +1,16 @@
 object frmStart: TfrmStart
   Cursor = crHandPoint
-  Left = 345
+  Left = 326
   Height = 639
-  Top = 135
+  Top = 149
   Width = 960
-  BorderStyle = bsSingle
+  BorderIcons = []
+  BorderStyle = bsNone
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 639
   ClientWidth = 960
   Color = 33023
-  Position = poScreenCenter
+  Position = poDesktopCenter
   LCLVersion = '1.6.2.0'
   object Driver: TButton
     Left = 360

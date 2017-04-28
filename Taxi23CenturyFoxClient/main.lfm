@@ -1,8 +1,8 @@
 object frmMain: TfrmMain
-  Left = 806
+  Left = 442
   Height = 573
-  Top = 301
-  Width = 377
+  Top = 259
+  Width = 369
   HorzScrollBar.Page = 352
   HorzScrollBar.Range = 352
   VertScrollBar.Page = 744
@@ -10,7 +10,7 @@ object frmMain: TfrmMain
   BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 573
-  ClientWidth = 377
+  ClientWidth = 369
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
@@ -39,9 +39,9 @@ object frmMain: TfrmMain
     end
     object CheckGroup1: TCheckGroup
       Left = 10
-      Height = 104
+      Height = 143
       Top = 209
-      Width = 336
+      Width = 368
       AutoFill = True
       Caption = 'Дополнительные опции'
       ChildSizing.LeftRightSpacing = 6
@@ -52,23 +52,24 @@ object frmMain: TfrmMain
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 1
-      ClientHeight = 74
-      ClientWidth = 332
+      ClientHeight = 113
+      ClientWidth = 364
       TabOrder = 1
       object WideTrunk: TCheckBox
         Left = 6
-        Height = 31
+        Height = 51
         Top = 6
-        Width = 320
+        Width = 352
         Caption = 'Большой багажник'
         TabOrder = 0
       end
       object BabySeat: TCheckBox
         Left = 6
-        Height = 31
-        Top = 37
-        Width = 320
-        Caption = 'Детское кресло'
+        Height = 50
+        Top = 57
+        Width = 352
+        Caption = 'Детское кресло (количество:              )'
+        OnChange = BabySeatChange
         TabOrder = 1
       end
     end
@@ -250,6 +251,20 @@ object frmMain: TfrmMain
       Caption = 'Введите адрес подачи:'
       ParentColor = False
     end
+    object AmountOfSeats: TComboBox
+      Left = 289
+      Height = 33
+      Top = 304
+      Width = 56
+      Enabled = False
+      ItemHeight = 25
+      Items.Strings = (
+        '1'
+        '2'
+      )
+      TabOrder = 5
+      Text = '0'
+    end
   end
   object DBLookupComboBox1: TDBLookupComboBox
     Left = 8
@@ -292,7 +307,6 @@ object frmMain: TfrmMain
     top = 72
   end
   object SQLQuery1: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id'
@@ -305,7 +319,6 @@ object frmMain: TfrmMain
         Precision = -1
         Size = 66
       end>
-    Active = True
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (

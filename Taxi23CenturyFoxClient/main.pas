@@ -14,7 +14,10 @@ type
   { TfrmMain }
 
   TfrmMain = class(TForm)
+    AmountOfSeats: TComboBox;
+    BabySeat: TCheckBox;
     btnConfirm: TButton;
+    ComboBox1: TComboBox;
     DataSource1: TDataSource;
     DataSource2: TDataSource;
     DBLookupComboBox1: TDBLookupComboBox;
@@ -26,7 +29,6 @@ type
     SQLQuery1id: TAutoIncField;
     TimeEdit: TTimeEdit;
     WideTrunk: TCheckBox;
-    BabySeat: TCheckBox;
     CheckGroup1: TCheckGroup;
     Label10: TLabel;
     Label11: TLabel;
@@ -41,6 +43,7 @@ type
     Label9: TLabel;
     ComfortRate: TTrackBar;
     Passengers: TTrackBar;
+    procedure BabySeatChange(Sender: TObject);
     procedure btnConfirmClick(Sender: TObject);
     procedure ComfortRateChange(Sender: TObject);
     procedure PassengersChange(Sender: TObject);
@@ -71,6 +74,7 @@ begin
   else
      result := 1;
 end;
+
 procedure GetAdress (var start: integer; var finish: integer);
 begin
      start := frmMain.DBLookupComboBox1.KeyValue;
@@ -88,6 +92,20 @@ begin
      ShowMessage ('Ошибка подключения к базе данных!');
   end;
     frmDetails.ShowModal;
+end;
+
+procedure TfrmMain.BabySeatChange(Sender: TObject);
+begin
+  if BabySeat.Checked = true then
+     begin
+          AmountOfSeats.Enabled := true;
+          AmountOfSeats.Text := '1';
+     end
+  else
+     begin
+          AmountOfSeats.Enabled := false;
+          AmountOfSeats.Text := '0';
+     end;
 end;
 
 

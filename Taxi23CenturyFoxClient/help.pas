@@ -18,9 +18,16 @@ type
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    StaticText1: TStaticText;
-    StaticText2: TStaticText;
+    PreviewText: TStaticText;
+    LispText: TStaticText;
+    DriverText: TStaticText;
+    DispatcherText: TStaticText;
+    PassengerText: TStaticText;
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure Label1Click(Sender: TObject);
+    procedure Label2Click(Sender: TObject);
+    procedure Label3Click(Sender: TObject);
     procedure Label4Click(Sender: TObject);
   private
     { private declarations }
@@ -38,15 +45,66 @@ implementation
 
   { TfrmHelp }
 
-  procedure TfrmHelp.FormShow(Sender: TObject);
+procedure TfrmHelp.FormShow(Sender: TObject);
   begin
-    StaticText2.Hide;
+    LispText.Hide;
+    DriverText.Hide;
+    DispatcherText.Hide;
+    PassengerText.Hide;
+    PreviewText.Show;
   end;
 
-  procedure TfrmHelp.Label4Click(Sender: TObject);
+procedure TfrmHelp.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+    LispText.Hide;
+    DriverText.Hide;
+    DispatcherText.Hide;
+    PassengerText.Hide;
+    PreviewText.Show;
+end;
+
+//Режим "Водитель"
+
+procedure TfrmHelp.Label1Click(Sender: TObject);
+begin
+    PreviewText.Hide;
+    LispText.Hide;
+    DispatcherText.Hide;
+    PassengerText.Hide;
+    DriverText.Show;
+end;
+
+//Режим "Диспетчер"
+
+procedure TfrmHelp.Label2Click(Sender: TObject);
+begin
+    PreviewText.Hide;
+    LispText.Hide;
+    DriverText.Hide;
+    PassengerText.Hide;
+    DispatcherText.Show;
+end;
+
+//Режим "Пассажир"
+
+procedure TfrmHelp.Label3Click(Sender: TObject);
+begin
+    PreviewText.Hide;
+    LispText.Hide;
+    DriverText.Hide;
+    DispatcherText.Hide;
+    PassengerText.Show;
+end;
+
+//История Лиспа
+
+procedure TfrmHelp.Label4Click(Sender: TObject);
   begin
-    StaticText1.Hide;
-    StaticText2.Show;
+    PreviewText.Hide;
+    DriverText.Hide;
+    DispatcherText.Hide;
+    PassengerText.Hide;
+    LispText.Show;
   end;
 
 end.
