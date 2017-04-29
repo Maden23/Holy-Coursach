@@ -307,6 +307,7 @@ object frmMain: TfrmMain
     top = 72
   end
   object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id'
@@ -319,6 +320,7 @@ object frmMain: TfrmMain
         Precision = -1
         Size = 66
       end>
+    Active = True
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (

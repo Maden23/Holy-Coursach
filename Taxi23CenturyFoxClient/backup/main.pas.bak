@@ -74,6 +74,7 @@ begin
   else
      result := 1;
 end;
+
 procedure GetAdress (var start: integer; var finish: integer);
 begin
      start := frmMain.DBLookupComboBox1.KeyValue;

@@ -1,13 +1,14 @@
 object frmDriver: TfrmDriver
-  Left = 665
-  Height = 917
-  Top = 150
-  Width = 1044
+  Left = 490
+  Height = 918
+  Top = 169
+  Width = 1045
   BorderStyle = bsSingle
   Caption = 'Водитель'
-  ClientHeight = 917
-  ClientWidth = 1044
+  ClientHeight = 918
+  ClientWidth = 1045
   OnClose = FormClose
+  OnShow = FormShow
   Position = poDesktopCenter
   LCLVersion = '1.6.2.0'
   object Button1: TButton
@@ -85,6 +86,7 @@ object frmDriver: TfrmDriver
       Color = clWindow
       Columns = <>
       DataSource = AvailableOrdersDS
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
       TabOrder = 0
     end
   end
@@ -10172,7 +10174,7 @@ object frmDriver: TfrmDriver
     AnchorSideLeft.Side = asrCenter
     Left = 690
     Height = 27
-    Top = 536
+    Top = 537
     Width = 179
     Anchors = [akLeft]
     Caption = 'Текущие заказы'
@@ -10200,31 +10202,36 @@ object frmDriver: TfrmDriver
       Width = 500
       Color = clWindow
       Columns = <>
+      DataSource = SelectedOrderDS
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
       TabOrder = 0
     end
   end
-  object AcceptOrder: TButton
+  object btnAcceptOrder: TButton
     Left = 528
     Height = 49
     Top = 467
     Width = 501
     Caption = 'Принять заказ'
+    OnClick = btnAcceptOrderClick
     TabOrder = 5
   end
-  object FinishOrder: TButton
+  object btnFinishOrder: TButton
     Left = 528
     Height = 49
     Top = 792
     Width = 501
     Caption = 'Завершить заказ'
+    OnClick = btnFinishOrderClick
     TabOrder = 6
   end
-  object CancelOrder: TButton
+  object btnCancelOrder: TButton
     Left = 528
     Height = 49
     Top = 856
     Width = 501
     Caption = 'Отменить заказ'
+    OnClick = btnCancelOrderClick
     TabOrder = 7
   end
   object ID: TLabel
@@ -10268,7 +10275,7 @@ object frmDriver: TfrmDriver
     Caption = 'Automobile'
     ParentColor = False
   end
-  object BuildRoute: TButton
+  object btnBuildRoute: TButton
     Left = 16
     Height = 49
     Top = 728
@@ -10674,8 +10681,12 @@ object frmDriver: TfrmDriver
     top = 64
   end
   object AvailableOrderQuery: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
       item
         Name = 'created'
         DataType = ftDateTime
@@ -10691,11 +10702,11 @@ object frmDriver: TfrmDriver
         DataType = ftInteger
         Precision = -1
       end>
-    Active = True
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
-      'select created, start_id, finish_id from orders'
+      'select id, created, start_id, finish_id from orders'
+      'where driver is null;'
     )
     Options = []
     Params = <>
@@ -10731,5 +10742,154 @@ object frmDriver: TfrmDriver
       ReadOnly = False
       Required = True
     end
+    object AvailableOrderQueryid: TAutoIncField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+  end
+  object DriverInfoQuery: TSQLQuery
+    FieldDefs = <>
+    Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
+    SQL.Strings = (
+      'select last_name from drivers where id = :id'
+    )
+    Options = []
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptInput
+      end>
+    left = 344
+    top = 16
+  end
+  object SelectedOrderQuery: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'created'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'start_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'finish_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'DATE_TIME'
+        DataType = ftTime
+        Precision = -1
+      end    
+      item
+        Name = 'comfort_rate'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'passengers'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'wide_trunk'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'baby_seat'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'driver'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'completed'
+        DataType = ftSmallint
+        Precision = -1
+      end>
+    Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
+    SQL.Strings = (
+      'select * from orders'
+      'where driver = :driver'
+      '      and completed is NULL'
+      'order by created;'
+    )
+    Options = []
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'driver'
+        ParamType = ptInput
+      end>
+    left = 536
+    top = 536
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = DataModule1.Connection
+    Options = []
+    left = 600
+    top = 64
+  end
+  object SelectedOrderDS: TDataSource
+    DataSet = SelectedOrderQuery
+    left = 584
+    top = 536
+  end
+  object FinishOrderQuery: TSQLQuery
+    FieldDefs = <>
+    Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
+    SQL.Strings = (
+      'select * from orders;'
+    )
+    Options = []
+    Params = <>
+    left = 488
+    top = 824
+  end
+  object AcceptOrderQuery: TSQLQuery
+    FieldDefs = <>
+    Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
+    SQL.Strings = (
+      'select * from orders;'
+    )
+    Options = []
+    Params = <>
+    left = 504
+    top = 464
+  end
+  object CancelOrderQuery: TSQLQuery
+    FieldDefs = <>
+    Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
+    SQL.Strings = (
+      'select * from orders;'
+    )
+    Options = []
+    Params = <>
+    left = 488
+    top = 864
   end
 end

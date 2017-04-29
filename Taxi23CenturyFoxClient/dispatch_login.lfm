@@ -1,0 +1,46 @@
+object frmDispatchLogin: TfrmDispatchLogin
+  Left = 970
+  Height = 149
+  Top = 195
+  Width = 258
+  Caption = 'Вход в систему'
+  ClientHeight = 149
+  ClientWidth = 258
+  OnClose = FormClose
+  Position = poDesktopCenter
+  LCLVersion = '1.6.2.0'
+  object Label2: TLabel
+    Left = 8
+    Height = 27
+    Top = 8
+    Width = 238
+    Caption = 'Введите код доступа:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Password: TEdit
+    Left = 8
+    Height = 33
+    Top = 48
+    Width = 238
+    EchoMode = emPassword
+    ParentShowHint = False
+    PasswordChar = '*'
+    TabOrder = 0
+    TextHint = 'access code'
+  end
+  object OK: TButton
+    Left = 8
+    Height = 49
+    Top = 88
+    Width = 238
+    Caption = 'OK'
+    OnClick = OKClick
+    TabOrder = 1
+  end
+end

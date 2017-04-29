@@ -1,0 +1,123 @@
+object frmDriverLogin: TfrmDriverLogin
+  Left = 534
+  Height = 247
+  Top = 193
+  Width = 401
+  Caption = 'Вход в систему'
+  ClientHeight = 247
+  ClientWidth = 401
+  OnClose = FormClose
+  OnShow = FormShow
+  Position = poDesktopCenter
+  LCLVersion = '1.6.2.0'
+  object Label1: TLabel
+    Left = 8
+    Height = 27
+    Top = 8
+    Width = 244
+    Caption = 'Выберите ваше ФИО:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 8
+    Height = 27
+    Top = 96
+    Width = 185
+    Caption = 'Введите пароль:'
+    Font.CharSet = RUSSIAN_CHARSET
+    Font.Height = -24
+    Font.Name = 'Arial'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Password: TEdit
+    Left = 8
+    Height = 33
+    Top = 136
+    Width = 384
+    EchoMode = emPassword
+    ParentShowHint = False
+    PasswordChar = '*'
+    TabOrder = 0
+    TextHint = 'password'
+  end
+  object OK: TButton
+    Left = 8
+    Height = 49
+    Top = 184
+    Width = 387
+    Caption = 'OK'
+    OnClick = OKClick
+    TabOrder = 1
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 8
+    Height = 33
+    Top = 48
+    Width = 384
+    AutoComplete = True
+    AutoDropDown = True
+    KeyField = 'id'
+    ListField = 'last_name'
+    ListFieldIndex = 0
+    ListSource = LoginDS
+    LookupCache = False
+    Sorted = True
+    TabOrder = 2
+  end
+  object LoginDS: TDataSource
+    DataSet = LoginQuery
+    left = 256
+    top = 8
+  end
+  object LoginQuery: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'last_name'
+        DataType = ftString
+        Precision = -1
+        Size = 30
+      end>
+    Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
+    SQL.Strings = (
+      'select id, last_name from drivers'
+    )
+    Options = []
+    Params = <>
+    left = 342
+    top = 8
+    object LoginQueryid: TAutoIncField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object LoginQuerylast_name: TStringField
+      FieldKind = fkData
+      FieldName = 'last_name'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+  end
+end

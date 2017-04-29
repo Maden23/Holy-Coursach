@@ -99,12 +99,6 @@ function CountTime(start, finish: integer): integer; //string;
 var i, dist: integer;
     d: mass;
   begin
-    {DataModule1.SQLQuery1.Open;
-    amount := DataModule1.SQLQuery1.FieldByName('amount').AsInteger;
-    setlength(a, amount+1); // 0-я строка и столбец не будут учитываться
-      for i:=1 to amount do
-         setlength(a[i], amount+1);
-       FormAdjecencyMatrix(amount, a);}
     d := Dijkstra(a, start, amount);
     dist := d[finish];
     result := dist; //IntToStr(dist);
