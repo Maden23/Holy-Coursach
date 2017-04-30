@@ -22,6 +22,7 @@ type
     Button1: TButton;
     btnAcceptOrder: TButton;
     AvailableOrdersDS: TDataSource;
+    Button2: TButton;
     FinishOrderQuery: TSQLQuery;
     SelectedOrderDS: TDataSource;
     FinishOrder: TButton;
@@ -30,7 +31,7 @@ type
     Image2: TImage;
     AvailableOrders: TDBGrid;
     SelectedOrders: TDBGrid;
-    Image1: TImage;
+    Map: TImage;
     Label1: TLabel;
     ID: TLabel;
     DriverName: TLabel;
@@ -52,6 +53,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure btnCancelOrderClick(Sender: TObject);
     procedure btnFinishOrderClick(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
   private
@@ -88,8 +90,8 @@ var a: matrix;
 begin
      {Получение из базы количества вершин (amount)
                 и создание матрицы amount x amount}
-     DataModule1.SQLQuery1.Open;
-     amount := DataModule1.SQLQuery1.FieldByName('amount').AsInteger;
+     DataModule1.CountLocationQuery.Open;
+     amount := DataModule1.CountLocationQuery.FieldByName('amount').AsInteger;
      setlength(a, amount+1); // 0-я строка и столбец не будут учитываться
      for i:=1 to amount do
          setlength(a[i], amount+1);
@@ -159,6 +161,28 @@ begin
          ShowMessage('Обновление не выполнено!');
       end;
     end;
+end;
+
+procedure TfrmDriver.Button2Click(Sender: TObject);
+var road, x1, y1, x2, y2: integer;
+begin
+ with DataModule1.RoadsQuery do
+ begin
+   Close;
+   Open;
+   Last;
+   First;
+   while not EOF do
+         begin
+           x1 := FieldByName('x1').AsInteger;
+           x2 := FieldByName('x2').AsInteger;
+           y1 := FieldByName('y1').AsInteger;
+           y2 := FieldByName('y2').AsInteger;
+           Map.Canvas.Line(x1, y1, x2, y2);
+           Next;
+         end;
+ end;
+
 end;
 
 procedure TfrmDriver.btnAcceptOrderClick(Sender: TObject);

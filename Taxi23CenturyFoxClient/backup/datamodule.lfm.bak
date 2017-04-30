@@ -1,8 +1,8 @@
 object DataModule1: TDataModule1
   OldCreateOrder = False
-  Height = 201
-  HorizontalOffset = 891
-  VerticalOffset = 294
+  Height = 513
+  HorizontalOffset = 555
+  VerticalOffset = 0
   Width = 385
   object Connection: TMySQL56Connection
     Connected = True
@@ -29,7 +29,6 @@ object DataModule1: TDataModule1
     top = 8
   end
   object EdgesQuery: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id_edge'
@@ -51,7 +50,6 @@ object DataModule1: TDataModule1
         DataType = ftInteger
         Precision = -1
       end>
-    Active = True
     Database = Connection
     Transaction = SQLTransaction1
     SQL.Strings = (
@@ -104,14 +102,12 @@ object DataModule1: TDataModule1
     top = 8
   end
   object SQLQuery1: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'amount'
         DataType = ftLargeint
         Precision = -1
       end>
-    Active = True
     Database = Connection
     Transaction = SQLTransaction1
     SQL.Strings = (
@@ -121,5 +117,79 @@ object DataModule1: TDataModule1
     Params = <>
     left = 272
     top = 8
+  end
+  object RoadsDS: TDataSource
+    DataSet = RoadsQuery
+    left = 32
+    top = 72
+  end
+  object RoadsQuery: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'x1'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'y1'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'x2'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'y2'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Database = Connection
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'call all_roads;'
+    )
+    Options = []
+    Params = <>
+    left = 88
+    top = 72
+    object RoadsQueryx1: TLongintField
+      FieldKind = fkData
+      FieldName = 'x1'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RoadsQueryy1: TLongintField
+      FieldKind = fkData
+      FieldName = 'y1'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RoadsQueryx2: TLongintField
+      FieldKind = fkData
+      FieldName = 'x2'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object RoadsQueryy2: TLongintField
+      FieldKind = fkData
+      FieldName = 'y2'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end

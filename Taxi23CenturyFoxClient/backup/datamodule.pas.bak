@@ -14,12 +14,18 @@ type
   TDataModule1 = class(TDataModule)
     Connection: TMySQL56Connection;
     DataSource1: TDataSource;
+    RoadsDS: TDataSource;
     EdgesQuery: TSQLQuery;
     EdgesQuerydistance: TLongintField;
     EdgesQueryfirst_node: TLongintField;
     EdgesQueryid_edge: TAutoIncField;
     EdgesQuerysecond_node: TLongintField;
+    RoadsQueryx1: TLongintField;
+    RoadsQueryx2: TLongintField;
+    RoadsQueryy1: TLongintField;
+    RoadsQueryy2: TLongintField;
     SQLQuery1: TSQLQuery;
+    RoadsQuery: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
   private
     { private declarations }
