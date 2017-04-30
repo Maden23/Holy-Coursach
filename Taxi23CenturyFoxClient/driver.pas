@@ -24,6 +24,7 @@ type
     AvailableOrdersDS: TDataSource;
     Button2: TButton;
     FinishOrderQuery: TSQLQuery;
+    Flag: TImage;
     SelectedOrderDS: TDataSource;
     FinishOrder: TButton;
     CancelOrder: TButton;
@@ -35,7 +36,7 @@ type
     Label1: TLabel;
     ID: TLabel;
     DriverName: TLabel;
-    Lisence: TLabel;
+    License: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     Automobile: TLabel;
@@ -183,6 +184,7 @@ begin
            Map.Canvas.Line(x1, y1, x2, y2);
            Next;
          end;
+   Map.SendToBack;
  end;
 
 end;
@@ -225,7 +227,10 @@ begin
 end;
 
 procedure TfrmDriver.FormShow(Sender: TObject);
+var
+    x0, y0: integer;
 begin
+     Flag.Visible := false;
      AvailableOrderQuery.Active := true;
      SelectedOrderQuery.Active := true;
      driver_id := frmDriverLogin.DriverNameComboBox.KeyValue;
@@ -237,6 +242,18 @@ begin
        Open;
      end;
      DriverName.Caption := DriverInfoQuery.FieldByName('last_name').AsString;
+     License.Caption := DriverInfoQuery.FieldByName('reg_number').AsString;
+     Automobile.Caption := DriverInfoQuery.FieldByName('model').AsString;
+     //канва
+     x0 := DriverInfoQuery.FieldByName('x').AsInteger;
+     y0 := DriverInfoQuery.FieldByName('y').AsInteger;
+     //Map.Canvas.Pen.Color := clRed;
+     //Map.Canvas.Pen.Width := 10;
+     //Map.Canvas.Line(x0, y0, x0+10, y0+10);
+     Flag.Left := x0-10;
+     Flag.Top := y0-10;
+     Flag.Visible := true;
+     Flag.BringToFront;
      with SelectedOrderQuery do
      begin
           Close;
