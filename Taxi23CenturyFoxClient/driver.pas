@@ -164,7 +164,7 @@ begin
 end;
 
 procedure TfrmDriver.Button2Click(Sender: TObject);
-var road, x1, y1, x2, y2: integer;
+var x1, y1, x2, y2: integer;
 begin
  with DataModule1.RoadsQuery do
  begin
@@ -178,6 +178,8 @@ begin
            x2 := FieldByName('x2').AsInteger;
            y1 := FieldByName('y1').AsInteger;
            y2 := FieldByName('y2').AsInteger;
+           Map.Canvas.Pen.Color := clInfoBk;
+           Map.Canvas.Pen.Width := 3;
            Map.Canvas.Line(x1, y1, x2, y2);
            Next;
          end;

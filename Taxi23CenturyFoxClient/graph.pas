@@ -30,18 +30,13 @@ begin
         a[i][j] := inf;
   {Заполнение матрицы существующими ребрами}
   DataModule1.EdgesQuery.Open;
-  //for id:=1 to amount do
   while not (DataModule1.EdgesQuery.EOF) do
      begin
-         //DataModule1.EdgesQuery.Close;
-         //DataModule1.EdgesQuery.ParamByName('id_edge').AsInteger := id;
-         //DataModule1.EdgesQuery.Open;
          n := DataModule1.EdgesQueryfirst_node.Asinteger;
          m := DataModule1.EdgesQuerysecond_node.Asinteger;
          a[n][m] := DataModule1.EdgesQuerydistance.AsInteger;
          a[m][n] := DataModule1.EdgesQuerydistance.AsInteger;
          DataModule1.EdgesQuery.Next;
-         //DataModule1.DataSource1.ComponentIndex := DataModule1.DataSource1.ComponentIndex+1;
       end;
 end;
 
@@ -62,7 +57,6 @@ begin
 
    while (i < length(Q)) and (Q[i] <> index) do
       inc(i);
-      //repeat inc(i) until (i = length(Q)-1) or (Q[i] = index);
    if i < length(q) then
     begin
       Q[i] := Q[length(Q)-1];
@@ -98,7 +92,6 @@ begin
                            begin
                                 d[i] := d[curr] + a[curr][i];
                                 p[i] := curr;
-                                //ShowMessage ('Distance changed for id: '+inttostr(i)+'; new: '+inttostr(d[i]));
                            end;
                end;
      Dijkstra := d;

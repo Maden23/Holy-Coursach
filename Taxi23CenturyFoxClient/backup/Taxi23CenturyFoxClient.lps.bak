@@ -31,12 +31,12 @@
         <ComponentName Value="frmDetails"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="11"/>
         <TopLine Value="48"/>
-        <CursorPos X="46" Y="71"/>
+        <CursorPos X="46" Y="77"/>
         <UsageCount Value="207"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="datamodule.pas"/>
@@ -67,8 +67,9 @@
         <Filename Value="graph.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="10"/>
-        <TopLine Value="59"/>
-        <CursorPos X="39" Y="96"/>
+        <TopLine Value="15"/>
+        <CursorPos X="15" Y="92"/>
+        <FoldState Value=" T3M0I1r"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -78,9 +79,10 @@
         <ComponentName Value="frmDriver"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="71"/>
-        <CursorPos X="47" Y="94"/>
+        <TopLine Value="92"/>
+        <CursorPos X="12" Y="182"/>
         <FoldState Value=" T3iV0A01213'"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -95,7 +97,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="77"/>
         <CursorPos X="5" Y="51"/>
-        <UsageCount Value="188"/>
+        <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -106,7 +108,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
         <CursorPos X="11" Y="38"/>
-        <UsageCount Value="182"/>
+        <UsageCount Value="194"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
@@ -118,7 +120,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="35"/>
         <CursorPos X="21" Y="39"/>
-        <UsageCount Value="180"/>
+        <UsageCount Value="192"/>
         <Loaded Value="True"/>
       </Unit9>
       <Unit10>
@@ -130,7 +132,7 @@
         <EditorIndex Value="7"/>
         <TopLine Value="26"/>
         <CursorPos X="25" Y="66"/>
-        <UsageCount Value="74"/>
+        <UsageCount Value="86"/>
         <Loaded Value="True"/>
       </Unit10>
       <Unit11>
@@ -142,14 +144,14 @@
         <EditorIndex Value="6"/>
         <TopLine Value="11"/>
         <CursorPos X="34" Y="47"/>
-        <UsageCount Value="72"/>
+        <UsageCount Value="84"/>
         <Loaded Value="True"/>
       </Unit11>
       <Unit12>
         <Filename Value="main.lfm"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="38" Y="20"/>
-        <UsageCount Value="70"/>
+        <UsageCount Value="69"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit12>
       <Unit13>
@@ -157,19 +159,19 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2723"/>
         <CursorPos Y="2736"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
       </Unit13>
       <Unit14>
         <Filename Value="C:\lazarus\lcl\include\dblookup.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="402"/>
         <CursorPos Y="412"/>
-        <UsageCount Value="32"/>
+        <UsageCount Value="31"/>
       </Unit14>
       <Unit15>
         <Filename Value="unit1.lfm"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit15>
       <Unit16>
@@ -177,157 +179,157 @@
         <UnitName Value="Unit1"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="19" Y="12"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
       </Unit16>
       <Unit17>
         <Filename Value="..\Dijkstra.pas"/>
         <UnitName Value="dijkstra"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="11" Y="32"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="21"/>
       </Unit17>
       <Unit18>
         <Filename Value="C:\lazarus\lcl\include\dblookupcombobox.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="80"/>
         <CursorPos X="42" Y="97"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit18>
       <Unit19>
         <Filename Value="C:\lazarus\lcl\include\customcombobox.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="892"/>
         <CursorPos Y="909"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
       </Unit19>
       <Unit20>
         <Filename Value="C:\lazarus\lcl\include\winapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1025"/>
         <CursorPos Y="1039"/>
-        <UsageCount Value="18"/>
+        <UsageCount Value="17"/>
       </Unit20>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="driver.pas"/>
-        <Caret Line="197" Column="7" TopLine="160"/>
+        <Caret Line="202" Column="7" TopLine="165"/>
       </Position1>
       <Position2>
         <Filename Value="driver.pas"/>
-        <Caret Line="202" Column="7" TopLine="165"/>
+        <Caret Line="203" Column="7" TopLine="157"/>
       </Position2>
       <Position3>
         <Filename Value="driver.pas"/>
-        <Caret Line="203" Column="7" TopLine="157"/>
+        <Caret Line="100" TopLine="71"/>
       </Position3>
       <Position4>
         <Filename Value="driver.pas"/>
-        <Caret Line="100" TopLine="71"/>
+        <Caret Line="201" Column="22" TopLine="50"/>
       </Position4>
       <Position5>
         <Filename Value="driver.pas"/>
-        <Caret Line="201" Column="22" TopLine="50"/>
+        <Caret Line="208" Column="22" TopLine="54"/>
       </Position5>
       <Position6>
-        <Filename Value="driver.pas"/>
-        <Caret Line="208" Column="22" TopLine="54"/>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="8" Column="3"/>
       </Position6>
       <Position7>
         <Filename Value="datamodule.pas"/>
-        <Caret Line="8" Column="3"/>
+        <Caret Line="24" Column="45"/>
       </Position7>
       <Position8>
         <Filename Value="datamodule.pas"/>
-        <Caret Line="24" Column="45"/>
+        <Caret Line="25" Column="45"/>
       </Position8>
       <Position9>
         <Filename Value="datamodule.pas"/>
-        <Caret Line="25" Column="45"/>
+        <Caret Line="26" Column="45"/>
       </Position9>
       <Position10>
         <Filename Value="datamodule.pas"/>
-        <Caret Line="26" Column="45"/>
+        <Caret Line="27" Column="45"/>
       </Position10>
       <Position11>
-        <Filename Value="datamodule.pas"/>
-        <Caret Line="27" Column="45"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="178" Column="43" TopLine="58"/>
       </Position11>
       <Position12>
         <Filename Value="driver.pas"/>
-        <Caret Line="178" Column="43" TopLine="58"/>
+        <Caret Line="171" Column="14" TopLine="65"/>
       </Position12>
       <Position13>
-        <Filename Value="driver.pas"/>
-        <Caret Line="171" Column="14" TopLine="65"/>
+        <Filename Value="graph.pas"/>
+        <Caret Line="18" Column="48"/>
       </Position13>
       <Position14>
         <Filename Value="graph.pas"/>
-        <Caret Line="18" Column="48"/>
+        <Caret Line="16" Column="38"/>
       </Position14>
       <Position15>
         <Filename Value="graph.pas"/>
-        <Caret Line="16" Column="38"/>
+        <Caret Line="18" Column="56"/>
       </Position15>
       <Position16>
         <Filename Value="graph.pas"/>
-        <Caret Line="18" Column="56"/>
+        <Caret Line="23" Column="38"/>
       </Position16>
       <Position17>
         <Filename Value="graph.pas"/>
-        <Caret Line="23" Column="38"/>
+        <Caret Line="28" Column="21"/>
       </Position17>
       <Position18>
         <Filename Value="graph.pas"/>
-        <Caret Line="28" Column="21"/>
+        <Caret Line="29" Column="24"/>
       </Position18>
       <Position19>
         <Filename Value="graph.pas"/>
-        <Caret Line="29" Column="24"/>
+        <Caret Line="33" Column="24"/>
       </Position19>
       <Position20>
         <Filename Value="graph.pas"/>
-        <Caret Line="33" Column="24"/>
+        <Caret Line="75" Column="56" TopLine="38"/>
       </Position20>
       <Position21>
         <Filename Value="graph.pas"/>
-        <Caret Line="75" Column="56" TopLine="38"/>
+        <Caret Line="83" Column="24" TopLine="46"/>
       </Position21>
       <Position22>
         <Filename Value="graph.pas"/>
-        <Caret Line="83" Column="24" TopLine="46"/>
+        <Caret Line="85" Column="24" TopLine="48"/>
       </Position22>
       <Position23>
         <Filename Value="graph.pas"/>
-        <Caret Line="85" Column="24" TopLine="48"/>
+        <Caret Line="88" Column="24" TopLine="51"/>
       </Position23>
       <Position24>
-        <Filename Value="graph.pas"/>
-        <Caret Line="88" Column="24" TopLine="51"/>
+        <Filename Value="details.pas"/>
+        <Caret Line="158" Column="76" TopLine="153"/>
       </Position24>
       <Position25>
         <Filename Value="details.pas"/>
-        <Caret Line="158" Column="76" TopLine="153"/>
+        <Caret Line="71" Column="36" TopLine="48"/>
       </Position25>
       <Position26>
-        <Filename Value="details.pas"/>
-        <Caret Line="71" Column="36" TopLine="48"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="175" Column="20" TopLine="66"/>
       </Position26>
       <Position27>
         <Filename Value="driver.pas"/>
-        <Caret Line="175" Column="20" TopLine="66"/>
+        <Caret Line="94" Column="46" TopLine="71"/>
       </Position27>
       <Position28>
-        <Filename Value="driver.pas"/>
-        <Caret Line="94" Column="46" TopLine="71"/>
+        <Filename Value="details.pas"/>
+        <Caret Line="71" Column="45" TopLine="45"/>
       </Position28>
       <Position29>
         <Filename Value="details.pas"/>
-        <Caret Line="71" Column="45" TopLine="45"/>
+        <Caret Line="70" Column="29" TopLine="42"/>
       </Position29>
       <Position30>
-        <Filename Value="details.pas"/>
-        <Caret Line="70" Column="29" TopLine="42"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="181" Column="38" TopLine="93"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

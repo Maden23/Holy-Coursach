@@ -67,8 +67,8 @@ end;
 function Price(start, finish, comfort: integer): string;
 var i, j, dist, money: integer;
   begin
-    DataModule1.CountLocationQuery.Open;
-    amount := DataModule1.CountLocationQuery.FieldByName('amount').AsInteger;
+    DataModule1.CountLocationsQuery.Open;
+    amount := DataModule1.CountLocationsQuery.FieldByName('amount').AsInteger;
     setlength(a, amount+1); // 0-я строка и столбец не будут учитываться
       for i:=1 to amount do
          setlength(a[i], amount+1);

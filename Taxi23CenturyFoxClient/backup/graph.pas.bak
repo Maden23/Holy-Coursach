@@ -94,7 +94,7 @@ begin
                begin
                     curr := ExtractMin(d, Q);
                     for i:=1 to amount do
-                        if (a[curr][i] < 9999) and (d[i] > d[curr] + a[curr][i]) then
+                        if(d[i] > d[curr] + a[curr][i]) then
                            begin
                                 d[i] := d[curr] + a[curr][i];
                                 p[i] := curr;
