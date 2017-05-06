@@ -202,4 +202,22 @@ object DataModule1: TDataModule1
       Required = False
     end
   end
+  object NodeCoordinatesQuery: TSQLQuery
+    FieldDefs = <>
+    Database = Connection
+    Transaction = SQLTransaction1
+    SQL.Strings = (
+      'select x, y from locations'
+      'where id = :id;'
+    )
+    Options = []
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptInput
+      end>
+    left = 152
+    top = 72
+  end
 end

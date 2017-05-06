@@ -13,6 +13,7 @@ type
 
   TDataModule1 = class(TDataModule)
     Connection: TMySQL56Connection;
+    CountLocationsQuerynodesCount: TLargeintField;
     DataSource1: TDataSource;
     RoadsDS: TDataSource;
     EdgesQuery: TSQLQuery;

@@ -11,11 +11,17 @@ uses
 type
   matrix = array of array of integer;
   mass = array [1..100] of integer;
-  endless = array of integer;
+  massDyn = array of integer;
+  node = record
+               id, x, y: integer;
+               end;
+  nodesMass = array of node;
 
 procedure FormAdjecencyMatrix (nodesCount: integer; var a: matrix);
 
 function Dijkstra(var s: integer; param: string): mass;
+
+function PathFromTo (start, finish: integer): nodesMass;
 
 
 implementation
@@ -41,7 +47,7 @@ begin
       end;
 end;
 
-function ExtractMin (d: mass; var Q: endless): integer;
+function ExtractMin (d: mass; var Q: massDyn): integer;
 const
   inf = 9999;
 var i: integer;
@@ -72,7 +78,7 @@ const
   inf = 9999;
 var
     d, p: mass; //distance, previous
-    q: endless; //queue
+    q: massDyn; //queue
     i, curr, nodesCount: integer;
     a: matrix;
 begin
@@ -109,8 +115,42 @@ begin
                            end;
                end;
      if param = 'distance' then
-        Dijkstra := d
-     else Dijkstra := p;
+        result := d
+     else if param = 'previous' then
+        result := p;
+end;
+
+function PathFromTo (start, finish: integer): nodesMass;
+var
+   path: nodesMass;
+   prevNodes: mass;
+   next, i: integer;
+begin
+    prevNodes := Dijkstra(start, 'previous') ;
+
+    //Восстановление маршрута в массив path (поле id) в обратном порядке
+    next := finish;
+    repeat
+       setlength(path, length(path)+1);
+       path[length(path)-1].id := next;
+       next := prevNodes[next];
+    until next = start;
+    setlength(path, length(path)+1);
+    path[length(path)-1].id := start;
+
+    //Нахождение координат каждого промежуточного пункта
+    for i:=0 to length(path)-1 do
+       begin
+          with DataModule1.NodeCoordinatesQuery do
+               begin
+                    Close;
+                    ParamByName('id').AsInteger := path[i].id;
+                    Open;
+                    path[i].x := FieldByName('x').AsInteger;
+                    path[i].y := FieldByName('y').AsInteger;
+               end;
+       end;
+    result := path;
 end;
 
 end.

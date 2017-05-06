@@ -51,6 +51,7 @@ type
     CancelOrderQuery: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
     procedure btnAcceptOrderClick(Sender: TObject);
+    procedure btnBuildRouteClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure btnCancelOrderClick(Sender: TObject);
     procedure btnFinishOrderClick(Sender: TObject);
@@ -65,7 +66,7 @@ type
 
 var
   frmDriver: TfrmDriver;
-  driver_id: integer;
+  driver_id, driver_location: integer;
 
 implementation
 
@@ -164,29 +165,33 @@ begin
     end;
 end;
 
-procedure TfrmDriver.Button2Click(Sender: TObject);
-var x1, y1, x2, y2: integer;
+procedure Buildroads();
+var x1,x2,y1,y2 : integer;
 begin
- with DataModule1.RoadsQuery do
- begin
-   Close;
-   Open;
-   Last;
-   First;
-   while not EOF do
-         begin
-           x1 := FieldByName('x1').AsInteger;
-           x2 := FieldByName('x2').AsInteger;
-           y1 := FieldByName('y1').AsInteger;
-           y2 := FieldByName('y2').AsInteger;
-           Map.Canvas.Pen.Color := clInfoBk;
-           Map.Canvas.Pen.Width := 3;
-           Map.Canvas.Line(x1, y1, x2, y2);
-           Next;
-         end;
-   Map.SendToBack;
- end;
+   with DataModule1.RoadsQuery do
+   begin
+     Close;
+     Open;
+     Last;
+     First;
+     while not EOF do
+           begin
+             x1 := FieldByName('x1').AsInteger;
+             x2 := FieldByName('x2').AsInteger;
+             y1 := FieldByName('y1').AsInteger;
+             y2 := FieldByName('y2').AsInteger;
+             frmDriver.Map.Canvas.Pen.Color := clInfoBk;
+             frmDriver.Map.Canvas.Pen.Width := 3;
+             frmDriver.Map.Canvas.Line(x1, y1, x2, y2);
+             Next;
+           end;
+     end;
+      frmDriver.Map.SendToBack;
+end;
 
+procedure TfrmDriver.Button2Click(Sender: TObject);
+begin
+   BuildRoads;
 end;
 
 procedure TfrmDriver.btnAcceptOrderClick(Sender: TObject);
@@ -221,6 +226,55 @@ begin
     end;
 end;
 
+procedure DrawRoute(var path: nodesMass);
+var
+   i: integer;
+begin
+  for i:=0 to length(path)-2 do
+      begin
+           with frmDriver.Map.Canvas do
+             begin
+                Pen.Color := clGreen;
+                Pen.Width :=5;
+                Line(path[i].x, path[i].y, path[i+1].x, path[i+1].y);
+             end;
+
+      end;
+end;
+
+procedure TfrmDriver.btnBuildRouteClick(Sender: TObject);
+var
+    path: nodesMass;
+    passenger_location, destination: integer;
+begin
+  //if SelectedOrders.DataSource.DataSet.IsEmpty then
+  //   ShowMessage('Нет текущих заказов')
+  //else
+      begin
+          Map.Canvas.Refresh;
+          BuildRoads;
+          passenger_location := SelectedOrders.DataSource.DataSet.FieldByName('start_id').AsInteger;
+          destination := SelectedOrders.DataSource.DataSet.FieldByName('finish_id').AsInteger;
+          path := PathFromTo(driver_location, passenger_location);
+          DrawRoute(path);
+          //Нарисовать человечка в (path[0].x, path[0].y)
+          with  Map.Canvas do
+              begin
+                Pen.Color:=clBlack;
+                Pen.Width := 7;
+                Ellipse(path[0].x-3,path[0].y-3,path[0].x+3,path[0].y+3);
+              end;
+          path := PathFromTo(passenger_location, destination);
+          DrawRoute(path);
+          with  Map.Canvas do
+              begin
+                Pen.Color:=clBlack;
+                Pen.Width := 7;
+                Rectangle(path[0].x-3,path[0].y-3,path[0].x+3,path[0].y+3);
+              end;
+      end;
+end;
+
 procedure TfrmDriver.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
      frmStart.Show;
@@ -240,6 +294,7 @@ begin
        Close;
        ParamByName('id').AsInteger := driver_id;
        Open;
+       driver_location := FieldByName('location').AsInteger;
      end;
      DriverName.Caption := DriverInfoQuery.FieldByName('last_name').AsString;
      License.Caption := DriverInfoQuery.FieldByName('reg_number').AsString;
