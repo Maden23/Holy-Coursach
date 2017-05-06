@@ -1,24 +1,26 @@
 object frmDetails: TfrmDetails
-  Left = 1322
-  Height = 385
-  Top = 383
-  Width = 284
+  Left = 685
+  Height = 423
+  Top = 271
+  Width = 288
   AutoSize = True
   BorderStyle = bsToolWindow
   Caption = 'Детали заказа'
-  ClientHeight = 385
-  ClientWidth = 284
+  ClientHeight = 423
+  ClientWidth = 288
+  OnClose = FormClose
   OnShow = FormShow
+  Position = poOwnerFormCenter
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
     Left = 8
-    Height = 384
+    Height = 421
     Top = 0
     Width = 274
     Align = alCustom
     AutoSize = True
     BorderWidth = 1
-    ClientHeight = 384
+    ClientHeight = 421
     ClientWidth = 274
     TabOrder = 0
     object Label1: TLabel
@@ -78,17 +80,17 @@ object frmDetails: TfrmDetails
       ParentColor = False
     end
     object Button1: TButton
-      AnchorSideTop.Control = Label16
+      AnchorSideTop.Control = btnChange
       AnchorSideTop.Side = asrBottom
       Left = 2
       Height = 35
-      Top = 347
+      Top = 384
       Width = 270
       Align = alBottom
       Anchors = [akTop, akLeft, akRight, akBottom]
       AutoSize = True
-      BorderSpacing.Top = 10
-      Caption = 'Потвердить'
+      BorderSpacing.Top = 2
+      Caption = 'Подтвердить'
       OnClick = Button1Click
       TabOrder = 0
     end
@@ -202,9 +204,80 @@ object frmDetails: TfrmDetails
       ParentColor = False
       ParentFont = False
     end
+    object btnChange: TButton
+      AnchorSideLeft.Control = Panel1
+      AnchorSideTop.Control = Label16
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = Panel1
+      AnchorSideRight.Side = asrBottom
+      Left = 2
+      Height = 35
+      Top = 347
+      Width = 270
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Top = 10
+      Caption = 'Изменить заказ'
+      OnClick = btnChangeClick
+      TabOrder = 1
+    end
   end
   object OrderQuery: TSQLQuery
-    FieldDefs = <>
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'created'
+        DataType = ftDateTime
+        Precision = -1
+      end    
+      item
+        Name = 'start_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'finish_id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'DATE_TIME'
+        DataType = ftTime
+        Precision = -1
+      end    
+      item
+        Name = 'comfort_rate'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'passengers'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'wide_trunk'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'baby_seat'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'driver'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'completed'
+        DataType = ftSmallint
+        Precision = -1
+      end>
     AutoCalcFields = False
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
@@ -221,5 +294,104 @@ object frmDetails: TfrmDetails
     ParamCheck = False
     left = 224
     top = 264
+    object OrderQueryid: TAutoIncField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object OrderQuerycreated: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'created'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object OrderQuerystart_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'start_id'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object OrderQueryfinish_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'finish_id'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object OrderQueryDATE_TIME: TTimeField
+      FieldKind = fkData
+      FieldName = 'DATE_TIME'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object OrderQuerycomfort_rate: TLongintField
+      FieldKind = fkData
+      FieldName = 'comfort_rate'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object OrderQuerypassengers: TLongintField
+      FieldKind = fkData
+      FieldName = 'passengers'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object OrderQuerywide_trunk: TLongintField
+      FieldKind = fkData
+      FieldName = 'wide_trunk'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object OrderQuerybaby_seat: TLongintField
+      FieldKind = fkData
+      FieldName = 'baby_seat'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object OrderQuerydriver: TLongintField
+      FieldKind = fkData
+      FieldName = 'driver'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object OrderQuerycompleted: TSmallintField
+      FieldKind = fkData
+      FieldName = 'completed'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
 end

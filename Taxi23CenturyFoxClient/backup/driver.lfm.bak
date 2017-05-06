@@ -10345,19 +10345,19 @@ object frmDriver: TfrmDriver
   end
   object ID: TLabel
     Left = 16
-    Height = 15
+    Height = 25
     Top = 80
-    Width = 11
+    Width = 18
     Caption = 'ID'
     ParentColor = False
   end
   object DriverName: TLabel
     AnchorSideLeft.Control = ID
     AnchorSideLeft.Side = asrBottom
-    Left = 32
-    Height = 15
+    Left = 39
+    Height = 25
     Top = 80
-    Width = 63
+    Width = 94
     BorderSpacing.Left = 5
     Caption = 'DriverName'
     ParentColor = False
@@ -10365,10 +10365,10 @@ object frmDriver: TfrmDriver
   object License: TLabel
     AnchorSideLeft.Control = DriverName
     AnchorSideLeft.Side = asrBottom
-    Left = 100
-    Height = 15
+    Left = 138
+    Height = 25
     Top = 80
-    Width = 39
+    Width = 56
     BorderSpacing.Left = 5
     Caption = 'License'
     ParentColor = False
@@ -10376,10 +10376,10 @@ object frmDriver: TfrmDriver
   object Automobile: TLabel
     AnchorSideLeft.Control = License
     AnchorSideLeft.Side = asrBottom
-    Left = 144
-    Height = 15
+    Left = 199
+    Height = 25
     Top = 80
-    Width = 63
+    Width = 94
     BorderSpacing.Left = 5
     Caption = 'Automobile'
     ParentColor = False

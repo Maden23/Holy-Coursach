@@ -184,6 +184,7 @@ begin
            Map.Canvas.Line(x1, y1, x2, y2);
            Next;
          end;
+   Map.SendToBack;
  end;
 
 end;
@@ -227,7 +228,7 @@ end;
 
 procedure TfrmDriver.FormShow(Sender: TObject);
 var
-    x0, y0: integer;
+    x0, y0, x1, y1, x2, y2: integer;
 begin
      Flag.Visible := false;
      AvailableOrderQuery.Active := true;
@@ -244,14 +245,32 @@ begin
      License.Caption := DriverInfoQuery.FieldByName('reg_number').AsString;
      Automobile.Caption := DriverInfoQuery.FieldByName('model').AsString;
      //канва
+     with DataModule1.RoadsQuery do
+ begin
+   Close;
+   Open;
+   Last;
+   First;
+   while not EOF do
+         begin
+           x1 := FieldByName('x1').AsInteger;
+           x2 := FieldByName('x2').AsInteger;
+           y1 := FieldByName('y1').AsInteger;
+           y2 := FieldByName('y2').AsInteger;
+           Map.Canvas.Pen.Color := clInfoBk;
+           Map.Canvas.Pen.Width := 3;
+           Map.Canvas.Line(x1, y1, x2, y2);
+           Next;
+         end;
+   Map.SendToBack;
+ end;
+     //Button2.Click;
      x0 := DriverInfoQuery.FieldByName('x').AsInteger;
      y0 := DriverInfoQuery.FieldByName('y').AsInteger;
-     //Map.Canvas.Pen.Color := clRed;
-     //Map.Canvas.Pen.Width := 10;
-     //Map.Canvas.Line(x0, y0, x0+10, y0+10);
      Flag.Left := x0-10;
      Flag.Top := y0-10;
      Flag.Visible := true;
+     Flag.BringToFront;
      with SelectedOrderQuery do
      begin
           Close;

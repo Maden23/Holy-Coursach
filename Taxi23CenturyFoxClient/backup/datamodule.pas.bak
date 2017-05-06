@@ -24,7 +24,7 @@ type
     RoadsQueryx2: TLongintField;
     RoadsQueryy1: TLongintField;
     RoadsQueryy2: TLongintField;
-    SQLQuery1: TSQLQuery;
+    CountLocationsQuery: TSQLQuery;
     RoadsQuery: TSQLQuery;
     SQLTransaction1: TSQLTransaction;
   private

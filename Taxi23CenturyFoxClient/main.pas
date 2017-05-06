@@ -46,6 +46,8 @@ type
     procedure BabySeatChange(Sender: TObject);
     procedure btnConfirmClick(Sender: TObject);
     procedure ComfortRateChange(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
     procedure PassengersChange(Sender: TObject);
   private
     { private declarations }
@@ -57,7 +59,7 @@ var
   frmMain: TfrmMain;
 
 implementation
-
+  uses start;
 {$R *.lfm}
 
 { TfrmMain }
@@ -85,13 +87,19 @@ end;
 
 procedure TfrmMain.btnConfirmClick(Sender: TObject);
 begin
-  try
-     DataModule1.Connection.Open;
-     DataModule1.SQLTransaction1.Active := True;
-  except
-     ShowMessage ('Ошибка подключения к базе данных!');
-  end;
-    frmDetails.ShowModal;
+  if DBLookupComboBox1.Text = '' then
+     ShowMessage('Введите адрес подачи!')
+  else if DBLookupComboBox2.Text = '' then
+     ShowMessage('Введите конечный пункт!')
+  else if TimeEdit.Text = '' then
+     ShowMessage('Введите время!')
+  else if DBLookupComboBox1.Text = DBLookupComboBox2.Text then
+     ShowMessage('Адрес подачи не должен совпадать с конечным адресом!')
+  else
+      begin
+           frmMain.Hide;
+           frmDetails.Show;
+      end;
 end;
 
 procedure TfrmMain.BabySeatChange(Sender: TObject);
@@ -118,6 +126,23 @@ begin
        4: Label5.Caption := '✪✪✪✪';
        5: Label5.Caption := '✪✪✪✪✪';
 
+  end;
+end;
+
+procedure TfrmMain.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  frmStart.Show;
+end;
+
+procedure TfrmMain.FormShow(Sender: TObject);
+begin
+  try
+     DataModule1.Connection.Open;
+     DataModule1.SQLTransaction1.Active := True;
+     SQLQuery1.Active := true;
+  except
+     ShowMessage ('Ошибка подключения к базе данных!');
+     Close;
   end;
 end;
 

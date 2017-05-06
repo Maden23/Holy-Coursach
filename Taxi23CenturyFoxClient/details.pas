@@ -5,8 +5,8 @@ unit details;
 interface
 
 uses
-  DataModule, Classes, SysUtils, sqldb, FileUtil, Forms, Controls, Graphics, Dialogs,
-  ExtCtrls, StdCtrls;
+  DataModule, Classes, SysUtils, sqldb, db, FileUtil, Forms, Controls, Graphics,
+  Dialogs, ExtCtrls, StdCtrls;
 
 type
     matrix = array of array of integer;
@@ -15,6 +15,7 @@ type
 
   TfrmDetails = class(TForm)
     Button1: TButton;
+    btnChange: TButton;
     Label1: TLabel;
     Label10: TLabel;
     Label11: TLabel;
@@ -32,8 +33,21 @@ type
     Label8: TLabel;
     Label9: TLabel;
     OrderQuery: TSQLQuery;
+    OrderQuerybaby_seat: TLongintField;
+    OrderQuerycomfort_rate: TLongintField;
+    OrderQuerycompleted: TSmallintField;
+    OrderQuerycreated: TDateTimeField;
+    OrderQueryDATE_TIME: TTimeField;
+    OrderQuerydriver: TLongintField;
+    OrderQueryfinish_id: TLongintField;
+    OrderQueryid: TAutoIncField;
+    OrderQuerypassengers: TLongintField;
+    OrderQuerystart_id: TLongintField;
+    OrderQuerywide_trunk: TLongintField;
     Panel1: TPanel;
+    procedure btnChangeClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
   private
     { private declarations }
@@ -65,14 +79,14 @@ begin
 end;
 
 function Price(start, finish, comfort: integer): string;
-var i, j, dist, money: integer;
+var dist, money: integer;
   begin
-    DataModule1.CountLocationsQuery.Open;
-    amount := DataModule1.CountLocationsQuery.FieldByName('amount').AsInteger;
-    setlength(a, amount+1); // 0-я строка и столбец не будут учитываться
-      for i:=1 to amount do
-         setlength(a[i], amount+1);
-    FormAdjecencyMatrix(amount, a);
+    //DataModule1.CountLocationsQuery.Open;
+    //amount := DataModule1.CountLocationsQuery.FieldByName('amount').AsInteger;
+    //setlength(a, amount+1); // 0-я строка и столбец не будут учитываться
+    //  for i:=1 to amount do
+    //     setlength(a[i], amount+1);
+    //FormAdjecencyMatrix(amount, a);
 
     if comfort = 1 then
        money := 59
@@ -81,7 +95,7 @@ var i, j, dist, money: integer;
           money := 99
        else
           money := 149;
-    dist := Dijkstra(a, start, amount)[finish];
+    dist := Dijkstra(start, 'distance')[finish];
     if dist > 5 then
        begin
          case comfort of
@@ -99,7 +113,7 @@ function CountTime(start, finish: integer): integer; //string;
 var i, dist: integer;
     d: mass;
   begin
-    d := Dijkstra(a, start, amount);
+    d := Dijkstra(start, 'distance');
     dist := d[finish];
     result := dist; //IntToStr(dist);
   end;
@@ -115,7 +129,7 @@ begin
   if (frmMain.WideTrunk.Checked = true)
      and (frmMain.BabySeat.Checked = true)
          and (frmMain.AmountOfSeats.Text = '1') then
-         Label11.Caption := 'Большой багажник, детское кресло'
+             Label11.Caption := 'Большой багажник, детское кресло'
   else if (frmMain.WideTrunk.Checked = true)
           and (frmMain.BabySeat.Checked = true)
               and (frmMain.AmountOfSeats.Text = '2') then
@@ -153,45 +167,58 @@ end;
 
 procedure TfrmDetails.Button1Click(Sender: TObject);
 begin
-  if frmMain.DBLookupComboBox1.KeyValue <> frmMain.DBLookupComboBox2.KeyValue then
-     begin
-      try
-         DataModule1.Connection.Open;
-         DataModule1.SQLTransaction1.Active := True;
-      except
-         ShowMessage ('Ошибка подключения к базе данных!');
-      end;
-      with OrderQuery do
-           begin
-                Open;
-                Insert;
-                Fields[1].AsDatetime := Now;
-                Fields[2].AsInteger := frmMain.DBLookupComboBox1.KeyValue;;
-                Fields[3].AsInteger := frmMain.DBLookupComboBox2.KeyValue;;
-                Fields[4].AsDatetime := frmMain.TimeEdit.Time ;
-                Fields[5].AsInteger := frmMain.ComfortRate.Position;
-                Fields[6].AsInteger := frmMain.Passengers.Position;
-                Fields[7].AsInteger := BoolToInt(frmMain.WideTrunk.Checked);
-                Fields[8].AsInteger := StrToInt(frmMain.AmountOfSeats.Text);
-                try
-                   Post;
-                   ApplyUpdates;
-                   DataModule1.SQLTransaction1.Commit;
-                except
-                   ShowMessage('Запрос не выполнен!');
-                end;
-
-           end;
-      Close;
-      frmStart.Show;
-      ShowMessage('Заказ принят!');
-     end
-  else
-      begin
-           ShowMessage('Адрес подачи не может совпадать с конечным адресом');
-           frmDetails.Close;
-      end;
+  with OrderQuery do
+       begin
+            Close;
+            Open;
+            Insert;
+            Fields[1].AsDatetime := Now;
+            Fields[2].AsInteger := frmMain.DBLookupComboBox1.KeyValue;
+            Fields[3].AsInteger := frmMain.DBLookupComboBox2.KeyValue;
+            Fields[4].AsDatetime := frmMain.TimeEdit.Time ;
+            Fields[5].AsInteger := frmMain.ComfortRate.Position;
+            Fields[6].AsInteger := frmMain.Passengers.Position;
+            Fields[7].AsInteger := BoolToInt(frmMain.WideTrunk.Checked);
+            Fields[8].AsInteger := StrToInt(frmMain.AmountOfSeats.Text);
+            try
+               Post;
+               ApplyUpdates;
+               DataModule1.SQLTransaction1.Commit;
+            except
+               ShowMessage('Запрос не выполнен!');
+               frmMain.Show;
+               frmDetails.Close;
+            end;
+       end;
+  Close;
+  ShowMessage('Заказ принят!');
 end;
+
+procedure TfrmDetails.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+   frmMain.Close;
+   frmStart.Show;
+
+   //--------Clearing frmMain ----------
+      with frmMain do
+           begin
+                DBLookupComboBox1.Text := '';
+                DBLookupComboBox2.Text := '';
+                TimeEdit.Text := '';
+                WideTrunk.Checked := false;
+                BabySeat.Checked := false;
+                ComfortRate.Position := 1;
+                Passengers.Position := 1;
+           end;
+  //-----------------------------------
+end;
+
+procedure TfrmDetails.btnChangeClick(Sender: TObject);
+begin
+  Hide;
+  frmMain.Show;
+end;
+
 
 end.
 

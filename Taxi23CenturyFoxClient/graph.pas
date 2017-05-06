@@ -13,22 +13,23 @@ type
   mass = array [1..100] of integer;
   endless = array of integer;
 
-procedure FormAdjecencyMatrix (amount: integer; var a: matrix);
+procedure FormAdjecencyMatrix (nodesCount: integer; var a: matrix);
 
-function Dijkstra(var a: matrix; var s: integer; amount: integer): mass;
+function Dijkstra(var s: integer; param: string): mass;
 
 
 implementation
 
-procedure FormAdjecencyMatrix (amount: integer; var a: matrix);
+procedure FormAdjecencyMatrix (nodesCount: integer; var a: matrix);
 var i, j, id, n, m: integer;
 const inf = 9999;
 begin
   {Иницицализация всех возможных ребер}
-  for i:=1 to amount do
-     for j:=1 to amount do
+  for i:=1 to nodesCount do
+     for j:=1 to nodesCount do
         a[i][j] := inf;
   {Заполнение матрицы существующими ребрами}
+  DataModule1.EdgesQuery.Close;
   DataModule1.EdgesQuery.Open;
   while not (DataModule1.EdgesQuery.EOF) do
      begin
@@ -43,7 +44,7 @@ end;
 function ExtractMin (d: mass; var Q: endless): integer;
 const
   inf = 9999;
-var i, j: integer;
+var i: integer;
     index, min: integer;
 begin
    min := inf;
@@ -66,20 +67,33 @@ begin
 result := index;
 end;
 
-function Dijkstra(var a: matrix; var s: integer; amount: integer): mass;
+function Dijkstra(var s: integer; param: string): mass;
 const
   inf = 9999;
 var
-    d, p: mass; //distance
+    d, p: mass; //distance, previous
     q: endless; //queue
-    i, j, curr: integer;
+    i, curr, nodesCount: integer;
+    a: matrix;
 begin
-     for i:=1 to amount do
+     with DataModule1.CountLocationsQuery do
+          begin
+             Close;
+             Open;
+             nodesCount := FieldByName('nodesCount').AsInteger;
+          end;
+
+     setlength(a, nodesCount+1); // 0-я строка и столбец не будут учитываться
+     for i:=1 to nodesCount do
+         setlength(a[i], nodesCount+1);
+     FormAdjecencyMatrix(nodesCount, a);
+
+     for i:=1 to nodesCount do
          d[i] := inf;
-     for i:=1 to amount do
+     for i:=1 to nodesCount do
          p[i] := 0;
      d[s] := 0; //distance of current node S
-     for i:=1 to amount do
+     for i:=1 to nodesCount do
          begin
               setlength(q, length(q)+1);
               q[i-1] := i; //i-1
@@ -87,14 +101,16 @@ begin
          while length(q) > 0 do
                begin
                     curr := ExtractMin(d, Q);
-                    for i:=1 to amount do
+                    for i:=1 to nodesCount do
                         if(d[i] > d[curr] + a[curr][i]) then
                            begin
                                 d[i] := d[curr] + a[curr][i];
                                 p[i] := curr;
                            end;
                end;
-     Dijkstra := d;
+     if param = 'distance' then
+        Dijkstra := d
+     else Dijkstra := p;
 end;
 
 end.
