@@ -22,7 +22,7 @@ type
     Button1: TButton;
     btnAcceptOrder: TButton;
     AvailableOrdersDS: TDataSource;
-    Button2: TButton;
+    ResetRoutes: TButton;
     FinishOrderQuery: TSQLQuery;
     Flag: TImage;
     SelectedOrderDS: TDataSource;
@@ -55,7 +55,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure btnCancelOrderClick(Sender: TObject);
     procedure btnFinishOrderClick(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+    procedure ResetRoutesClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
   private
@@ -66,7 +66,8 @@ type
 
 var
   frmDriver: TfrmDriver;
-  driver_id, driver_location: integer;
+  driver_id: integer;
+  driver_location: node;
 
 implementation
 
@@ -186,12 +187,13 @@ begin
              Next;
            end;
      end;
-      frmDriver.Map.SendToBack;
 end;
 
-procedure TfrmDriver.Button2Click(Sender: TObject);
+procedure TfrmDriver.ResetRoutesClick(Sender: TObject);
 begin
+   Map.Repaint;
    BuildRoads;
+   Flag.Repaint;
 end;
 
 procedure TfrmDriver.btnAcceptOrderClick(Sender: TObject);
@@ -247,31 +249,51 @@ var
     path: nodesMass;
     passenger_location, destination: integer;
 begin
-  //if SelectedOrders.DataSource.DataSet.IsEmpty then
-  //   ShowMessage('Нет текущих заказов')
-  //else
+  if SelectedOrders.DataSource.DataSet.IsEmpty then
+     ShowMessage('Нет текущих заказов')
+  else
       begin
-          Map.Canvas.Refresh;
+          Map.Repaint;
           BuildRoads;
-          passenger_location := SelectedOrders.DataSource.DataSet.FieldByName('start_id').AsInteger;
-          destination := SelectedOrders.DataSource.DataSet.FieldByName('finish_id').AsInteger;
-          path := PathFromTo(driver_location, passenger_location);
-          DrawRoute(path);
-          //Нарисовать человечка в (path[0].x, path[0].y)
-          with  Map.Canvas do
-              begin
-                Pen.Color:=clBlack;
-                Pen.Width := 7;
-                Ellipse(path[0].x-3,path[0].y-3,path[0].x+3,path[0].y+3);
-              end;
+
+          with SelectedOrders.DataSource.DataSet do
+            begin
+              passenger_location := FieldByName('start_id').AsInteger;
+              destination := FieldByName('finish_id').AsInteger;
+            end;
+
+          if driver_location.id <> passenger_location then
+             begin
+               path := PathFromTo(driver_location.id, passenger_location);
+               DrawRoute(path);
+               with  Map.Canvas do
+                  begin
+                    //Нарисовать человечка в path[0]
+                    Pen.Color:=clBlack;
+                    Pen.Width := 2;
+                    Ellipse(path[0].x-7,path[0].y-7,
+                            path[0].x+7,path[0].y+7);
+                  end;
+             end
+          else
+              //Нарисовать человечка в driver_location
+              with  Map.Canvas do
+                  begin
+                    Pen.Color:=clBlack;
+                    Pen.Width := 2;
+                    Ellipse(driver_location.x-7,driver_location.y-7,
+                            driver_location.x+7,driver_location.y+7);
+                  end;
+
           path := PathFromTo(passenger_location, destination);
           DrawRoute(path);
           with  Map.Canvas do
               begin
                 Pen.Color:=clBlack;
-                Pen.Width := 7;
-                Rectangle(path[0].x-3,path[0].y-3,path[0].x+3,path[0].y+3);
+                Pen.Width := 2;
+                Rectangle(path[0].x-7,path[0].y-7,path[0].x+7,path[0].y+7);
               end;
+          Flag.Repaint;
       end;
 end;
 
@@ -281,9 +303,7 @@ begin
 end;
 
 procedure TfrmDriver.FormShow(Sender: TObject);
-var
-    x0, y0, x1, y1, x2, y2: integer;
-begin
+  begin
      Flag.Visible := false;
      AvailableOrderQuery.Active := true;
      SelectedOrderQuery.Active := true;
@@ -294,36 +314,16 @@ begin
        Close;
        ParamByName('id').AsInteger := driver_id;
        Open;
-       driver_location := FieldByName('location').AsInteger;
+       driver_location.id := FieldByName('location').AsInteger;
      end;
      DriverName.Caption := DriverInfoQuery.FieldByName('last_name').AsString;
      License.Caption := DriverInfoQuery.FieldByName('reg_number').AsString;
      Automobile.Caption := DriverInfoQuery.FieldByName('model').AsString;
-     //канва
-     with DataModule1.RoadsQuery do
- begin
-   Close;
-   Open;
-   Last;
-   First;
-   while not EOF do
-         begin
-           x1 := FieldByName('x1').AsInteger;
-           x2 := FieldByName('x2').AsInteger;
-           y1 := FieldByName('y1').AsInteger;
-           y2 := FieldByName('y2').AsInteger;
-           Map.Canvas.Pen.Color := clInfoBk;
-           Map.Canvas.Pen.Width := 3;
-           Map.Canvas.Line(x1, y1, x2, y2);
-           Next;
-         end;
-   Map.SendToBack;
- end;
-     //Button2.Click;
-     x0 := DriverInfoQuery.FieldByName('x').AsInteger;
-     y0 := DriverInfoQuery.FieldByName('y').AsInteger;
-     Flag.Left := x0-10;
-     Flag.Top := y0-10;
+
+     driver_location.x := DriverInfoQuery.FieldByName('x').AsInteger;
+     driver_location.y := DriverInfoQuery.FieldByName('y').AsInteger;
+     Flag.Left := driver_location.x-10;
+     Flag.Top := driver_location.y-10;
      Flag.Visible := true;
      Flag.BringToFront;
      with SelectedOrderQuery do
@@ -332,7 +332,7 @@ begin
           ParamByName('driver').AsInteger := driver_id;
           Open;
      end;
-end;
+  end;
 
 end.
 

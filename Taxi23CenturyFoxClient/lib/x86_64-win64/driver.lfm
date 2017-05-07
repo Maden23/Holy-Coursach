@@ -1,22 +1,22 @@
 object frmDriver: TfrmDriver
   Left = 465
-  Height = 918
-  Top = 70
+  Height = 943
+  Top = 0
   Width = 1045
   BorderStyle = bsSingle
   Caption = 'Водитель'
-  ClientHeight = 918
+  ClientHeight = 943
   ClientWidth = 1045
   OnClose = FormClose
   OnShow = FormShow
-  Position = poDesktopCenter
+  Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Button1: TButton
     AnchorSideLeft.Control = Panel3
     AnchorSideLeft.Side = asrBottom
     Left = 1779
     Height = 42
-    Top = 48
+    Top = 50
     Width = 880
     Anchors = [akLeft]
     BorderSpacing.Left = 750
@@ -38,7 +38,7 @@ object frmDriver: TfrmDriver
     AnchorSideRight.Control = Label3
     Left = 1779
     Height = 501
-    Top = 54
+    Top = 62
     Width = 880
     Anchors = [akLeft]
     BorderSpacing.Left = 750
@@ -56,7 +56,7 @@ object frmDriver: TfrmDriver
     AnchorSideLeft.Side = asrBottom
     Left = 29
     Height = 37
-    Top = 17
+    Top = 18
     Width = 268
     Anchors = []
     Caption = 'Добро пожаловать!'
@@ -10283,7 +10283,7 @@ object frmDriver: TfrmDriver
     AnchorSideLeft.Side = asrCenter
     Left = 690
     Height = 27
-    Top = 537
+    Top = 544
     Width = 179
     Anchors = [akLeft]
     Caption = 'Текущие заказы'
@@ -10396,7 +10396,7 @@ object frmDriver: TfrmDriver
   object Image2: TImage
     Left = 128
     Height = 80
-    Top = 808
+    Top = 856
     Width = 280
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963C82F000089504E47
@@ -10785,13 +10785,16 @@ object frmDriver: TfrmDriver
       AE426082
     }
   end
-  object Button2: TButton
+  object ResetRoutes: TButton
+    AnchorSideTop.Control = btnBuildRoute
+    AnchorSideTop.Side = asrBottom
     Left = 16
-    Height = 25
-    Top = 784
-    Width = 104
-    Caption = 'Build roads'
-    OnClick = Button2Click
+    Height = 49
+    Top = 792
+    Width = 500
+    BorderSpacing.Top = 15
+    Caption = 'Сбросить маршрут'
+    OnClick = ResetRoutesClick
     TabOrder = 9
   end
   object AvailableOrdersDS: TDataSource
