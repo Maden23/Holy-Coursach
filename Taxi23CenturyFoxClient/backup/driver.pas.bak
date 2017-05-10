@@ -13,24 +13,30 @@ type
   { TfrmDriver }
   TfrmDriver = class(TForm)
     AvailableOrderQuerycreated: TDateTimeField;
-    AvailableOrderQueryfinish_id: TLongintField;
+    AvailableOrderQueryfinish: TStringField;
     AvailableOrderQueryid: TAutoIncField;
-    AvailableOrderQuerystart_id: TLongintField;
+    AvailableOrderQuerystart: TStringField;
     btnBuildRoute: TButton;
     btnCancelOrder: TButton;
     btnFinishOrder: TButton;
     Button1: TButton;
     btnAcceptOrder: TButton;
     AvailableOrdersDS: TDataSource;
-    ResetRoutes: TButton;
+    btnResetRoutes: TButton;
     FinishOrderQuery: TSQLQuery;
-    Flag: TImage;
+    Car: TImage;
     SelectedOrderDS: TDataSource;
     FinishOrder: TButton;
     CancelOrder: TButton;
     BuildRoute: TButton;
     Image2: TImage;
     AvailableOrders: TDBGrid;
+    SelectedOrderQuerycreated: TDateTimeField;
+    SelectedOrderQueryfinish: TStringField;
+    SelectedOrderQueryfinish_id: TLongintField;
+    SelectedOrderQueryid: TAutoIncField;
+    SelectedOrderQuerystart: TStringField;
+    SelectedOrderQuerystart_id: TLongintField;
     SelectedOrders: TDBGrid;
     Map: TImage;
     Label1: TLabel;
@@ -55,7 +61,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure btnCancelOrderClick(Sender: TObject);
     procedure btnFinishOrderClick(Sender: TObject);
-    procedure ResetRoutesClick(Sender: TObject);
+    procedure btnResetRoutesClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
   private
@@ -145,21 +151,25 @@ begin
   with FinishOrderQuery do
     begin
          Close;
-         UpdateSQL.Clear;
-         UpdateSQL.Add('update orders set completed = 1 where id = ' +
-         IntToStr(SelectedOrders.DataSource.DataSet.FieldByName('id').Value) + ';');
+         //UpdateSQL.Clear;
+         //Update          SQL.Add('update orders set completed = 1 where id = ' +
+         //IntToStr(SelectedOrders.DataSource.DataSet.FieldByName('id').Value) + ';');
+         ParamByName('order_id').AsInteger := SelectedOrders.DataSource.DataSet.FieldByName('id').Value;
          try
            Open;
-           Update;
-           Edit;
-           Post;
-           ApplyUpdates;
-           SQLTransaction1.Commit;
+           //Update;
+           //Edit;
+           //Post;
+           //ApplyUpdates;
+           //SQLTransaction1.Commit;
            ShowMessage('Запись обновлена');
            AvailableOrderQuery.Close;
            AvailableOrderQuery.Open;
            SelectedOrderQuery.Close;
-           SelectedOrderQuery.Open;;
+           SelectedOrderQuery.Open;
+           Car.Top := FieldByName('y').AsInteger - 10;
+           Car.Left := FieldByName('x').AsInteger - 10;
+           btnResetRoutes.Click;
       except
          ShowMessage('Обновление не выполнено!');
       end;
@@ -189,11 +199,11 @@ begin
      end;
 end;
 
-procedure TfrmDriver.ResetRoutesClick(Sender: TObject);
+procedure TfrmDriver.btnResetRoutesClick(Sender: TObject);
 begin
    Map.Repaint;
    BuildRoads;
-   Flag.Repaint;
+   Car.Repaint;
 end;
 
 procedure TfrmDriver.btnAcceptOrderClick(Sender: TObject);
@@ -293,7 +303,7 @@ begin
                 Pen.Width := 2;
                 Rectangle(path[0].x-7,path[0].y-7,path[0].x+7,path[0].y+7);
               end;
-          Flag.Repaint;
+          Car.Repaint;
       end;
 end;
 
@@ -304,7 +314,7 @@ end;
 
 procedure TfrmDriver.FormShow(Sender: TObject);
   begin
-     Flag.Visible := false;
+     Car.Visible := false;
      AvailableOrderQuery.Active := true;
      SelectedOrderQuery.Active := true;
      driver_id := frmDriverLogin.DriverNameComboBox.KeyValue;
@@ -315,17 +325,16 @@ procedure TfrmDriver.FormShow(Sender: TObject);
        ParamByName('id').AsInteger := driver_id;
        Open;
        driver_location.id := FieldByName('location').AsInteger;
+       DriverName.Caption := DriverInfoQuery.FieldByName('last_name').AsString;
+       License.Caption := FieldByName('reg_number').AsString;
+       Automobile.Caption := FieldByName('model').AsString;
+       driver_location.x := FieldByName('x').AsInteger;
+       driver_location.y := FieldByName('y').AsInteger;
      end;
-     DriverName.Caption := DriverInfoQuery.FieldByName('last_name').AsString;
-     License.Caption := DriverInfoQuery.FieldByName('reg_number').AsString;
-     Automobile.Caption := DriverInfoQuery.FieldByName('model').AsString;
-
-     driver_location.x := DriverInfoQuery.FieldByName('x').AsInteger;
-     driver_location.y := DriverInfoQuery.FieldByName('y').AsInteger;
-     Flag.Left := driver_location.x-10;
-     Flag.Top := driver_location.y-10;
-     Flag.Visible := true;
-     Flag.BringToFront;
+     Car.Left := driver_location.x-10;
+     Car.Top := driver_location.y-10;
+     Car.Visible := true;
+     Car.BringToFront;
      with SelectedOrderQuery do
      begin
           Close;

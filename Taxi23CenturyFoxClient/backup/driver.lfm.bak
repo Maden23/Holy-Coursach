@@ -2,19 +2,19 @@ object frmDriver: TfrmDriver
   Left = 465
   Height = 943
   Top = 0
-  Width = 1045
+  Width = 1102
   BorderStyle = bsSingle
   Caption = 'Водитель'
   ClientHeight = 943
-  ClientWidth = 1045
+  ClientWidth = 1102
   OnClose = FormClose
   OnShow = FormShow
-  Position = poDesktopCenter
+  Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Button1: TButton
     AnchorSideLeft.Control = Panel3
     AnchorSideLeft.Side = asrBottom
-    Left = 1779
+    Left = 1838
     Height = 42
     Top = 50
     Width = 880
@@ -36,7 +36,7 @@ object frmDriver: TfrmDriver
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Button1
     AnchorSideRight.Control = Label3
-    Left = 1779
+    Left = 1838
     Height = 501
     Top = 62
     Width = 880
@@ -50,11 +50,11 @@ object frmDriver: TfrmDriver
     Font.Quality = fqDraft
     ParentFont = False
     ScrollBars = ssAutoBoth
-    TabOrder = 1
+    TabOrder = 4
   end
   object Label1: TLabel
     AnchorSideLeft.Side = asrBottom
-    Left = 29
+    Left = 38
     Height = 37
     Top = 18
     Width = 268
@@ -70,21 +70,41 @@ object frmDriver: TfrmDriver
     ParentFont = False
   end
   object Panel1: TPanel
-    Left = 529
+    Left = 530
     Height = 344
     Top = 112
-    Width = 500
+    Width = 558
     Caption = 'Panel1'
     ClientHeight = 344
-    ClientWidth = 500
+    ClientWidth = 558
     TabOrder = 2
     object AvailableOrders: TDBGrid
       Left = 0
       Height = 344
       Top = 0
-      Width = 501
+      Width = 560
       Color = clWindow
-      Columns = <>
+      Columns = <      
+        item
+          Title.Caption = 'Адрес подачи'
+          Width = 190
+          FieldName = 'start'
+        end      
+        item
+          Title.Caption = 'Адрес назначения'
+          Width = 190
+          FieldName = 'finish'
+        end      
+        item
+          Title.Caption = 'Оформлен'
+          Width = 137
+          FieldName = 'created'
+        end      
+        item
+          Title.Caption = 'id'
+          Visible = False
+          FieldName = 'id'
+        end>
       DataSource = AvailableOrdersDS
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
       TabOrder = 0
@@ -98,7 +118,7 @@ object frmDriver: TfrmDriver
     Caption = 'Panel2'
     ClientHeight = 608
     ClientWidth = 500
-    TabOrder = 3
+    TabOrder = 1
     object Map: TImage
       Left = 0
       Height = 608
@@ -10222,7 +10242,7 @@ object frmDriver: TfrmDriver
         82FF1FDBFBF45E517F85F30000000049454E44AE426082
       }
     end
-    object Flag: TImage
+    object Car: TImage
       Left = 248
       Height = 24
       Top = 584
@@ -10265,7 +10285,7 @@ object frmDriver: TfrmDriver
   object Label3: TLabel
     AnchorSideLeft.Control = Panel3
     AnchorSideLeft.Side = asrCenter
-    Left = 677
+    Left = 707
     Height = 27
     Top = 78
     Width = 204
@@ -10281,7 +10301,7 @@ object frmDriver: TfrmDriver
   object Label4: TLabel
     AnchorSideLeft.Control = Panel3
     AnchorSideLeft.Side = asrCenter
-    Left = 690
+    Left = 720
     Height = 27
     Top = 544
     Width = 179
@@ -10299,18 +10319,48 @@ object frmDriver: TfrmDriver
     Left = 530
     Height = 201
     Top = 576
-    Width = 499
+    Width = 558
     Caption = 'Panel3'
     ClientHeight = 201
-    ClientWidth = 499
-    TabOrder = 4
+    ClientWidth = 558
+    TabOrder = 6
     object SelectedOrders: TDBGrid
       Left = -1
       Height = 200
       Top = 0
-      Width = 500
+      Width = 561
       Color = clWindow
-      Columns = <>
+      Columns = <      
+        item
+          Title.Caption = 'id'
+          Visible = False
+          FieldName = 'id'
+        end      
+        item
+          Title.Caption = 'start_id'
+          Visible = False
+          FieldName = 'start_id'
+        end      
+        item
+          Title.Caption = 'Адрес подачи'
+          Width = 190
+          FieldName = 'start'
+        end      
+        item
+          Title.Caption = 'finish_id'
+          Visible = False
+          FieldName = 'finish_id'
+        end      
+        item
+          Title.Caption = 'Адрес назначения'
+          Width = 190
+          FieldName = 'finish'
+        end      
+        item
+          Title.Caption = 'Оформлен'
+          Width = 137
+          FieldName = 'created'
+        end>
       DataSource = SelectedOrderDS
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
       TabOrder = 0
@@ -10320,28 +10370,28 @@ object frmDriver: TfrmDriver
     Left = 528
     Height = 49
     Top = 467
-    Width = 501
+    Width = 560
     Caption = 'Принять заказ'
     OnClick = btnAcceptOrderClick
-    TabOrder = 5
+    TabOrder = 3
   end
   object btnFinishOrder: TButton
     Left = 528
     Height = 49
     Top = 792
-    Width = 501
+    Width = 560
     Caption = 'Завершить заказ'
     OnClick = btnFinishOrderClick
-    TabOrder = 6
+    TabOrder = 8
   end
   object btnCancelOrder: TButton
     Left = 528
     Height = 49
     Top = 856
-    Width = 501
+    Width = 560
     Caption = 'Отменить заказ'
     OnClick = btnCancelOrderClick
-    TabOrder = 7
+    TabOrder = 9
   end
   object ID: TLabel
     Left = 16
@@ -10391,7 +10441,7 @@ object frmDriver: TfrmDriver
     Width = 500
     Caption = 'Построить маршрут'
     OnClick = btnBuildRouteClick
-    TabOrder = 8
+    TabOrder = 5
   end
   object Image2: TImage
     Left = 128
@@ -10785,7 +10835,7 @@ object frmDriver: TfrmDriver
       AE426082
     }
   end
-  object ResetRoutes: TButton
+  object btnResetRoutes: TButton
     AnchorSideTop.Control = btnBuildRoute
     AnchorSideTop.Side = asrBottom
     Left = 16
@@ -10794,8 +10844,8 @@ object frmDriver: TfrmDriver
     Width = 500
     BorderSpacing.Top = 15
     Caption = 'Сбросить маршрут'
-    OnClick = ResetRoutesClick
-    TabOrder = 9
+    OnClick = btnResetRoutesClick
+    TabOrder = 7
   end
   object AvailableOrdersDS: TDataSource
     DataSet = AvailableOrderQuery
@@ -10803,6 +10853,7 @@ object frmDriver: TfrmDriver
     top = 64
   end
   object AvailableOrderQuery: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id'
@@ -10810,54 +10861,57 @@ object frmDriver: TfrmDriver
         Precision = -1
       end    
       item
+        Name = 'start'
+        DataType = ftString
+        Precision = -1
+        Size = 66
+      end    
+      item
+        Name = 'finish'
+        DataType = ftString
+        Precision = -1
+        Size = 66
+      end    
+      item
         Name = 'created'
         DataType = ftDateTime
-        Precision = -1
-      end    
-      item
-        Name = 'start_id'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'finish_id'
-        DataType = ftInteger
         Precision = -1
       end>
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
-      'select * from orders'
-      'where driver is null;'
+      'select o.id, l1.adress as start, l2.adress as finish, o.created from orders o'
+      #9'join locations l1 on o.start_id = l1.id'
+      '    join locations l2 on o.finish_id = l2.id'
+      'where o.driver is null;'
     )
     Options = []
     Params = <>
     left = 568
     top = 64
-    object AvailableOrderQuerycreated: TDateTimeField
-      DisplayWidth = 15
+    object AvailableOrderQuerystart: TStringField
       FieldKind = fkData
-      FieldName = 'created'
+      FieldName = 'start'
       Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
-      Required = True
+      Required = False
+      Size = 66
     end
-    object AvailableOrderQuerystart_id: TLongintField
-      DisplayWidth = 6
+    object AvailableOrderQueryfinish: TStringField
       FieldKind = fkData
-      FieldName = 'start_id'
+      FieldName = 'finish'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
-      Required = True
+      Required = False
+      Size = 66
     end
-    object AvailableOrderQueryfinish_id: TLongintField
-      DisplayWidth = 6
+    object AvailableOrderQuerycreated: TDateTimeField
       FieldKind = fkData
-      FieldName = 'finish_id'
+      FieldName = 'created'
       Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
@@ -10880,8 +10934,8 @@ object frmDriver: TfrmDriver
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
       'select drivers.id, last_name, location, locations.x, locations.y, reg_number, model from drivers'
-      'join cars on drivers.car_id = cars.id'
-      'join locations on locations.id = drivers.location'
+      '       join cars on drivers.car_id = cars.id'
+      '       join locations on locations.id = drivers.location'
       'where drivers.id = :id;'
     )
     Options = []
@@ -10902,14 +10956,15 @@ object frmDriver: TfrmDriver
         Precision = -1
       end    
       item
-        Name = 'created'
-        DataType = ftDateTime
-        Precision = -1
-      end    
-      item
         Name = 'start_id'
         DataType = ftInteger
         Precision = -1
+      end    
+      item
+        Name = 'start'
+        DataType = ftString
+        Precision = -1
+        Size = 66
       end    
       item
         Name = 'finish_id'
@@ -10917,47 +10972,25 @@ object frmDriver: TfrmDriver
         Precision = -1
       end    
       item
-        Name = 'DATE_TIME'
-        DataType = ftTime
+        Name = 'finish'
+        DataType = ftString
         Precision = -1
+        Size = 66
       end    
       item
-        Name = 'comfort_rate'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'passengers'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'wide_trunk'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'baby_seat'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'driver'
-        DataType = ftInteger
-        Precision = -1
-      end    
-      item
-        Name = 'completed'
-        DataType = ftSmallint
+        Name = 'created'
+        DataType = ftDateTime
         Precision = -1
       end>
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
-      'select * from orders'
-      'where driver = :driver'
-      '      and completed is NULL'
-      'order by created;'
+      'select o.id, o.start_id, l1.adress as start, o.finish_id, l2.adress as finish, o.created from orders o'
+      '        join locations l1 on o.start_id = l1.id'
+      '        join locations l2 on o.finish_id = l2.id'
+      'where o.driver = :driver'
+      '      and o.completed is NULL'
+      'order by o.created;'
     )
     Options = []
     Params = <    
@@ -10968,6 +11001,62 @@ object frmDriver: TfrmDriver
       end>
     left = 536
     top = 536
+    object SelectedOrderQueryid: TAutoIncField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SelectedOrderQuerystart_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'start_id'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SelectedOrderQuerystart: TStringField
+      FieldKind = fkData
+      FieldName = 'start'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 66
+    end
+    object SelectedOrderQueryfinish_id: TLongintField
+      FieldKind = fkData
+      FieldName = 'finish_id'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object SelectedOrderQueryfinish: TStringField
+      FieldKind = fkData
+      FieldName = 'finish'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 66
+    end
+    object SelectedOrderQuerycreated: TDateTimeField
+      FieldKind = fkData
+      FieldName = 'created'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
   end
   object SQLTransaction1: TSQLTransaction
     Active = False
@@ -10986,10 +11075,15 @@ object frmDriver: TfrmDriver
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
-      'select * from orders;'
+      'call finish_order(:order_id);'
     )
     Options = []
-    Params = <>
+    Params = <    
+      item
+        DataType = ftUnknown
+        Name = 'order_id'
+        ParamType = ptInput
+      end>
     left = 488
     top = 824
   end

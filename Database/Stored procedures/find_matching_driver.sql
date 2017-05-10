@@ -16,7 +16,5 @@ select ds.id, ds.available, dist, ds.comfort_rate, ds.passengers, ds.baby_seat, 
 	inner join orders o where o.id = order_id and 
 		ds.available = 1 and ds.passengers >= o.passengers and ds.baby_seat >= ds.baby_seat and ds.wide_trunk = o.wide_trunk and abs(ds.comfort_rate-o.comfort.rate) <= 1
     order by dist;
--- выбрать водителей подходящих по параметрам
-
 
 END
