@@ -64,6 +64,7 @@ type
     procedure btnResetRoutesClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure SelectedOrderDSDataChange(Sender: TObject; Field: TField);
   private
     { private declarations }
   public
@@ -159,8 +160,14 @@ begin
            AvailableOrderQuery.Open;
            SelectedOrderQuery.Close;
            SelectedOrderQuery.Open;
-           Car.Top := FieldByName('y').AsInteger - 10;
-           Car.Left := FieldByName('x').AsInteger - 10;
+           with driver_location do
+             begin
+               id := FieldByName('id').AsInteger;
+               x := FieldByName('x').AsInteger;
+               y := FieldByName('y').AsInteger;
+               Car.Left := x - 10;
+               Car.Top := y - 10;
+             end;
            btnResetRoutes.Click;
       except
          ShowMessage('Обновление не выполнено!');
@@ -219,7 +226,7 @@ begin
          Post;
          ApplyUpdates;
          SQLTransaction1.Commit;
-         ShowMessage('Запись обновлена');
+         //ShowMessage('Запись обновлена');
          AvailableOrderQuery.Close;
          AvailableOrderQuery.Open;
          SelectedOrderQuery.Close;
@@ -333,7 +340,16 @@ procedure TfrmDriver.FormShow(Sender: TObject);
           ParamByName('driver').AsInteger := driver_id;
           Open;
      end;
+     if SelectedOrders.DataSource.DataSet.IsEmpty then
+        btnBuildRoute.Enabled := false;
   end;
+
+procedure TfrmDriver.SelectedOrderDSDataChange(Sender: TObject; Field: TField);
+begin
+  if SelectedOrders.DataSource.DataSet.IsEmpty then
+     btnBuildRoute.Enabled := false
+  else btnBuildRoute.Enabled := true;
+end;
 
 end.
 

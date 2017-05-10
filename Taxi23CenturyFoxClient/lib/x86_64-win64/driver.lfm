@@ -1,7 +1,7 @@
 object frmDriver: TfrmDriver
-  Left = 465
+  Left = 401
   Height = 943
-  Top = 0
+  Top = 62
   Width = 1102
   BorderStyle = bsSingle
   Caption = 'Водитель'
@@ -11067,6 +11067,7 @@ object frmDriver: TfrmDriver
   end
   object SelectedOrderDS: TDataSource
     DataSet = SelectedOrderQuery
+    OnDataChange = SelectedOrderDSDataChange
     left = 584
     top = 536
   end
