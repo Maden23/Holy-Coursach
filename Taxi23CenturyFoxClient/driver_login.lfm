@@ -66,7 +66,7 @@ object frmDriverLogin: TfrmDriverLogin
     AutoComplete = True
     AutoDropDown = True
     KeyField = 'id'
-    ListField = 'last_name'
+    ListField = 'name'
     ListFieldIndex = 0
     ListSource = LoginDS
     LookupCache = False
@@ -75,6 +75,7 @@ object frmDriverLogin: TfrmDriverLogin
   end
   object LoginDS: TDataSource
     DataSet = LoginQuery
+    OnDataChange = LoginDSDataChange
     left = 256
     top = 8
   end
@@ -87,16 +88,16 @@ object frmDriverLogin: TfrmDriverLogin
         Precision = -1
       end    
       item
-        Name = 'last_name'
+        Name = 'name'
         DataType = ftString
         Precision = -1
-        Size = 30
+        Size = 50
       end>
     Active = True
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
-      'select id, last_name from drivers'
+      'select id, name from drivers'
     )
     Options = []
     Params = <>
@@ -111,15 +112,15 @@ object frmDriverLogin: TfrmDriverLogin
       ReadOnly = False
       Required = False
     end
-    object LoginQuerylast_name: TStringField
+    object LoginQueryname: TStringField
       FieldKind = fkData
-      FieldName = 'last_name'
+      FieldName = 'name'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = False
-      Size = 30
+      Size = 150
     end
   end
 end

@@ -13,10 +13,10 @@ type
   { TfrmDriverLogin }
 
   TfrmDriverLogin = class(TForm)
-    DBLookupComboBox1: TDBLookupComboBox;
+    DriverNameComboBox: TDBLookupComboBox;
     LoginDS: TDataSource;
     LoginQueryid: TAutoIncField;
-    LoginQuerylast_name: TStringField;
+    LoginQueryname: TStringField;
     OK: TButton;
     Password: TEdit;
     Label1: TLabel;
@@ -24,6 +24,7 @@ type
     LoginQuery: TSQLQuery;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure LoginDSDataChange(Sender: TObject; Field: TField);
     procedure OKClick(Sender: TObject);
   private
     { private declarations }
@@ -46,7 +47,7 @@ procedure TfrmDriverLogin.OKClick(Sender: TObject);
 begin
   if Password.Caption = 'miem' then
      begin
-       //id := DBLookupComboBox1.KeyValue;
+       //id := DriverNameComboBox.KeyValue;
        frmDriver.Show;
        frmDriverLogin.Close;
        frmStart.Hide;
@@ -56,6 +57,11 @@ begin
 end;
 
 procedure TfrmDriverLogin.FormShow(Sender: TObject);
+begin
+
+end;
+
+procedure TfrmDriverLogin.LoginDSDataChange(Sender: TObject; Field: TField);
 begin
 
 end;

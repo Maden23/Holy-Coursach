@@ -16,7 +16,7 @@ type
     DriverNameComboBox: TDBLookupComboBox;
     LoginDS: TDataSource;
     LoginQueryid: TAutoIncField;
-    LoginQuerylast_name: TStringField;
+    LoginQueryname: TStringField;
     OK: TButton;
     Password: TEdit;
     Label1: TLabel;
@@ -24,6 +24,7 @@ type
     LoginQuery: TSQLQuery;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure LoginDSDataChange(Sender: TObject; Field: TField);
     procedure OKClick(Sender: TObject);
   private
     { private declarations }
@@ -56,6 +57,11 @@ begin
 end;
 
 procedure TfrmDriverLogin.FormShow(Sender: TObject);
+begin
+
+end;
+
+procedure TfrmDriverLogin.LoginDSDataChange(Sender: TObject; Field: TField);
 begin
 
 end;

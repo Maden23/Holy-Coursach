@@ -23,6 +23,13 @@ type
     btnAcceptOrder: TButton;
     AvailableOrdersDS: TDataSource;
     btnResetRoutes: TButton;
+    DriverInfoQueryid: TAutoIncField;
+    DriverInfoQuerylocation: TLongintField;
+    DriverInfoQuerymodel: TStringField;
+    DriverInfoQueryname: TStringField;
+    DriverInfoQueryreg_number: TStringField;
+    DriverInfoQueryx: TLongintField;
+    DriverInfoQueryy: TLongintField;
     FinishOrderQuery: TSQLQuery;
     Car: TImage;
     SelectedOrderDS: TDataSource;
@@ -165,8 +172,8 @@ begin
                id := FieldByName('id').AsInteger;
                x := FieldByName('x').AsInteger;
                y := FieldByName('y').AsInteger;
-               Car.Left := x;
-               Car.Top := y;
+               Car.Left := x-4;
+               Car.Top := y-12;
              end;
            btnResetRoutes.Click;
       except
@@ -324,14 +331,14 @@ procedure TfrmDriver.FormShow(Sender: TObject);
        ParamByName('id').AsInteger := driver_id;
        Open;
        driver_location.id := FieldByName('location').AsInteger;
-       DriverName.Caption := DriverInfoQuery.FieldByName('last_name').AsString;
+       DriverName.Caption := DriverInfoQuery.FieldByName('name').AsString;
        License.Caption := FieldByName('reg_number').AsString;
        Automobile.Caption := FieldByName('model').AsString;
        driver_location.x := FieldByName('x').AsInteger;
        driver_location.y := FieldByName('y').AsInteger;
      end;
      Car.Left := driver_location.x-4;
-     Car.Top := driver_location.y-12;
+     Car.Top := driver_location.y-28;
      Car.Visible := true;
      Car.BringToFront;
      with SelectedOrderQuery do
