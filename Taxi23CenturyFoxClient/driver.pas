@@ -165,8 +165,8 @@ begin
                id := FieldByName('id').AsInteger;
                x := FieldByName('x').AsInteger;
                y := FieldByName('y').AsInteger;
-               Car.Left := x - 10;
-               Car.Top := y - 10;
+               Car.Left := x-4;
+               Car.Top := y-12;
              end;
            btnResetRoutes.Click;
       except
@@ -330,8 +330,8 @@ procedure TfrmDriver.FormShow(Sender: TObject);
        driver_location.x := FieldByName('x').AsInteger;
        driver_location.y := FieldByName('y').AsInteger;
      end;
-     Car.Left := driver_location.x-10;
-     Car.Top := driver_location.y-10;
+     Car.Left := driver_location.x-4;
+     Car.Top := driver_location.y-12;
      Car.Visible := true;
      Car.BringToFront;
      with SelectedOrderQuery do
