@@ -321,8 +321,10 @@ end;
 procedure TfrmDriver.FormShow(Sender: TObject);
   begin
      Car.Visible := false;
-     AvailableOrderQuery.Active := true;
-     SelectedOrderQuery.Active := true;
+     AvailableOrderQuery.Close;
+     AvailableOrderQuery.Open;
+     SelectedOrderQuery.Close;
+     SelectedOrderQuery.Open;
      driver_id := frmDriverLogin.DriverNameComboBox.KeyValue;
      ID.Caption := IntToStr(driver_id);
      with DriverInfoQuery do

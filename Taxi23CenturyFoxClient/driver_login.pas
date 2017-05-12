@@ -58,7 +58,7 @@ end;
 
 procedure TfrmDriverLogin.FormShow(Sender: TObject);
 begin
-
+  LoginQuery.Open;
 end;
 
 procedure TfrmDriverLogin.LoginDSDataChange(Sender: TObject; Field: TField);

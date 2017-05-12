@@ -33,21 +33,9 @@ type
     Label8: TLabel;
     Label9: TLabel;
     OrderQuery: TSQLQuery;
-    OrderQuerybaby_seat: TLongintField;
-    OrderQuerycomfort_rate: TLongintField;
-    OrderQuerycompleted: TSmallintField;
-    OrderQuerycreated: TDateTimeField;
-    OrderQueryDATE_TIME: TTimeField;
-    OrderQuerydriver: TLongintField;
-    OrderQueryfinish_id: TLongintField;
-    OrderQueryid: TAutoIncField;
-    OrderQuerypassengers: TLongintField;
-    OrderQuerystart_id: TLongintField;
-    OrderQuerywide_trunk: TLongintField;
     Panel1: TPanel;
     procedure btnChangeClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
   private
     { private declarations }
@@ -59,12 +47,12 @@ var
   frmDetails: TfrmDetails;
   a: matrix;
   s, amount: integer;
-  chairs: integer;
+  order_id: integer;
 
 implementation
 
 uses
-  Main, Graph, Start;
+  Main, Graph, Start, order_info;
 
 {$R *.lfm}
 
@@ -170,20 +158,32 @@ begin
   with OrderQuery do
        begin
             Close;
-            Open;
-            Insert;
-            Fields[1].AsDatetime := Now;
-            Fields[2].AsInteger := frmMain.DBLookupComboBox1.KeyValue;
-            Fields[3].AsInteger := frmMain.DBLookupComboBox2.KeyValue;
-            Fields[4].AsDatetime := frmMain.TimeEdit.Time ;
-            Fields[5].AsInteger := frmMain.ComfortRate.Position;
-            Fields[6].AsInteger := frmMain.Passengers.Position;
-            Fields[7].AsInteger := BoolToInt(frmMain.WideTrunk.Checked);
-            Fields[8].AsInteger := StrToInt(frmMain.AmountOfSeats.Text);
+            //Open;
+            //Insert;
+            //ParamByName('created').AsDatetime := Now;
+            //ParamByName('start_id').AsInteger := frmMain.DBLookupComboBox1.KeyValue;
+            //ParamByName('finish_id').AsInteger := frmMain.DBLookupComboBox2.KeyValue;
+            //ParamByName('date_time').AsDatetime := frmMain.TimeEdit.Time ;
+            //ParamByName('comfort_rate').AsInteger := frmMain.ComfortRate.Position;
+            //ParamByName('passengers').AsInteger := frmMain.Passengers.Position;
+            //ParamByName('wide_trunk').AsInteger := BoolToInt(frmMain.WideTrunk.Checked);
+            //ParamByName('baby_seat').AsInteger := StrToInt(frmMain.AmountOfSeats.Text);
+            SQL.Clear;
+            SQL.Add('call create_order('
+                          + '''' + DateTimeToStr(Now) + ''', '
+                          + '''' + IntToStr(frmMain.DBLookupComboBox1.KeyValue) + ''', '
+                          + '''' + IntToStr(frmMain.DBLookupComboBox2.KeyValue) + ''', '
+                          + '''' + DateTimeToStr(frmMain.TimeEdit.Time) + ''', '
+                          + '''' + IntToStr(frmMain.ComfortRate.Position) + ''', '
+                          + '''' + IntToStr(frmMain.Passengers.Position) + ''', '
+                          + '''' + IntToStr(BoolToInt(frmMain.WideTrunk.Checked)) + ''', '
+                          + '''' + frmMain.AmountOfSeats.Text + ''');' );
             try
-               Post;
-               ApplyUpdates;
-               DataModule1.SQLTransaction1.Commit;
+              Open;
+              order_id := FieldByName('id').AsInteger;
+               //Post;
+               //ApplyUpdates;
+               //DataModule1.SQLTransaction1.Commit;
             except
                ShowMessage('Запрос не выполнен!');
                frmMain.Show;
@@ -191,27 +191,10 @@ begin
             end;
        end;
   Close;
-  ShowMessage('Заказ принят!');
+  frmOrderInfo.Show;
+  //ShowMessage('Заказ принят!');
 end;
 
-procedure TfrmDetails.FormClose(Sender: TObject; var CloseAction: TCloseAction);
-begin
-   frmMain.Close;
-   frmStart.Show;
-
-   //--------Clearing frmMain ----------
-      with frmMain do
-           begin
-                DBLookupComboBox1.Text := '';
-                DBLookupComboBox2.Text := '';
-                TimeEdit.Text := '';
-                WideTrunk.Checked := false;
-                BabySeat.Checked := false;
-                ComfortRate.Position := 1;
-                Passengers.Position := 1;
-           end;
-  //-----------------------------------
-end;
 
 procedure TfrmDetails.btnChangeClick(Sender: TObject);
 begin

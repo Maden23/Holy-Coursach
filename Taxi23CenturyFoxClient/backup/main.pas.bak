@@ -94,7 +94,7 @@ begin
   else if TimeEdit.Text = '' then
      ShowMessage('Введите время!')
   else if DBLookupComboBox1.Text = DBLookupComboBox2.Text then
-     ShowMessage('Адрес подачи не может совпадать с конечным адресом')
+     ShowMessage('Адрес подачи не должен совпадать с конечным адресом!')
   else
       begin
            frmMain.Hide;
@@ -140,6 +140,7 @@ begin
      DataModule1.Connection.Open;
      DataModule1.SQLTransaction1.Active := True;
      SQLQuery1.Active := true;
+     SQLQuery1.Open;
   except
      ShowMessage ('Ошибка подключения к базе данных!');
      Close;

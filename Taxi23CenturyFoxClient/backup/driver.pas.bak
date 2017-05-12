@@ -173,7 +173,7 @@ begin
                x := FieldByName('x').AsInteger;
                y := FieldByName('y').AsInteger;
                Car.Left := x-4;
-               Car.Top := y-12;
+               Car.Top := y-28;
              end;
            btnResetRoutes.Click;
       except

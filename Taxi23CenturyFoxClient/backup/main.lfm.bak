@@ -25,17 +25,17 @@ object frmMain: TfrmMain
     TabOrder = 2
     object Label2: TLabel
       Left = 9
-      Height = 25
+      Height = 15
       Top = 80
-      Width = 206
+      Width = 139
       Caption = 'Введите конечный пункт:'
       ParentColor = False
     end
     object Label3: TLabel
       Left = 9
-      Height = 25
+      Height = 15
       Top = 144
-      Width = 126
+      Width = 83
       Caption = 'Введите время:'
       ParentColor = False
     end
@@ -54,12 +54,12 @@ object frmMain: TfrmMain
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 1
-      ClientHeight = 113
+      ClientHeight = 123
       ClientWidth = 364
       TabOrder = 1
       object WideTrunk: TCheckBox
         Left = 6
-        Height = 51
+        Height = 56
         Top = 6
         Width = 352
         Caption = 'Большой багажник'
@@ -67,8 +67,8 @@ object frmMain: TfrmMain
       end
       object BabySeat: TCheckBox
         Left = 6
-        Height = 50
-        Top = 57
+        Height = 55
+        Top = 62
         Width = 352
         Caption = 'Детское кресло (количество:              )'
         OnChange = BabySeatChange
@@ -77,9 +77,9 @@ object frmMain: TfrmMain
     end
     object Label4: TLabel
       Left = 19
-      Height = 25
+      Height = 15
       Top = 352
-      Width = 162
+      Width = 108
       Caption = 'Уровень комфорта:'
       ParentColor = False
     end
@@ -97,7 +97,7 @@ object frmMain: TfrmMain
     object Label5: TLabel
       AnchorSideLeft.Control = Label4
       AnchorSideLeft.Side = asrBottom
-      Left = 186
+      Left = 132
       Height = 33
       Top = 350
       Width = 19
@@ -113,9 +113,9 @@ object frmMain: TfrmMain
     end
     object Label6: TLabel
       Left = 19
-      Height = 25
+      Height = 15
       Top = 432
-      Width = 208
+      Width = 141
       Caption = 'Количество пассажиров: '
       ParentColor = False
     end
@@ -133,7 +133,7 @@ object frmMain: TfrmMain
     object Label7: TLabel
       AnchorSideLeft.Control = Label6
       AnchorSideLeft.Side = asrBottom
-      Left = 233
+      Left = 166
       Height = 33
       Top = 428
       Width = 19
@@ -247,19 +247,19 @@ object frmMain: TfrmMain
     end
     object Label1: TLabel
       Left = 9
-      Height = 25
+      Height = 15
       Top = 8
-      Width = 186
+      Width = 123
       Caption = 'Введите адрес подачи:'
       ParentColor = False
     end
     object AmountOfSeats: TComboBox
       Left = 289
-      Height = 33
+      Height = 23
       Top = 304
       Width = 56
       Enabled = False
-      ItemHeight = 25
+      ItemHeight = 15
       Items.Strings = (
         '1'
         '2'
@@ -270,7 +270,7 @@ object frmMain: TfrmMain
   end
   object DBLookupComboBox1: TDBLookupComboBox
     Left = 8
-    Height = 33
+    Height = 23
     Top = 40
     Width = 342
     AutoComplete = True
@@ -285,7 +285,7 @@ object frmMain: TfrmMain
   end
   object DBLookupComboBox2: TDBLookupComboBox
     Left = 8
-    Height = 33
+    Height = 23
     Top = 112
     Width = 342
     AutoComplete = True
@@ -309,6 +309,7 @@ object frmMain: TfrmMain
     top = 72
   end
   object SQLQuery1: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id'
@@ -320,7 +321,18 @@ object frmMain: TfrmMain
         DataType = ftString
         Precision = -1
         Size = 66
+      end    
+      item
+        Name = 'x'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'y'
+        DataType = ftInteger
+        Precision = -1
       end>
+    Active = True
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (

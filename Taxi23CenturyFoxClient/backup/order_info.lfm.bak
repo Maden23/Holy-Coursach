@@ -1,0 +1,244 @@
+object frmOrderInfo: TfrmOrderInfo
+  Left = 521
+  Height = 196
+  Top = 194
+  Width = 274
+  AutoSize = True
+  Caption = 'Информация о заказе'
+  ClientHeight = 196
+  ClientWidth = 274
+  OnClose = FormClose
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '1.6.2.0'
+  object Label1: TLabel
+    Left = 8
+    Height = 15
+    Top = 8
+    Width = 75
+    Caption = 'Заказ принят!'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 8
+    Height = 15
+    Top = 48
+    Width = 54
+    Caption = 'Водитель:'
+    ParentColor = False
+  end
+  object driverName: TLabel
+    AnchorSideLeft.Control = Label2
+    AnchorSideLeft.Side = asrBottom
+    Left = 70
+    Height = 15
+    Top = 48
+    Width = 62
+    BorderSpacing.Left = 8
+    Caption = 'driverName'
+    ParentColor = False
+  end
+  object Label4: TLabel
+    Left = 8
+    Height = 15
+    Top = 88
+    Width = 72
+    Caption = 'Автомобиль:'
+    ParentColor = False
+  end
+  object autoName: TLabel
+    AnchorSideLeft.Control = Label4
+    AnchorSideLeft.Side = asrBottom
+    Left = 88
+    Height = 15
+    Top = 88
+    Width = 56
+    BorderSpacing.Left = 8
+    Caption = 'autoName'
+    ParentColor = False
+  end
+  object autoSign: TLabel
+    AnchorSideLeft.Control = autoName
+    AnchorSideLeft.Side = asrBottom
+    Left = 152
+    Height = 15
+    Top = 88
+    Width = 47
+    BorderSpacing.Left = 8
+    Caption = 'autoSign'
+    ParentColor = False
+  end
+  object autoColor: TLabel
+    AnchorSideLeft.Control = autoSign
+    AnchorSideLeft.Side = asrBottom
+    Left = 207
+    Height = 15
+    Top = 88
+    Width = 53
+    BorderSpacing.Left = 8
+    Caption = 'autoColor'
+    ParentColor = False
+  end
+  object Label8: TLabel
+    Left = 8
+    Height = 15
+    Top = 128
+    Width = 96
+    Caption = 'Время ожидания:'
+    ParentColor = False
+  end
+  object time: TLabel
+    AnchorSideLeft.Control = Label8
+    AnchorSideLeft.Side = asrBottom
+    Left = 112
+    Height = 15
+    Top = 128
+    Width = 24
+    BorderSpacing.Left = 8
+    Caption = 'time'
+    ParentColor = False
+  end
+  object BitBtn1: TBitBtn
+    AnchorSideLeft.Control = Owner
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideBottom.Side = asrCenter
+    Left = 77
+    Height = 32
+    Top = 150
+    Width = 120
+    Align = alCustom
+    Anchors = [akLeft]
+    Caption = 'OK'
+    ModalResult = 1
+    OnClick = BitBtn1Click
+    TabOrder = 0
+  end
+  object FindMatchQuery: TSQLQuery
+    IndexName = 'DEFAULT_ORDER'
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'dist'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'name'
+        DataType = ftString
+        Precision = -1
+        Size = 150
+      end    
+      item
+        Name = 'model'
+        DataType = ftString
+        Precision = -1
+        Size = 75
+      end    
+      item
+        Name = 'color'
+        DataType = ftString
+        Precision = -1
+        Size = 36
+      end    
+      item
+        Name = 'reg_number'
+        DataType = ftString
+        Precision = -1
+        Size = 27
+      end>
+    Active = True
+    Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
+    SQL.Strings = (
+      'call find_matching_driver(:distance_array, :order_id);'
+    )
+    Options = []
+    Params = <    
+      item
+        DataType = ftString
+        Name = 'distance_array'
+        ParamType = ptInput
+      end    
+      item
+        DataType = ftInteger
+        Name = 'order_id'
+        ParamType = ptInput
+      end>
+    left = 216
+    top = 24
+    object FindMatchQueryid: TLongintField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FindMatchQuerydist: TLongintField
+      FieldKind = fkData
+      FieldName = 'dist'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object FindMatchQueryname: TStringField
+      FieldKind = fkData
+      FieldName = 'name'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 150
+    end
+    object FindMatchQuerymodel: TStringField
+      FieldKind = fkData
+      FieldName = 'model'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 75
+    end
+    object FindMatchQuerycolor: TStringField
+      FieldKind = fkData
+      FieldName = 'color'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 36
+    end
+    object FindMatchQueryreg_number: TStringField
+      FieldKind = fkData
+      FieldName = 'reg_number'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 27
+    end
+  end
+  object DriversLocationsQuery: TSQLQuery
+    FieldDefs = <>
+    Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
+    SQL.Strings = (
+      'select id, location from drivers order by id;'
+    )
+    Options = []
+    Params = <>
+    left = 168
+    top = 8
+  end
+end

@@ -140,6 +140,7 @@ begin
      DataModule1.Connection.Open;
      DataModule1.SQLTransaction1.Active := True;
      SQLQuery1.Active := true;
+     SQLQuery1.Open;
   except
      ShowMessage ('Ошибка подключения к базе данных!');
      Close;

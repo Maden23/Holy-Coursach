@@ -1,7 +1,7 @@
 object frmDriverLogin: TfrmDriverLogin
-  Left = 534
+  Left = 554
   Height = 247
-  Top = 193
+  Top = 507
   Width = 401
   Caption = 'Вход в систему'
   ClientHeight = 247
@@ -40,13 +40,13 @@ object frmDriverLogin: TfrmDriverLogin
   end
   object Password: TEdit
     Left = 8
-    Height = 33
+    Height = 23
     Top = 136
     Width = 384
     EchoMode = emPassword
     ParentShowHint = False
     PasswordChar = '*'
-    TabOrder = 0
+    TabOrder = 1
     TextHint = 'password'
   end
   object OK: TButton
@@ -56,11 +56,11 @@ object frmDriverLogin: TfrmDriverLogin
     Width = 387
     Caption = 'OK'
     OnClick = OKClick
-    TabOrder = 1
+    TabOrder = 2
   end
   object DriverNameComboBox: TDBLookupComboBox
     Left = 8
-    Height = 33
+    Height = 23
     Top = 48
     Width = 384
     AutoComplete = True
@@ -71,7 +71,7 @@ object frmDriverLogin: TfrmDriverLogin
     ListSource = LoginDS
     LookupCache = False
     Sorted = True
-    TabOrder = 2
+    TabOrder = 0
   end
   object LoginDS: TDataSource
     DataSet = LoginQuery
@@ -80,7 +80,6 @@ object frmDriverLogin: TfrmDriverLogin
     top = 8
   end
   object LoginQuery: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id'
@@ -93,7 +92,6 @@ object frmDriverLogin: TfrmDriverLogin
         Precision = -1
         Size = 50
       end>
-    Active = True
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
