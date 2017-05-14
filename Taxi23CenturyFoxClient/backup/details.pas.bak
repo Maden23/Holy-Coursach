@@ -17,15 +17,13 @@ type
     Button1: TButton;
     btnChange: TButton;
     Label1: TLabel;
-    Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
     Label13: TLabel;
     Label14: TLabel;
     Label15: TLabel;
-    Label16: TLabel;
+    tripTime: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
@@ -87,11 +85,11 @@ var dist, money: integer;
     if dist > 5 then
        begin
          case comfort of
-           1: money := money + 15*(dist-5);
-           2: money := money + 20*(dist-5);
-           3: money := money + 25*(dist-5);
-           4: money := money + 30*(dist-5);
-           5: money := money + 40*(dist-5);
+           1: money := money + 10*(dist-5);
+           2: money := money + 15*(dist-5);
+           3: money := money + 20*(dist-5);
+           4: money := money + 25*(dist-5);
+           5: money := money + 30*(dist-5);
          end;
        end;
     result := IntToStr(money);
@@ -113,7 +111,6 @@ var
 begin
   Label8.Caption := frmMain.DBLookupComboBox1.Text;
   Label9.Caption := frmMain.DBLookupComboBox2.Text;
-  Label10.Caption := frmMain.TimeEdit.Text;
   if (frmMain.WideTrunk.Checked = true)
      and (frmMain.BabySeat.Checked = true)
          and (frmMain.AmountOfSeats.Text = '1') then
@@ -122,6 +119,10 @@ begin
           and (frmMain.BabySeat.Checked = true)
               and (frmMain.AmountOfSeats.Text = '2') then
                  Label11.Caption := 'Большой багажник, 2 детских кресла'
+  else if (frmMain.WideTrunk.Checked = true)
+          and (frmMain.BabySeat.Checked = true)
+              and (frmMain.AmountOfSeats.Text = '3') then
+                 Label11.Caption := 'Большой багажник, 3 детских кресла'
   else
       begin
            if frmMain.WideTrunk.Checked = true then
@@ -132,6 +133,9 @@ begin
            else if (frmMain.BabySeat.Checked = true)
                    and (frmMain.AmountOfSeats.Text = '2') then
                        Label11.Caption := '2 детских кресла'
+           else if (frmMain.BabySeat.Checked = true)
+                   and (frmMain.AmountOfSeats.Text = '3') then
+                       Label11.Caption := '3 детских кресла'
            else
                Label11.Caption := 'Нет';
       end;
@@ -144,13 +148,13 @@ begin
   hours := min div 60;
   min := min mod 60;
   if (hours = 0) and (min < 10) then
-     Label16.Caption := '00' + ' : ' + '0' + IntToStr(min);
+     tripTime.Caption := '00' + ' : ' + '0' + IntToStr(min);
   if (hours = 0) and (min >= 10) then
-     Label16.Caption := '00' + ' : ' + IntToStr(min);
+     tripTime.Caption := '00' + ' : ' + IntToStr(min);
   if (hours <> 0) and (min < 10) then
-     Label16.Caption := '0' + IntToStr(hours) + ' : ' + '0' + IntToStr(min);
+     tripTime.Caption := '0' + IntToStr(hours) + ' : ' + '0' + IntToStr(min);
   if (hours <> 0) and (min >= 10) then
-     Label16.Caption := '0' + IntToStr(hours) + ' : ' + IntToStr(min);
+     tripTime.Caption := '0' + IntToStr(hours) + ' : ' + IntToStr(min);
 end;
 
 procedure TfrmDetails.Button1Click(Sender: TObject);
@@ -163,7 +167,6 @@ begin
             //ParamByName('created').AsDatetime := Now;
             //ParamByName('start_id').AsInteger := frmMain.DBLookupComboBox1.KeyValue;
             //ParamByName('finish_id').AsInteger := frmMain.DBLookupComboBox2.KeyValue;
-            //ParamByName('date_time').AsDatetime := frmMain.TimeEdit.Time ;
             //ParamByName('comfort_rate').AsInteger := frmMain.ComfortRate.Position;
             //ParamByName('passengers').AsInteger := frmMain.Passengers.Position;
             //ParamByName('wide_trunk').AsInteger := BoolToInt(frmMain.WideTrunk.Checked);
@@ -173,7 +176,6 @@ begin
                           + '''' + DateTimeToStr(Now) + ''', '
                           + '''' + IntToStr(frmMain.DBLookupComboBox1.KeyValue) + ''', '
                           + '''' + IntToStr(frmMain.DBLookupComboBox2.KeyValue) + ''', '
-                          + '''' + DateTimeToStr(frmMain.TimeEdit.Time) + ''', '
                           + '''' + IntToStr(frmMain.ComfortRate.Position) + ''', '
                           + '''' + IntToStr(frmMain.Passengers.Position) + ''', '
                           + '''' + IntToStr(BoolToInt(frmMain.WideTrunk.Checked)) + ''', '

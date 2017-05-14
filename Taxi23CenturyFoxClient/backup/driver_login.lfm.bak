@@ -1,7 +1,7 @@
 object frmDriverLogin: TfrmDriverLogin
-  Left = 554
+  Left = 831
   Height = 247
-  Top = 507
+  Top = 761
   Width = 401
   Caption = 'Вход в систему'
   ClientHeight = 247
@@ -75,7 +75,6 @@ object frmDriverLogin: TfrmDriverLogin
   end
   object LoginDS: TDataSource
     DataSet = LoginQuery
-    OnDataChange = LoginDSDataChange
     left = 256
     top = 8
   end

@@ -1,8 +1,8 @@
 object frmMain: TfrmMain
   Left = 422
   Height = 573
-  Top = 123
-  Width = 369
+  Top = 82
+  Width = 370
   HorzScrollBar.Page = 352
   HorzScrollBar.Range = 352
   VertScrollBar.Page = 744
@@ -10,7 +10,7 @@ object frmMain: TfrmMain
   BorderStyle = bsSingle
   Caption = 'Taxi23CenturyFox'
   ClientHeight = 573
-  ClientWidth = 369
+  ClientWidth = 370
   OnClose = FormClose
   OnShow = FormShow
   Position = poScreenCenter
@@ -31,18 +31,10 @@ object frmMain: TfrmMain
       Caption = 'Введите конечный пункт:'
       ParentColor = False
     end
-    object Label3: TLabel
-      Left = 9
-      Height = 15
-      Top = 144
-      Width = 83
-      Caption = 'Введите время:'
-      ParentColor = False
-    end
     object CheckGroup1: TCheckGroup
-      Left = 10
+      Left = 8
       Height = 143
-      Top = 209
+      Top = 176
       Width = 368
       AutoFill = True
       Caption = 'Дополнительные опции'
@@ -56,7 +48,7 @@ object frmMain: TfrmMain
       ChildSizing.ControlsPerLine = 1
       ClientHeight = 123
       ClientWidth = 364
-      TabOrder = 1
+      TabOrder = 0
       object WideTrunk: TCheckBox
         Left = 6
         Height = 56
@@ -92,15 +84,18 @@ object frmMain: TfrmMain
       Min = 1
       OnChange = ComfortRateChange
       Position = 1
-      TabOrder = 2
+      TabOrder = 1
     end
     object Label5: TLabel
       AnchorSideLeft.Control = Label4
       AnchorSideLeft.Side = asrBottom
+      AnchorSideBottom.Control = Label4
+      AnchorSideBottom.Side = asrCenter
       Left = 132
       Height = 33
-      Top = 350
+      Top = 342
       Width = 19
+      Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 5
       Caption = '✪'
       Font.CharSet = ANSI_CHARSET
@@ -128,15 +123,18 @@ object frmMain: TfrmMain
       Min = 1
       OnChange = PassengersChange
       Position = 1
-      TabOrder = 3
+      TabOrder = 2
     end
     object Label7: TLabel
       AnchorSideLeft.Control = Label6
       AnchorSideLeft.Side = asrBottom
+      AnchorSideBottom.Control = Label6
+      AnchorSideBottom.Side = asrCenter
       Left = 166
       Height = 33
-      Top = 428
+      Top = 422
       Width = 19
+      Anchors = [akLeft, akBottom]
       BorderSpacing.Left = 6
       Caption = '❶'
       Font.CharSet = RUSSIAN_CHARSET
@@ -222,28 +220,9 @@ object frmMain: TfrmMain
       Height = 48
       Top = 512
       Width = 336
-      Caption = 'Оформить заказ'
+      Caption = 'Далее'
       OnClick = btnConfirmClick
-      TabOrder = 4
-    end
-    object TimeEdit: TTimeEdit
-      Left = 9
-      Height = 26
-      Top = 176
-      Width = 143
-      ButtonOnlyWhenFocused = True
-      ButtonWidth = 23
-      AutoSize = False
-      NumGlyphs = 1
-      FocusOnButtonClick = True
-      Font.CharSet = RUSSIAN_CHARSET
-      Font.Height = -16
-      Font.Name = 'Arial'
-      Font.Pitch = fpVariable
-      Font.Quality = fqDraft
-      MaxLength = 5
-      ParentFont = False
-      TabOrder = 0
+      TabOrder = 3
     end
     object Label1: TLabel
       Left = 9
@@ -252,19 +231,21 @@ object frmMain: TfrmMain
       Width = 123
       Caption = 'Введите адрес подачи:'
       ParentColor = False
+      OnClick = Label1Click
     end
     object AmountOfSeats: TComboBox
-      Left = 289
+      Left = 288
       Height = 23
-      Top = 304
+      Top = 272
       Width = 56
       Enabled = False
       ItemHeight = 15
       Items.Strings = (
         '1'
         '2'
+        '3'
       )
-      TabOrder = 5
+      TabOrder = 4
       Text = '0'
     end
   end
@@ -309,7 +290,6 @@ object frmMain: TfrmMain
     top = 72
   end
   object SQLQuery1: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id'
@@ -332,7 +312,6 @@ object frmMain: TfrmMain
         DataType = ftInteger
         Precision = -1
       end>
-    Active = True
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (

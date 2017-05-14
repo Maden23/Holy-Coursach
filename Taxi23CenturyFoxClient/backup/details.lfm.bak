@@ -1,25 +1,26 @@
 object frmDetails: TfrmDetails
-  Left = 1028
-  Height = 393
-  Top = 407
-  Width = 188
+  Left = 881
+  Height = 385
+  Top = 451
+  Width = 275
   AutoSize = True
   BorderStyle = bsToolWindow
+  BorderWidth = 2
   Caption = 'Детали заказа'
-  ClientHeight = 393
-  ClientWidth = 188
+  ClientHeight = 385
+  ClientWidth = 275
   OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '1.6.2.0'
   object Panel1: TPanel
     Left = 0
-    Height = 394
+    Height = 360
     Top = 0
     Width = 189
     Align = alCustom
     AutoSize = True
     BorderWidth = 1
-    ClientHeight = 394
+    ClientHeight = 360
     ClientWidth = 189
     TabOrder = 0
     object Label1: TLabel
@@ -38,18 +39,10 @@ object frmDetails: TfrmDetails
       Caption = 'Конечный пункт:'
       ParentColor = False
     end
-    object Label3: TLabel
-      Left = 4
-      Height = 15
-      Top = 82
-      Width = 81
-      Caption = 'Время подачи:'
-      ParentColor = False
-    end
     object Label4: TLabel
       Left = 4
       Height = 15
-      Top = 122
+      Top = 88
       Width = 137
       Caption = 'Дополнительные опции:'
       ParentColor = False
@@ -57,7 +50,7 @@ object frmDetails: TfrmDetails
     object Label5: TLabel
       Left = 2
       Height = 15
-      Top = 168
+      Top = 134
       Width = 108
       Caption = 'Уровень комфорта:'
       ParentColor = False
@@ -65,7 +58,7 @@ object frmDetails: TfrmDetails
     object Label6: TLabel
       Left = 2
       Height = 15
-      Top = 215
+      Top = 181
       Width = 138
       Caption = 'Количество пассажиров:'
       ParentColor = False
@@ -73,7 +66,7 @@ object frmDetails: TfrmDetails
     object Label7: TLabel
       Left = 2
       Height = 15
-      Top = 281
+      Top = 247
       Width = 31
       Caption = 'Цена:'
       ParentColor = False
@@ -83,13 +76,13 @@ object frmDetails: TfrmDetails
       AnchorSideTop.Side = asrBottom
       Left = 2
       Height = 25
-      Top = 367
+      Top = 333
       Width = 185
       Align = alBottom
       Anchors = [akTop, akLeft, akRight, akBottom]
       AutoSize = True
       BorderSpacing.Top = 2
-      Caption = 'Подтвердить'
+      Caption = 'Оформить заказ'
       OnClick = Button1Click
       TabOrder = 0
     end
@@ -115,23 +108,12 @@ object frmDetails: TfrmDetails
       Caption = 'Label9'
       ParentColor = False
     end
-    object Label10: TLabel
-      AnchorSideLeft.Control = Label3
-      AnchorSideLeft.Side = asrBottom
-      Left = 91
-      Height = 15
-      Top = 82
-      Width = 40
-      BorderSpacing.Left = 6
-      Caption = 'Label10'
-      ParentColor = False
-    end
     object Label11: TLabel
       AnchorSideLeft.Control = Label4
       AnchorSideLeft.Side = asrBottom
       Left = 147
       Height = 15
-      Top = 122
+      Top = 88
       Width = 40
       BorderSpacing.Left = 6
       Caption = 'Label11'
@@ -142,7 +124,7 @@ object frmDetails: TfrmDetails
       AnchorSideLeft.Side = asrBottom
       Left = 116
       Height = 15
-      Top = 168
+      Top = 134
       Width = 40
       BorderSpacing.Left = 6
       Caption = 'Label12'
@@ -153,7 +135,7 @@ object frmDetails: TfrmDetails
       AnchorSideLeft.Side = asrBottom
       Left = 146
       Height = 15
-      Top = 215
+      Top = 181
       Width = 40
       BorderSpacing.Left = 6
       Caption = 'Label13'
@@ -166,9 +148,8 @@ object frmDetails: TfrmDetails
       AnchorSideTop.Side = asrCenter
       Left = 39
       Height = 22
-      Top = 277
+      Top = 243
       Width = 73
-      AutoSize = False
       BorderSpacing.Left = 6
       Caption = 'Label14'
       Font.CharSet = RUSSIAN_CHARSET
@@ -183,22 +164,22 @@ object frmDetails: TfrmDetails
     object Label15: TLabel
       Left = 4
       Height = 15
-      Top = 312
+      Top = 278
       Width = 75
       Caption = 'Время в пути:'
       ParentColor = False
     end
-    object Label16: TLabel
+    object tripTime: TLabel
       AnchorSideLeft.Control = Label15
       AnchorSideLeft.Side = asrBottom
       AnchorSideTop.Control = Label15
       AnchorSideTop.Side = asrCenter
       Left = 85
       Height = 22
-      Top = 308
-      Width = 73
+      Top = 274
+      Width = 77
       BorderSpacing.Left = 6
-      Caption = 'Label16'
+      Caption = 'tripTime'
       Font.CharSet = RUSSIAN_CHARSET
       Font.Height = -19
       Font.Name = 'Arial'
@@ -210,13 +191,13 @@ object frmDetails: TfrmDetails
     end
     object btnChange: TButton
       AnchorSideLeft.Control = Panel1
-      AnchorSideTop.Control = Label16
+      AnchorSideTop.Control = tripTime
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = Panel1
       AnchorSideRight.Side = asrBottom
       Left = 2
       Height = 25
-      Top = 340
+      Top = 306
       Width = 185
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Top = 10
@@ -239,7 +220,7 @@ object frmDetails: TfrmDetails
     Options = []
     Params = <>
     ParamCheck = False
-    left = 136
-    top = 248
+    left = 216
+    top = 216
   end
 end

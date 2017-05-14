@@ -1,11 +1,11 @@
 object frmDriver: TfrmDriver
-  Left = 504
-  Height = 943
-  Top = 12
+  Left = 167
+  Height = 655
+  Top = 0
   Width = 1102
   BorderStyle = bsSingle
   Caption = 'Водитель'
-  ClientHeight = 943
+  ClientHeight = 655
   ClientWidth = 1102
   OnClose = FormClose
   OnShow = FormShow
@@ -16,7 +16,7 @@ object frmDriver: TfrmDriver
     AnchorSideLeft.Side = asrBottom
     Left = 1838
     Height = 42
-    Top = 50
+    Top = 28
     Width = 880
     Anchors = [akLeft]
     BorderSpacing.Left = 750
@@ -38,7 +38,7 @@ object frmDriver: TfrmDriver
     AnchorSideRight.Control = Label3
     Left = 1838
     Height = 501
-    Top = 62
+    Top = -33
     Width = 880
     Anchors = [akLeft]
     BorderSpacing.Left = 750
@@ -56,7 +56,7 @@ object frmDriver: TfrmDriver
     AnchorSideLeft.Side = asrBottom
     Left = 38
     Height = 37
-    Top = 18
+    Top = 7
     Width = 268
     Anchors = []
     Caption = 'Добро пожаловать!'
@@ -24347,7 +24347,7 @@ object frmDriver: TfrmDriver
     AnchorSideLeft.Side = asrCenter
     Left = 720
     Height = 27
-    Top = 544
+    Top = 374
     Width = 179
     Anchors = [akLeft]
     Caption = 'Текущие заказы'
@@ -24890,6 +24890,33 @@ object frmDriver: TfrmDriver
     Caption = 'Сбросить маршрут'
     OnClick = btnResetRoutesClick
     TabOrder = 7
+  end
+  object Label2: TLabel
+    Left = 80
+    Height = 15
+    Top = 664
+    Width = 41
+    Caption = 'Дороги'
+    ParentColor = False
+    Visible = False
+  end
+  object Label5: TLabel
+    Left = 80
+    Height = 15
+    Top = 686
+    Width = 116
+    Caption = 'Маршрут до клиента'
+    ParentColor = False
+    Visible = False
+  end
+  object Label6: TLabel
+    Left = 80
+    Height = 15
+    Top = 707
+    Width = 233
+    Caption = 'Маршрут от клиента до точки назначения'
+    ParentColor = False
+    Visible = False
   end
   object AvailableOrdersDS: TDataSource
     DataSet = AvailableOrderQuery

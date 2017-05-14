@@ -1,12 +1,12 @@
 object frmOrderInfo: TfrmOrderInfo
   Left = 521
-  Height = 196
+  Height = 250
   Top = 194
-  Width = 274
+  Width = 479
   AutoSize = True
   Caption = 'Информация о заказе'
-  ClientHeight = 196
-  ClientWidth = 274
+  ClientHeight = 250
+  ClientWidth = 479
   OnClose = FormClose
   OnShow = FormShow
   Position = poScreenCenter
@@ -103,9 +103,9 @@ object frmOrderInfo: TfrmOrderInfo
     AnchorSideLeft.Side = asrCenter
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 77
+    Left = 179
     Height = 32
-    Top = 155
+    Top = 209
     Width = 120
     Align = alCustom
     Anchors = [akLeft, akBottom]
@@ -115,8 +115,26 @@ object frmOrderInfo: TfrmOrderInfo
     OnClick = BitBtn1Click
     TabOrder = 0
   end
+  object Label9: TLabel
+    Left = 8
+    Height = 15
+    Top = 168
+    Width = 200
+    Caption = 'Ориентировочное время прибытия:'
+    ParentColor = False
+  end
+  object finishTime: TLabel
+    AnchorSideLeft.Control = Label9
+    AnchorSideLeft.Side = asrBottom
+    Left = 216
+    Height = 15
+    Top = 168
+    Width = 56
+    BorderSpacing.Left = 8
+    Caption = 'finishTime'
+    ParentColor = False
+  end
   object FindMatchQuery: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id'
@@ -152,7 +170,6 @@ object frmOrderInfo: TfrmOrderInfo
         Precision = -1
         Size = 27
       end>
-    Active = True
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
@@ -170,8 +187,8 @@ object frmOrderInfo: TfrmOrderInfo
         Name = 'order_id'
         ParamType = ptInput
       end>
-    left = 216
-    top = 24
+    left = 352
+    top = 16
     object FindMatchQueryid: TLongintField
       FieldKind = fkData
       FieldName = 'id'
@@ -240,7 +257,7 @@ object frmOrderInfo: TfrmOrderInfo
     )
     Options = []
     Params = <>
-    left = 168
-    top = 8
+    left = 392
+    top = 104
   end
 end

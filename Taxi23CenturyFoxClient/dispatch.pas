@@ -26,7 +26,6 @@ type
     procedure DriversClick(Sender: TObject);
     procedure EdgesClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormCreate(Sender: TObject);
     procedure LocationsClick(Sender: TObject);
     procedure OrdersClick(Sender: TObject);
   private
@@ -47,6 +46,7 @@ uses Start;
 
 procedure TfrmDispatch.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
+    SQLQuery1.Close;
     frmStart.Show;
 end;
 
@@ -83,10 +83,6 @@ begin
           end;
 end;
 
-procedure TfrmDispatch.FormCreate(Sender: TObject);
-begin
-
-end;
 
 procedure TfrmDispatch.LocationsClick(Sender: TObject);
 begin

@@ -21,6 +21,7 @@ type
     FindMatchQueryname: TStringField;
     FindMatchQueryreg_number: TStringField;
     Label1: TLabel;
+    finishTime: TLabel;
     Label2: TLabel;
     driverName: TLabel;
     Label4: TLabel;
@@ -30,6 +31,7 @@ type
     Label8: TLabel;
     FindMatchQuery: TSQLQuery;
     DriversLocationsQuery: TSQLQuery;
+    Label9: TLabel;
     time: TLabel;
     procedure BitBtn1Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -70,6 +72,8 @@ end;
 
 procedure TfrmOrderInfo.FormShow(Sender: TObject);
 var start: integer;
+    FormattedTime: string;
+    myTime : TDateTime;
   begin
     start := frmMain.DBLookupComboBox1.KeyValue;
     with FindMatchQuery do
@@ -80,7 +84,9 @@ var start: integer;
         Open;
         if EOF then
            begin
-             ShowMessage('Подходящих водителей не найдено!');
+             ShowMessage('Подходящих водителей не найдено! Измените параметры заказа.');
+
+             frmMain.Show;
              self.Close;
            end
         else
@@ -89,7 +95,10 @@ var start: integer;
               autoName.Caption := FieldByName('model').AsString;
               autoSign.Caption := FieldByName('reg_number').AsString;
               autoColor.Caption := FieldByName('color').AsString;
-              time.Caption := FieldByName('dist').AsString;
+              time.Caption := FieldByName('dist').AsString + ' мин.';
+              myTime := Now + FieldByName('dist').AsInteger + StrToTime(frmDetails.tripTime.Caption);
+              DateTimeToString(formattedTime, 't', myTime);
+              finishTime.Caption := FormattedTime;
             end;
 
       end;
@@ -98,24 +107,22 @@ var start: integer;
 procedure TfrmOrderInfo.FormClose(Sender: TObject; var CloseAction: TCloseAction
   );
 begin
-   frmStart.Show;
+    frmStart.Show;
+end;
 
+procedure TfrmOrderInfo.BitBtn1Click(Sender: TObject);
+begin
    //--------Clearing frmMain ----------
       with frmMain do
            begin
                 DBLookupComboBox1.Text := '';
                 DBLookupComboBox2.Text := '';
-                TimeEdit.Text := '';
                 WideTrunk.Checked := false;
                 BabySeat.Checked := false;
                 ComfortRate.Position := 1;
                 Passengers.Position := 1;
            end;
   //-----------------------------------
-end;
-
-procedure TfrmOrderInfo.BitBtn1Click(Sender: TObject);
-begin
   Close;
 end;
 

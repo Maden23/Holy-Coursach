@@ -27,14 +27,12 @@ type
     SQLQuery1: TSQLQuery;
     SQLQuery1adress: TStringField;
     SQLQuery1id: TAutoIncField;
-    TimeEdit: TTimeEdit;
     WideTrunk: TCheckBox;
     CheckGroup1: TCheckGroup;
     Label10: TLabel;
     Label11: TLabel;
     Label12: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
@@ -48,6 +46,7 @@ type
     procedure ComfortRateChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure Label1Click(Sender: TObject);
     procedure PassengersChange(Sender: TObject);
   private
     { private declarations }
@@ -91,8 +90,6 @@ begin
      ShowMessage('Введите адрес подачи!')
   else if DBLookupComboBox2.Text = '' then
      ShowMessage('Введите конечный пункт!')
-  else if TimeEdit.Text = '' then
-     ShowMessage('Введите время!')
   else if DBLookupComboBox1.Text = DBLookupComboBox2.Text then
      ShowMessage('Адрес подачи не должен совпадать с конечным адресом!')
   else
@@ -145,6 +142,11 @@ begin
      ShowMessage ('Ошибка подключения к базе данных!');
      Close;
   end;
+end;
+
+procedure TfrmMain.Label1Click(Sender: TObject);
+begin
+
 end;
 
 

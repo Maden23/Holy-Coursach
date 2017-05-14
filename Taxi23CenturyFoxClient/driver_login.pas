@@ -24,7 +24,6 @@ type
     LoginQuery: TSQLQuery;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
-    procedure LoginDSDataChange(Sender: TObject; Field: TField);
     procedure OKClick(Sender: TObject);
   private
     { private declarations }
@@ -61,14 +60,11 @@ begin
   LoginQuery.Open;
 end;
 
-procedure TfrmDriverLogin.LoginDSDataChange(Sender: TObject; Field: TField);
-begin
-
-end;
 
 procedure TfrmDriverLogin.FormClose(Sender: TObject;
   var CloseAction: TCloseAction);
 begin
+  DriverNameComboBox.KeyValue := NULL;
   Password.Text := '';
 end;
 

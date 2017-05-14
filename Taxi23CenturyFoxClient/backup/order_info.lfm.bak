@@ -1,58 +1,58 @@
 object frmOrderInfo: TfrmOrderInfo
-  Left = 521
-  Height = 196
-  Top = 194
-  Width = 274
+  Left = 782
+  Height = 250
+  Top = 291
+  Width = 479
   AutoSize = True
   Caption = 'Информация о заказе'
-  ClientHeight = 196
-  ClientWidth = 274
+  ClientHeight = 250
+  ClientWidth = 479
   OnClose = FormClose
   OnShow = FormShow
   Position = poScreenCenter
   LCLVersion = '1.6.2.0'
   object Label1: TLabel
     Left = 8
-    Height = 15
+    Height = 25
     Top = 8
-    Width = 75
+    Width = 112
     Caption = 'Заказ принят!'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 8
-    Height = 15
+    Height = 25
     Top = 48
-    Width = 54
+    Width = 79
     Caption = 'Водитель:'
     ParentColor = False
   end
   object driverName: TLabel
     AnchorSideLeft.Control = Label2
     AnchorSideLeft.Side = asrBottom
-    Left = 70
-    Height = 15
+    Left = 95
+    Height = 25
     Top = 48
-    Width = 62
+    Width = 92
     BorderSpacing.Left = 8
     Caption = 'driverName'
     ParentColor = False
   end
   object Label4: TLabel
     Left = 8
-    Height = 15
+    Height = 25
     Top = 88
-    Width = 72
+    Width = 106
     Caption = 'Автомобиль:'
     ParentColor = False
   end
   object autoName: TLabel
     AnchorSideLeft.Control = Label4
     AnchorSideLeft.Side = asrBottom
-    Left = 88
-    Height = 15
+    Left = 122
+    Height = 25
     Top = 88
-    Width = 56
+    Width = 83
     BorderSpacing.Left = 8
     Caption = 'autoName'
     ParentColor = False
@@ -60,10 +60,10 @@ object frmOrderInfo: TfrmOrderInfo
   object autoSign: TLabel
     AnchorSideLeft.Control = autoName
     AnchorSideLeft.Side = asrBottom
-    Left = 152
-    Height = 15
+    Left = 213
+    Height = 25
     Top = 88
-    Width = 47
+    Width = 71
     BorderSpacing.Left = 8
     Caption = 'autoSign'
     ParentColor = False
@@ -71,29 +71,29 @@ object frmOrderInfo: TfrmOrderInfo
   object autoColor: TLabel
     AnchorSideLeft.Control = autoSign
     AnchorSideLeft.Side = asrBottom
-    Left = 207
-    Height = 15
+    Left = 292
+    Height = 25
     Top = 88
-    Width = 53
+    Width = 79
     BorderSpacing.Left = 8
     Caption = 'autoColor'
     ParentColor = False
   end
   object Label8: TLabel
     Left = 8
-    Height = 15
+    Height = 25
     Top = 128
-    Width = 96
+    Width = 143
     Caption = 'Время ожидания:'
     ParentColor = False
   end
   object time: TLabel
     AnchorSideLeft.Control = Label8
     AnchorSideLeft.Side = asrBottom
-    Left = 112
-    Height = 15
+    Left = 159
+    Height = 25
     Top = 128
-    Width = 24
+    Width = 35
     BorderSpacing.Left = 8
     Caption = 'time'
     ParentColor = False
@@ -101,20 +101,40 @@ object frmOrderInfo: TfrmOrderInfo
   object BitBtn1: TBitBtn
     AnchorSideLeft.Control = Owner
     AnchorSideLeft.Side = asrCenter
-    AnchorSideBottom.Side = asrCenter
-    Left = 77
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 179
     Height = 32
-    Top = 150
+    Top = 209
     Width = 120
     Align = alCustom
-    Anchors = [akLeft]
+    Anchors = [akLeft, akBottom]
+    BorderSpacing.Bottom = 9
     Caption = 'OK'
     ModalResult = 1
     OnClick = BitBtn1Click
     TabOrder = 0
   end
+  object Label9: TLabel
+    Left = 8
+    Height = 25
+    Top = 168
+    Width = 300
+    Caption = 'Ориентировочное время прибытия:'
+    ParentColor = False
+  end
+  object finishTime: TLabel
+    AnchorSideLeft.Control = Label9
+    AnchorSideLeft.Side = asrBottom
+    Left = 316
+    Height = 25
+    Top = 168
+    Width = 80
+    BorderSpacing.Left = 8
+    Caption = 'finishTime'
+    ParentColor = False
+  end
   object FindMatchQuery: TSQLQuery
-    IndexName = 'DEFAULT_ORDER'
     FieldDefs = <    
       item
         Name = 'id'
@@ -150,7 +170,6 @@ object frmOrderInfo: TfrmOrderInfo
         Precision = -1
         Size = 27
       end>
-    Active = True
     Database = DataModule1.Connection
     Transaction = DataModule1.SQLTransaction1
     SQL.Strings = (
@@ -168,8 +187,8 @@ object frmOrderInfo: TfrmOrderInfo
         Name = 'order_id'
         ParamType = ptInput
       end>
-    left = 216
-    top = 24
+    left = 352
+    top = 16
     object FindMatchQueryid: TLongintField
       FieldKind = fkData
       FieldName = 'id'
@@ -238,7 +257,7 @@ object frmOrderInfo: TfrmOrderInfo
     )
     Options = []
     Params = <>
-    left = 168
-    top = 8
+    left = 392
+    top = 104
   end
 end

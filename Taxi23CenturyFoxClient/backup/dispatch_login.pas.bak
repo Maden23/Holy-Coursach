@@ -15,6 +15,7 @@ type
     Label2: TLabel;
     OK: TButton;
     Password: TEdit;
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure OKClick(Sender: TObject);
   private
     { private declarations }
@@ -42,6 +43,12 @@ begin
      end
   else
      ShowMessage('Неверный код доступа')
+end;
+
+procedure TfrmDispatchLogin.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+  Password.Text := '';
 end;
 
 end.

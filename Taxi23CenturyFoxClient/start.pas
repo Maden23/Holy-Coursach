@@ -75,20 +75,7 @@ end;
 
 procedure TfrmStart.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-   frmStart.Show;
 
-   //--------Clearing frmMain ----------
-      with frmMain do
-           begin
-                DBLookupComboBox1.Text := '';
-                DBLookupComboBox2.Text := '';
-                TimeEdit.Text := '';
-                WideTrunk.Checked := false;
-                BabySeat.Checked := false;
-                ComfortRate.Position := 1;
-                Passengers.Position := 1;
-           end;
-  //-----------------------------------
 end;
 
 procedure TfrmStart.FormCreate(Sender: TObject);
@@ -97,6 +84,7 @@ begin
    Application.UpdateFormatSettings := False;
    DateSeparator := '-';
    ShortDateFormat := 'yyyy-mm-dd';
+   ShortTimeFormat := 'hh:mm';
 end;
 
 procedure TfrmStart.HelpClick(Sender: TObject);

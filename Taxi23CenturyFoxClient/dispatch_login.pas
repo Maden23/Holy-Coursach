@@ -40,6 +40,7 @@ begin
      begin
           frmDispatch.Show;
           frmDispatchLogin.Close;
+          frmStart.Hide;
      end
   else
      ShowMessage('Неверный код доступа')
