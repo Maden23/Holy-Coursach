@@ -19,7 +19,7 @@ type
 
 procedure FormAdjecencyMatrix (nodesCount: integer; var a: matrix);
 
-function Dijkstra(var s: integer; param: string): mass;
+function Dijkstra(s: integer; param: string): mass;
 
 function PathFromTo (start, finish: integer): nodesMass;
 
@@ -47,7 +47,7 @@ begin
       end;
 end;
 
-function ExtractMin (d: mass; var Q: massDyn): integer;
+function ExtractMin (var d: mass; var Q: massDyn): integer;
 const
   inf = 9999;
 var i: integer;
@@ -73,7 +73,7 @@ begin
 result := index;
 end;
 
-function Dijkstra(var s: integer; param: string): mass;
+function Dijkstra(s: integer; param: string): mass;
 const
   inf = 9999;
 var
@@ -82,6 +82,7 @@ var
     i, curr, nodesCount: integer;
     a: matrix;
 begin
+     //получение количества вершин графа
      with DataModule1.CountLocationsQuery do
           begin
              Close;
@@ -89,16 +90,26 @@ begin
              nodesCount := FieldByName('nodesCount').AsInteger;
           end;
 
+     //создание и заполнение матрицы смежности a
      setlength(a, nodesCount+1); // 0-я строка и столбец не будут учитываться
      for i:=1 to nodesCount do
          setlength(a[i], nodesCount+1);
+
+     {пересечения строка-столбец, где есть дорога, заполняются значением дистанции}
      FormAdjecencyMatrix(nodesCount, a);
 
+     {изначально дистанция до всех точек принимается за бесконечность,
+	а для исходной точки – ноль.}
      for i:=1 to nodesCount do
          d[i] := inf;
+     d[s] := 0;
+
+     //предыдущих точек маршрута изначально нет – заполняем массив нулями
      for i:=1 to nodesCount do
          p[i] := 0;
-     d[s] := 0; //distance of current node S
+
+     {Заполнение динамического массива-очереди, где будут храниться все вершины,
+     наименьшее расстояние до которых еще не известно}
      for i:=1 to nodesCount do
          begin
               setlength(q, length(q)+1);
@@ -106,7 +117,10 @@ begin
          end;
          while length(q) > 0 do
                begin
+                    {извлечение из очереди вершины с наименьшей длиной - расстояние
+                    до нее теперь точно известно}
                     curr := ExtractMin(d, Q);
+                    {обновление массивов с учетом нового точно оптимального маршрутадо curr }
                     for i:=1 to nodesCount do
                         if(d[i] > d[curr] + a[curr][i]) then
                            begin

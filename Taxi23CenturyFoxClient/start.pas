@@ -81,11 +81,13 @@ end;
 procedure TfrmStart.FormCreate(Sender: TObject);
 begin
   Application.Initialize;
-   Application.UpdateFormatSettings := False;
-   DateSeparator := '-';
-   ShortDateFormat := 'yyyy-mm-dd';
-   ShortTimeFormat := 'hh:mm';
+  Application.UpdateFormatSettings := False;
+  DateSeparator := '-';
+  ShortDateFormat := 'yyyy-mm-dd';
+  ShortTimeFormat := 'hh:mm';
+
 end;
+
 
 procedure TfrmStart.HelpClick(Sender: TObject);
 begin

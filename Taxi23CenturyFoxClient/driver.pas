@@ -39,7 +39,6 @@ type
     FinishOrder: TButton;
     CancelOrder: TButton;
     BuildRoute: TButton;
-    Image2: TImage;
     AvailableOrders: TDBGrid;
     SelectedOrderQuerycreated: TDateTimeField;
     SelectedOrderQueryfinish: TStringField;
@@ -292,52 +291,47 @@ var
     path: nodesMass;
     passenger_location, destination: integer;
 begin
-  if SelectedOrders.DataSource.DataSet.IsEmpty then
-     ShowMessage('Нет текущих заказов')
+  Map.Repaint;
+  BuildRoads;
+
+  with SelectedOrders.DataSource.DataSet do
+    begin
+      passenger_location := FieldByName('start_id').AsInteger;
+      destination := FieldByName('finish_id').AsInteger;
+    end;
+
+  if driver_location.id <> passenger_location then
+     begin
+       path := PathFromTo(driver_location.id, passenger_location);
+       DrawRoute(path, 'Yellow');
+       with  Map.Canvas do
+          begin
+            //Нарисовать человечка в path[0]
+            Pen.Color:=clBlack;
+            Pen.Width := 2;
+            Ellipse(path[0].x-7,path[0].y-7,
+                    path[0].x+7,path[0].y+7);
+          end;
+     end
   else
+      //Нарисовать человечка в driver_location
+      with  Map.Canvas do
+          begin
+            Pen.Color:=clBlack;
+            Pen.Width := 2;
+            Ellipse(driver_location.x-7,driver_location.y-7,
+                    driver_location.x+7,driver_location.y+7);
+          end;
+
+  path := PathFromTo(passenger_location, destination);
+  DrawRoute(path, 'Color');
+  with  Map.Canvas do
       begin
-          Map.Repaint;
-          BuildRoads;
-
-          with SelectedOrders.DataSource.DataSet do
-            begin
-              passenger_location := FieldByName('start_id').AsInteger;
-              destination := FieldByName('finish_id').AsInteger;
-            end;
-
-          if driver_location.id <> passenger_location then
-             begin
-               path := PathFromTo(driver_location.id, passenger_location);
-               DrawRoute(path, 'Yellow');
-               with  Map.Canvas do
-                  begin
-                    //Нарисовать человечка в path[0]
-                    Pen.Color:=clBlack;
-                    Pen.Width := 2;
-                    Ellipse(path[0].x-7,path[0].y-7,
-                            path[0].x+7,path[0].y+7);
-                  end;
-             end
-          else
-              //Нарисовать человечка в driver_location
-              with  Map.Canvas do
-                  begin
-                    Pen.Color:=clBlack;
-                    Pen.Width := 2;
-                    Ellipse(driver_location.x-7,driver_location.y-7,
-                            driver_location.x+7,driver_location.y+7);
-                  end;
-
-          path := PathFromTo(passenger_location, destination);
-          DrawRoute(path, 'Color');
-          with  Map.Canvas do
-              begin
-                Pen.Color:=clBlack;
-                Pen.Width := 2;
-                Rectangle(path[0].x-7,path[0].y-7,path[0].x+7,path[0].y+7);
-              end;
-          Car.Repaint;
+        Pen.Color:=clBlack;
+        Pen.Width := 2;
+        Rectangle(path[0].x-7,path[0].y-7,path[0].x+7,path[0].y+7);
       end;
+  Car.Repaint;
 end;
 
 procedure TfrmDriver.FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -347,6 +341,8 @@ end;
 
 procedure TfrmDriver.FormShow(Sender: TObject);
   begin
+     frmDriver.Height := 750;
+     frmDriver.Width := 1100;
      Car.Visible := false;
      AvailableOrderQuery.Close;
      AvailableOrderQuery.Open;

@@ -1,8 +1,8 @@
 object frmStart: TfrmStart
   Cursor = crHandPoint
-  Left = 689
+  Left = 464
   Height = 639
-  Top = 130
+  Top = 24
   Width = 960
   BorderIcons = []
   BorderStyle = bsNone
@@ -11,7 +11,6 @@ object frmStart: TfrmStart
   ClientWidth = 960
   Color = 33023
   OnClose = FormClose
-  OnCreate = FormCreate
   Position = poDesktopCenter
   ShowInTaskBar = stAlways
   LCLVersion = '1.6.2.0'

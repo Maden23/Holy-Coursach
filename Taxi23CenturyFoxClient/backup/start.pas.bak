@@ -5,7 +5,7 @@ unit start;
 interface
 
 uses
-  dispatch, dispatch_login, driver, driver_login, info, help, Main, sqldb, Classes, SysUtils, FileUtil, Forms, Controls,
+  dispatch, dispatch_login, driver, driver_login, info, help, Client, sqldb, Classes, SysUtils, FileUtil, Forms, Controls,
   Graphics, Dialogs, StdCtrls, ExtCtrls, DbCtrls;
 
 type
@@ -25,7 +25,6 @@ type
     Passenger: TButton;
     procedure EscClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormCreate(Sender: TObject);
     procedure HelpClick(Sender: TObject);
     procedure ImgDispatcherClick(Sender: TObject);
     procedure ImgDriverClick(Sender: TObject);
@@ -59,7 +58,7 @@ end;
 
 procedure TfrmStart.ImgPassengerClick(Sender: TObject);
 begin
-  frmMain.Show;
+  frmClient.Show;
   frmStart.Hide;
 end;
 
@@ -78,14 +77,6 @@ begin
 
 end;
 
-procedure TfrmStart.FormCreate(Sender: TObject);
-begin
-  Application.Initialize;
-   Application.UpdateFormatSettings := False;
-   DateSeparator := '-';
-   ShortDateFormat := 'yyyy-mm-dd';
-   ShortTimeFormat := 'hh:mm';
-end;
 
 procedure TfrmStart.HelpClick(Sender: TObject);
 begin
@@ -94,7 +85,7 @@ end;
 
 procedure TfrmStart.PassengerClick(Sender: TObject);
 begin
-  frmMain.Show;
+  frmClient.Show;
   frmStart.Hide;
 end;
 

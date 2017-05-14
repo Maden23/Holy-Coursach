@@ -11,11 +11,17 @@ uses
 type
   matrix = array of array of integer;
   mass = array [1..100] of integer;
-  endless = array of integer;
+  massDyn = array of integer;
+  node = record
+               id, x, y: integer;
+               end;
+  nodesMass = array of node;
 
 procedure FormAdjecencyMatrix (nodesCount: integer; var a: matrix);
 
 function Dijkstra(var s: integer; param: string): mass;
+
+function PathFromTo (start, finish: integer): nodesMass;
 
 
 implementation
@@ -41,7 +47,7 @@ begin
       end;
 end;
 
-function ExtractMin (d: mass; var Q: endless): integer;
+function ExtractMin (var d: mass; var Q: massDyn): integer;
 const
   inf = 9999;
 var i: integer;
@@ -67,27 +73,43 @@ begin
 result := index;
 end;
 
-function Dijkstra(var s: integer; param: string): mass;
+function Dijkstra(s: integer; param: string): mass;
 const
   inf = 9999;
 var
     d, p: mass; //distance, previous
-    q: endless; //queue
+    q: massDyn; //queue
     i, curr, nodesCount: integer;
     a: matrix;
 begin
-      DataModule1.CountLocationsQuery.Open;
-    nodesCount := DataModule1.CountLocationsQuery.FieldByName('nodesCount').AsInteger;
-    setlength(a, nodesCount+1); // 0-я строка и столбец не будут учитываться
-      for i:=1 to nodesCount do
-         setlength(a[i], nodesCount+1);
-    FormAdjecencyMatrix(nodesCount, a);
+     //получение количества вершин графа
+     with DataModule1.CountLocationsQuery do
+          begin
+             Close;
+             Open;
+             nodesCount := FieldByName('nodesCount').AsInteger;
+          end;
 
+     //создание и заполнение матрицы смежности a
+     setlength(a, nodesCount+1); // 0-я строка и столбец не будут учитываться
+     for i:=1 to nodesCount do
+         setlength(a[i], nodesCount+1);
+
+     {пересечения строка-столбец, где есть дорога, заполняются значением дистанции}
+     FormAdjecencyMatrix(nodesCount, a);
+
+     {изначально дистанция до всех точек принимается за бесконечность,
+	а для исходной точки – ноль.}
      for i:=1 to nodesCount do
          d[i] := inf;
+     d[s] := 0;
+
+     //предыдущих точек маршрута изначально нет – заполняем массив нулями
      for i:=1 to nodesCount do
          p[i] := 0;
-     d[s] := 0; //distance of current node S
+
+     {Заполнение динамического массива-очереди, где будут храниться все вершины,
+     наименьшее расстояние до которых еще не известно}
      for i:=1 to nodesCount do
          begin
               setlength(q, length(q)+1);
@@ -95,7 +117,10 @@ begin
          end;
          while length(q) > 0 do
                begin
+                    {извлечение из очереди вершины с наименьшей длиной - расстояние
+                    до нее теперь точно известно}
                     curr := ExtractMin(d, Q);
+                    {обновление массивов с учетом нового точно оптимального маршрутадо curr }
                     for i:=1 to nodesCount do
                         if(d[i] > d[curr] + a[curr][i]) then
                            begin
@@ -104,8 +129,42 @@ begin
                            end;
                end;
      if param = 'distance' then
-        Dijkstra := d
-     else Dijkstra := p;
+        result := d
+     else if param = 'previous' then
+        result := p;
+end;
+
+function PathFromTo (start, finish: integer): nodesMass;
+var
+   path: nodesMass;
+   prevNodes: mass;
+   next, i: integer;
+begin
+    prevNodes := Dijkstra(start, 'previous') ;
+
+    //Восстановление маршрута в массив path (поле id) в обратном порядке
+    next := finish;
+    repeat
+       setlength(path, length(path)+1);
+       path[length(path)-1].id := next;
+       next := prevNodes[next];
+    until next = start;
+    setlength(path, length(path)+1);
+    path[length(path)-1].id := start;
+
+    //Нахождение координат каждого промежуточного пункта
+    for i:=0 to length(path)-1 do
+       begin
+          with DataModule1.NodeCoordinatesQuery do
+               begin
+                    Close;
+                    ParamByName('id').AsInteger := path[i].id;
+                    Open;
+                    path[i].x := FieldByName('x').AsInteger;
+                    path[i].y := FieldByName('y').AsInteger;
+               end;
+       end;
+    result := path;
 end;
 
 end.
