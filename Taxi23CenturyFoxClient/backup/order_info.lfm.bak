@@ -1,7 +1,7 @@
 object frmOrderInfo: TfrmOrderInfo
-  Left = 782
+  Left = 521
   Height = 250
-  Top = 291
+  Top = 194
   Width = 479
   AutoSize = True
   Caption = 'Информация о заказе'
@@ -13,46 +13,46 @@ object frmOrderInfo: TfrmOrderInfo
   LCLVersion = '1.6.2.0'
   object Label1: TLabel
     Left = 8
-    Height = 25
+    Height = 15
     Top = 8
-    Width = 112
+    Width = 75
     Caption = 'Заказ принят!'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 8
-    Height = 25
+    Height = 15
     Top = 48
-    Width = 79
+    Width = 54
     Caption = 'Водитель:'
     ParentColor = False
   end
   object driverName: TLabel
     AnchorSideLeft.Control = Label2
     AnchorSideLeft.Side = asrBottom
-    Left = 95
-    Height = 25
+    Left = 70
+    Height = 15
     Top = 48
-    Width = 92
+    Width = 62
     BorderSpacing.Left = 8
     Caption = 'driverName'
     ParentColor = False
   end
   object Label4: TLabel
     Left = 8
-    Height = 25
+    Height = 15
     Top = 88
-    Width = 106
+    Width = 72
     Caption = 'Автомобиль:'
     ParentColor = False
   end
   object autoName: TLabel
     AnchorSideLeft.Control = Label4
     AnchorSideLeft.Side = asrBottom
-    Left = 122
-    Height = 25
+    Left = 88
+    Height = 15
     Top = 88
-    Width = 83
+    Width = 56
     BorderSpacing.Left = 8
     Caption = 'autoName'
     ParentColor = False
@@ -60,10 +60,10 @@ object frmOrderInfo: TfrmOrderInfo
   object autoSign: TLabel
     AnchorSideLeft.Control = autoName
     AnchorSideLeft.Side = asrBottom
-    Left = 213
-    Height = 25
+    Left = 152
+    Height = 15
     Top = 88
-    Width = 71
+    Width = 47
     BorderSpacing.Left = 8
     Caption = 'autoSign'
     ParentColor = False
@@ -71,29 +71,29 @@ object frmOrderInfo: TfrmOrderInfo
   object autoColor: TLabel
     AnchorSideLeft.Control = autoSign
     AnchorSideLeft.Side = asrBottom
-    Left = 292
-    Height = 25
+    Left = 207
+    Height = 15
     Top = 88
-    Width = 79
+    Width = 53
     BorderSpacing.Left = 8
     Caption = 'autoColor'
     ParentColor = False
   end
   object Label8: TLabel
     Left = 8
-    Height = 25
+    Height = 15
     Top = 128
-    Width = 143
+    Width = 96
     Caption = 'Время ожидания:'
     ParentColor = False
   end
   object time: TLabel
     AnchorSideLeft.Control = Label8
     AnchorSideLeft.Side = asrBottom
-    Left = 159
-    Height = 25
+    Left = 112
+    Height = 15
     Top = 128
-    Width = 35
+    Width = 24
     BorderSpacing.Left = 8
     Caption = 'time'
     ParentColor = False
@@ -117,19 +117,19 @@ object frmOrderInfo: TfrmOrderInfo
   end
   object Label9: TLabel
     Left = 8
-    Height = 25
+    Height = 15
     Top = 168
-    Width = 300
+    Width = 200
     Caption = 'Ориентировочное время прибытия:'
     ParentColor = False
   end
   object finishTime: TLabel
     AnchorSideLeft.Control = Label9
     AnchorSideLeft.Side = asrBottom
-    Left = 316
-    Height = 25
+    Left = 216
+    Height = 15
     Top = 168
-    Width = 80
+    Width = 56
     BorderSpacing.Left = 8
     Caption = 'finishTime'
     ParentColor = False

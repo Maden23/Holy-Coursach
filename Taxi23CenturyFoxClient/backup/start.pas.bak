@@ -50,13 +50,11 @@ implementation
 procedure TfrmStart.ImgDriverClick(Sender: TObject);
 begin
   frmDriverLogin.Show;
-  Hide;
 end;
 
 procedure TfrmStart.ImgDispatcherClick(Sender: TObject);
 begin
   frmDispatchLogin.Show;
-  Hide;
 end;
 
 procedure TfrmStart.ImgPassengerClick(Sender: TObject);
@@ -68,7 +66,6 @@ end;
 procedure TfrmStart.InfoClick(Sender: TObject);
 begin
   frmInfo.Show;
-  Hide;
 end;
 
 procedure TfrmStart.EscClick(Sender: TObject);

@@ -50,7 +50,7 @@ var
 implementation
 
 uses
-  Main, Graph, Start, order_info;
+  Client, Graph, Start, order_info;
 
 {$R *.lfm}
 
@@ -109,42 +109,42 @@ var
     min: integer;
     hours: integer;
 begin
-  Label8.Caption := frmMain.DBLookupComboBox1.Text;
-  Label9.Caption := frmMain.DBLookupComboBox2.Text;
-  if (frmMain.WideTrunk.Checked = true)
-     and (frmMain.BabySeat.Checked = true)
-         and (frmMain.AmountOfSeats.Text = '1') then
+  Label8.Caption := frmClient.DBLookupComboBox1.Text;
+  Label9.Caption := frmClient.DBLookupComboBox2.Text;
+  if (frmClient.WideTrunk.Checked = true)
+     and (frmClient.BabySeat.Checked = true)
+         and (frmClient.AmountOfSeats.Text = '1') then
              Label11.Caption := 'Большой багажник, детское кресло'
-  else if (frmMain.WideTrunk.Checked = true)
-          and (frmMain.BabySeat.Checked = true)
-              and (frmMain.AmountOfSeats.Text = '2') then
+  else if (frmClient.WideTrunk.Checked = true)
+          and (frmClient.BabySeat.Checked = true)
+              and (frmClient.AmountOfSeats.Text = '2') then
                  Label11.Caption := 'Большой багажник, 2 детских кресла'
-  else if (frmMain.WideTrunk.Checked = true)
-          and (frmMain.BabySeat.Checked = true)
-              and (frmMain.AmountOfSeats.Text = '3') then
+  else if (frmClient.WideTrunk.Checked = true)
+          and (frmClient.BabySeat.Checked = true)
+              and (frmClient.AmountOfSeats.Text = '3') then
                  Label11.Caption := 'Большой багажник, 3 детских кресла'
   else
       begin
-           if frmMain.WideTrunk.Checked = true then
+           if frmClient.WideTrunk.Checked = true then
                Label11.Caption := 'Большой багажник'
-           else if (frmMain.BabySeat.Checked = true)
-                   and (frmMain.AmountOfSeats.Text = '1') then
+           else if (frmClient.BabySeat.Checked = true)
+                   and (frmClient.AmountOfSeats.Text = '1') then
                        Label11.Caption := 'Детское кресло'
-           else if (frmMain.BabySeat.Checked = true)
-                   and (frmMain.AmountOfSeats.Text = '2') then
+           else if (frmClient.BabySeat.Checked = true)
+                   and (frmClient.AmountOfSeats.Text = '2') then
                        Label11.Caption := '2 детских кресла'
-           else if (frmMain.BabySeat.Checked = true)
-                   and (frmMain.AmountOfSeats.Text = '3') then
+           else if (frmClient.BabySeat.Checked = true)
+                   and (frmClient.AmountOfSeats.Text = '3') then
                        Label11.Caption := '3 детских кресла'
            else
                Label11.Caption := 'Нет';
       end;
 
-  Label12.Caption := InttoStr(frmMain.ComfortRate.Position);
-  Label13.Caption := InttoStr(frmMain.Passengers.Position);
-  Label14.Caption := ' ~ ' + Price(frmMain.DBLookupComboBox1.KeyValue, frmMain.DBLookupComboBox2.KeyValue, frmMain.ComfortRate.Position) + ' ₽ ';
+  Label12.Caption := InttoStr(frmClient.ComfortRate.Position);
+  Label13.Caption := InttoStr(frmClient.Passengers.Position);
+  Label14.Caption := ' ~ ' + Price(frmClient.DBLookupComboBox1.KeyValue, frmClient.DBLookupComboBox2.KeyValue, frmClient.ComfortRate.Position) + ' ₽ ';
 
-  min := CountTime(frmMain.DBLookupComboBox1.KeyValue, frmMain.DBLookupComboBox2.KeyValue);
+  min := CountTime(frmClient.DBLookupComboBox1.KeyValue, frmClient.DBLookupComboBox2.KeyValue);
   hours := min div 60;
   min := min mod 60;
   if (hours = 0) and (min < 10) then
@@ -165,21 +165,21 @@ begin
             //Open;
             //Insert;
             //ParamByName('created').AsDatetime := Now;
-            //ParamByName('start_id').AsInteger := frmMain.DBLookupComboBox1.KeyValue;
-            //ParamByName('finish_id').AsInteger := frmMain.DBLookupComboBox2.KeyValue;
-            //ParamByName('comfort_rate').AsInteger := frmMain.ComfortRate.Position;
-            //ParamByName('passengers').AsInteger := frmMain.Passengers.Position;
-            //ParamByName('wide_trunk').AsInteger := BoolToInt(frmMain.WideTrunk.Checked);
-            //ParamByName('baby_seat').AsInteger := StrToInt(frmMain.AmountOfSeats.Text);
+            //ParamByName('start_id').AsInteger := frmClient.DBLookupComboBox1.KeyValue;
+            //ParamByName('finish_id').AsInteger := frmClient.DBLookupComboBox2.KeyValue;
+            //ParamByName('comfort_rate').AsInteger := frmClient.ComfortRate.Position;
+            //ParamByName('passengers').AsInteger := frmClient.Passengers.Position;
+            //ParamByName('wide_trunk').AsInteger := BoolToInt(frmClient.WideTrunk.Checked);
+            //ParamByName('baby_seat').AsInteger := StrToInt(frmClient.AmountOfSeats.Text);
             SQL.Clear;
             SQL.Add('call create_order('
                           + '''' + DateTimeToStr(Now) + ''', '
-                          + '''' + IntToStr(frmMain.DBLookupComboBox1.KeyValue) + ''', '
-                          + '''' + IntToStr(frmMain.DBLookupComboBox2.KeyValue) + ''', '
-                          + '''' + IntToStr(frmMain.ComfortRate.Position) + ''', '
-                          + '''' + IntToStr(frmMain.Passengers.Position) + ''', '
-                          + '''' + IntToStr(BoolToInt(frmMain.WideTrunk.Checked)) + ''', '
-                          + '''' + frmMain.AmountOfSeats.Text + ''');' );
+                          + '''' + IntToStr(frmClient.DBLookupComboBox1.KeyValue) + ''', '
+                          + '''' + IntToStr(frmClient.DBLookupComboBox2.KeyValue) + ''', '
+                          + '''' + IntToStr(frmClient.ComfortRate.Position) + ''', '
+                          + '''' + IntToStr(frmClient.Passengers.Position) + ''', '
+                          + '''' + IntToStr(BoolToInt(frmClient.WideTrunk.Checked)) + ''', '
+                          + '''' + frmClient.AmountOfSeats.Text + ''');' );
             try
               Open;
               order_id := FieldByName('id').AsInteger;
@@ -188,7 +188,7 @@ begin
                //DataModule1.SQLTransaction1.Commit;
             except
                ShowMessage('Запрос не выполнен!');
-               frmMain.Show;
+               frmClient.Show;
                frmDetails.Close;
             end;
        end;
@@ -201,7 +201,7 @@ end;
 procedure TfrmDetails.btnChangeClick(Sender: TObject);
 begin
   Hide;
-  frmMain.Show;
+  frmClient.Show;
 end;
 
 

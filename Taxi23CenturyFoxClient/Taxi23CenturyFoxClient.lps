@@ -4,27 +4,27 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="32">
+    <Units Count="30">
       <Unit0>
         <Filename Value="Taxi23CenturyFoxClient.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="50" Y="15"/>
-        <UsageCount Value="249"/>
-      </Unit0>
-      <Unit1>
-        <Filename Value="main.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="frmMain"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Main"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="93"/>
-        <CursorPos Y="93"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="16" Y="10"/>
         <UsageCount Value="249"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="client.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmClient"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Client"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="10" Y="9"/>
+        <UsageCount Value="249"/>
+        <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="details.pas"/>
@@ -32,13 +32,11 @@
         <ComponentName Value="frmDetails"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="67"/>
-        <CursorPos X="56" Y="77"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="34"/>
+        <CursorPos X="9" Y="53"/>
         <UsageCount Value="207"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="datamodule.pas"/>
@@ -47,8 +45,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="DataModule"/>
-        <EditorIndex Value="10"/>
-        <TopLine Value="16"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="9"/>
         <CursorPos X="23" Y="21"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
@@ -59,17 +57,17 @@
         <ComponentName Value="frmStart"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="42"/>
-        <CursorPos X="23" Y="52"/>
+        <CursorPos X="69" Y="8"/>
         <UsageCount Value="205"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="graph.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="11"/>
-        <TopLine Value="43"/>
-        <CursorPos X="20" Y="144"/>
+        <EditorIndex Value="12"/>
+        <TopLine Value="123"/>
+        <CursorPos X="42" Y="138"/>
+        <FoldState Value=" T3i60O1u"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit5>
@@ -79,10 +77,9 @@
         <ComponentName Value="frmDriver"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="9"/>
-        <TopLine Value="341"/>
-        <CursorPos X="39" Y="383"/>
-        <FoldState Value=" T3kO0W0131111s"/>
+        <EditorIndex Value="10"/>
+        <TopLine Value="83"/>
+        <CursorPos Y="232"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -93,12 +90,11 @@
         <ComponentName Value="frmDispatch"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="31"/>
-        <CursorPos X="21" Y="49"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="25"/>
+        <CursorPos X="4" Y="53"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="info.pas"/>
@@ -106,8 +102,8 @@
         <ComponentName Value="frmInfo"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="19"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="7"/>
         <CursorPos X="11" Y="38"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -118,8 +114,8 @@
         <ComponentName Value="frmHelp"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="21"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="20"/>
         <CursorPos X="21" Y="39"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -130,12 +126,11 @@
         <ComponentName Value="frmDriverLogin"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="8"/>
-        <TopLine Value="11"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="8"/>
         <CursorPos X="5" Y="27"/>
         <UsageCount Value="206"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="dispatch_login.pas"/>
@@ -143,8 +138,8 @@
         <ComponentName Value="frmDispatchLogin"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="13"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="19"/>
         <CursorPos X="25" Y="43"/>
         <UsageCount Value="204"/>
         <Loaded Value="True"/>
@@ -155,18 +150,17 @@
         <ComponentName Value="frmOrderInfo"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="72"/>
-        <CursorPos X="14" Y="88"/>
-        <UsageCount Value="55"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="53"/>
+        <CursorPos X="21" Y="116"/>
+        <UsageCount Value="74"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit12>
       <Unit13>
         <Filename Value="main.lfm"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="38" Y="20"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="54"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit13>
       <Unit14>
@@ -174,253 +168,223 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="2721"/>
         <CursorPos Y="2738"/>
-        <UsageCount Value="2"/>
+        <UsageCount Value="10"/>
       </Unit14>
       <Unit15>
         <Filename Value="C:\lazarus\lcl\include\dblookup.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="402"/>
         <CursorPos Y="412"/>
-        <UsageCount Value="18"/>
+        <UsageCount Value="16"/>
       </Unit15>
       <Unit16>
         <Filename Value="..\Dijkstra.pas"/>
         <UnitName Value="dijkstra"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="11" Y="32"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="6"/>
       </Unit16>
       <Unit17>
-        <Filename Value="C:\lazarus\lcl\include\dblookupcombobox.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="77"/>
-        <CursorPos Y="98"/>
-        <UsageCount Value="1"/>
-      </Unit17>
-      <Unit18>
-        <Filename Value="C:\lazarus\lcl\include\customcombobox.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="892"/>
-        <CursorPos Y="913"/>
-        <UsageCount Value="1"/>
-      </Unit18>
-      <Unit19>
         <Filename Value="C:\lazarus\lcl\include\winapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1025"/>
         <CursorPos Y="1039"/>
-        <UsageCount Value="4"/>
-      </Unit19>
-      <Unit20>
+        <UsageCount Value="2"/>
+      </Unit17>
+      <Unit18>
         <Filename Value="C:\lazarus\lcl\include\wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="5368"/>
         <CursorPos Y="5383"/>
-        <UsageCount Value="2"/>
-      </Unit20>
-      <Unit21>
+        <UsageCount Value="10"/>
+      </Unit18>
+      <Unit19>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32wsstdctrls.pp"/>
         <UnitName Value="Win32WSStdCtrls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1602"/>
         <CursorPos Y="1620"/>
-        <UsageCount Value="2"/>
-      </Unit21>
-      <Unit22>
+        <UsageCount Value="10"/>
+      </Unit19>
+      <Unit20>
         <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="987"/>
         <CursorPos Y="1008"/>
-        <UsageCount Value="8"/>
-      </Unit22>
-      <Unit23>
+        <UsageCount Value="6"/>
+      </Unit20>
+      <Unit21>
         <Filename Value="C:\lazarus\lcl\controls.pp"/>
         <UnitName Value="Controls"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1508"/>
         <CursorPos X="15" Y="1524"/>
-        <UsageCount Value="45"/>
-      </Unit23>
-      <Unit24>
+        <UsageCount Value="43"/>
+      </Unit21>
+      <Unit22>
         <Filename Value="C:\lazarus\lcl\include\application.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1381"/>
         <CursorPos Y="1398"/>
-        <UsageCount Value="2"/>
-      </Unit24>
-      <Unit25>
+        <UsageCount Value="10"/>
+      </Unit22>
+      <Unit23>
         <Filename Value="C:\lazarus\lcl\include\screen.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="620"/>
         <CursorPos Y="637"/>
-        <UsageCount Value="2"/>
-      </Unit25>
-      <Unit26>
+        <UsageCount Value="10"/>
+      </Unit23>
+      <Unit24>
         <Filename Value="C:\lazarus\lcl\include\buttoncontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="38"/>
         <CursorPos Y="55"/>
-        <UsageCount Value="2"/>
-      </Unit26>
-      <Unit27>
+        <UsageCount Value="10"/>
+      </Unit24>
+      <Unit25>
         <Filename Value="C:\lazarus\lcl\include\buttons.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="52"/>
         <CursorPos Y="69"/>
-        <UsageCount Value="2"/>
-      </Unit27>
-      <Unit28>
+        <UsageCount Value="10"/>
+      </Unit25>
+      <Unit26>
         <Filename Value="C:\lazarus\lcl\lclmessageglue.pas"/>
         <UnitName Value="LCLMessageGlue"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="95"/>
         <CursorPos Y="123"/>
-        <UsageCount Value="2"/>
-      </Unit28>
-      <Unit29>
+        <UsageCount Value="10"/>
+      </Unit26>
+      <Unit27>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32callback.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2577"/>
         <CursorPos Y="2605"/>
-        <UsageCount Value="2"/>
-      </Unit29>
-      <Unit30>
+        <UsageCount Value="10"/>
+      </Unit27>
+      <Unit28>
         <Filename Value="C:\lazarus\lcl\interfaces\win32\win32object.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="341"/>
         <CursorPos Y="359"/>
-        <UsageCount Value="2"/>
-      </Unit30>
-      <Unit31>
+        <UsageCount Value="10"/>
+      </Unit28>
+      <Unit29>
         <Filename Value="C:\lazarus\lcl\editbtn.pas"/>
         <UnitName Value="EditBtn"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2936"/>
         <CursorPos Y="2972"/>
-        <UsageCount Value="9"/>
-      </Unit31>
+        <UsageCount Value="7"/>
+      </Unit29>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="26" HistoryIndex="25">
       <Position1>
-        <Filename Value="details.pas"/>
-        <Caret Line="175" TopLine="151"/>
+        <Filename Value="order_info.pas"/>
+        <Caret Line="76" Column="13" TopLine="62"/>
       </Position1>
       <Position2>
-        <Filename Value="details.pas"/>
-        <Caret Line="165" Column="70" TopLine="151"/>
+        <Filename Value="dispatch.pas"/>
+        <Caret Line="33" Column="64" TopLine="22"/>
       </Position2>
       <Position3>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="93" Column="60" TopLine="74"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="315" Column="35" TopLine="289"/>
       </Position3>
       <Position4>
-        <Filename Value="details.pas"/>
-        <Caret Line="165" TopLine="151"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="265" Column="41" TopLine="251"/>
       </Position4>
       <Position5>
-        <Filename Value="details.pas"/>
-        <Caret Line="164" TopLine="150"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="368" Column="6" TopLine="331"/>
       </Position5>
       <Position6>
-        <Filename Value="details.pas"/>
-        <Caret Line="163" TopLine="149"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="213" Column="27" TopLine="140"/>
       </Position6>
       <Position7>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="113" TopLine="95"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="208" Column="30" TopLine="191"/>
       </Position7>
       <Position8>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="114" TopLine="96"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="209" Column="30" TopLine="192"/>
       </Position8>
       <Position9>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="115" TopLine="97"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="210" Column="30" TopLine="193"/>
       </Position9>
       <Position10>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="114" TopLine="96"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="220" Column="39" TopLine="194"/>
       </Position10>
       <Position11>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="115" TopLine="97"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="222" Column="6" TopLine="196"/>
       </Position11>
       <Position12>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="114" TopLine="96"/>
+        <Filename Value="driver.pas"/>
+        <Caret Line="220" Column="16" TopLine="190"/>
       </Position12>
       <Position13>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="96" Column="134" TopLine="82"/>
+        <Filename Value="start.pas"/>
+        <Caret Line="52" Column="23"/>
       </Position13>
       <Position14>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="97" Column="38" TopLine="81"/>
+        <Filename Value="start.pas"/>
+        <Caret Line="62" Column="10" TopLine="31"/>
       </Position14>
       <Position15>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="98" TopLine="81"/>
+        <Filename Value="start.pas"/>
+        <Caret Line="97" Column="12" TopLine="65"/>
       </Position15>
       <Position16>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="75" Column="24" TopLine="62"/>
+        <Filename Value="start.pas"/>
+        <Caret Line="8" Column="67"/>
       </Position16>
       <Position17>
-        <Filename Value="order_info.pas"/>
-        <Caret Line="98" Column="16" TopLine="89"/>
+        <Filename Value="details.pas"/>
+        <Caret Line="204" Column="12" TopLine="167"/>
       </Position17>
       <Position18>
         <Filename Value="order_info.pas"/>
-        <Caret Line="76" Column="13" TopLine="62"/>
+        <Caret Line="107" TopLine="61"/>
       </Position18>
       <Position19>
-        <Filename Value="dispatch.pas"/>
-        <Caret Line="33" Column="64" TopLine="22"/>
+        <Filename Value="order_info.pas"/>
+        <Caret Line="50" Column="9" TopLine="31"/>
       </Position19>
       <Position20>
-        <Filename Value="driver.pas"/>
-        <Caret Line="315" Column="35" TopLine="289"/>
+        <Filename Value="info.pas"/>
+        <Caret Line="38" Column="11"/>
       </Position20>
       <Position21>
-        <Filename Value="driver.pas"/>
-        <Caret Line="265" Column="41" TopLine="251"/>
+        <Filename Value="dispatch_login.pas"/>
+        <Caret Line="43" Column="25" TopLine="19"/>
       </Position21>
       <Position22>
-        <Filename Value="driver.pas"/>
-        <Caret Line="368" Column="6" TopLine="331"/>
+        <Filename Value="dispatch.pas"/>
+        <Caret Line="53" Column="4" TopLine="25"/>
       </Position22>
       <Position23>
         <Filename Value="driver.pas"/>
-        <Caret Line="213" Column="27" TopLine="140"/>
+        <Caret Line="232" TopLine="83"/>
       </Position23>
       <Position24>
-        <Filename Value="driver.pas"/>
-        <Caret Line="208" Column="30" TopLine="191"/>
+        <Filename Value="datamodule.pas"/>
+        <Caret Line="21" Column="23" TopLine="9"/>
       </Position24>
       <Position25>
-        <Filename Value="driver.pas"/>
-        <Caret Line="209" Column="30" TopLine="192"/>
+        <Filename Value="graph.pas"/>
+        <Caret Line="122" Column="47" TopLine="75"/>
       </Position25>
       <Position26>
-        <Filename Value="driver.pas"/>
-        <Caret Line="210" Column="30" TopLine="193"/>
+        <Filename Value="Taxi23CenturyFoxClient.lpr"/>
+        <Caret Line="15" Column="50"/>
       </Position26>
-      <Position27>
-        <Filename Value="driver.pas"/>
-        <Caret Line="220" Column="39" TopLine="194"/>
-      </Position27>
-      <Position28>
-        <Filename Value="driver.pas"/>
-        <Caret Line="222" Column="6" TopLine="196"/>
-      </Position28>
-      <Position29>
-        <Filename Value="driver.pas"/>
-        <Caret Line="220" Column="16" TopLine="190"/>
-      </Position29>
-      <Position30>
-        <Filename Value="main.pas"/>
-        <Caret Line="94" TopLine="52"/>
-      </Position30>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

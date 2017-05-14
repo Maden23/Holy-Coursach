@@ -5,7 +5,7 @@ unit start;
 interface
 
 uses
-  dispatch, dispatch_login, driver, driver_login, info, help, Main, sqldb, Classes, SysUtils, FileUtil, Forms, Controls,
+  dispatch, dispatch_login, driver, driver_login, info, help, Client, sqldb, Classes, SysUtils, FileUtil, Forms, Controls,
   Graphics, Dialogs, StdCtrls, ExtCtrls, DbCtrls;
 
 type
@@ -59,7 +59,7 @@ end;
 
 procedure TfrmStart.ImgPassengerClick(Sender: TObject);
 begin
-  frmMain.Show;
+  frmClient.Show;
   frmStart.Hide;
 end;
 
@@ -94,7 +94,7 @@ end;
 
 procedure TfrmStart.PassengerClick(Sender: TObject);
 begin
-  frmMain.Show;
+  frmClient.Show;
   frmStart.Hide;
 end;
 

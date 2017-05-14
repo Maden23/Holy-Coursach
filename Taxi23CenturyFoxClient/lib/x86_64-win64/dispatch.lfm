@@ -1,7 +1,7 @@
 object frmDispatch: TfrmDispatch
-  Left = 107
+  Left = 161
   Height = 639
-  Top = 16
+  Top = 24
   Width = 1162
   BorderStyle = bsSingle
   Caption = 'Диспетчер'

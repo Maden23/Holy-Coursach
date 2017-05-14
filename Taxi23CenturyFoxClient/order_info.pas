@@ -47,7 +47,7 @@ var
 
 implementation
   uses
-    Main, details, Start, graph;
+    Client, details, Start, graph;
 {$R *.lfm}
 
   { TfrmOrderInfo }
@@ -75,7 +75,7 @@ var start: integer;
     FormattedTime: string;
     myTime : TDateTime;
   begin
-    start := frmMain.DBLookupComboBox1.KeyValue;
+    start := frmClient.DBLookupComboBox1.KeyValue;
     with FindMatchQuery do
       begin
         Close;
@@ -86,7 +86,7 @@ var start: integer;
            begin
              ShowMessage('Подходящих водителей не найдено! Измените параметры заказа.');
 
-             frmMain.Show;
+             frmClient.Show;
              self.Close;
            end
         else
@@ -112,8 +112,8 @@ end;
 
 procedure TfrmOrderInfo.BitBtn1Click(Sender: TObject);
 begin
-   //--------Clearing frmMain ----------
-      with frmMain do
+   //--------Clearing frmClient ----------
+      with frmClient do
            begin
                 DBLookupComboBox1.Text := '';
                 DBLookupComboBox2.Text := '';

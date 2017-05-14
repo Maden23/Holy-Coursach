@@ -1,0 +1,344 @@
+object frmClient: TfrmClient
+  Left = 633
+  Height = 573
+  Top = 123
+  Width = 370
+  HorzScrollBar.Page = 352
+  HorzScrollBar.Range = 352
+  VertScrollBar.Page = 744
+  VertScrollBar.Range = 744
+  BorderStyle = bsSingle
+  Caption = 'Taxi23CenturyFox'
+  ClientHeight = 573
+  ClientWidth = 370
+  OnClose = FormClose
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '1.6.2.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 575
+    Top = 0
+    Width = 375
+    ClientHeight = 575
+    ClientWidth = 375
+    TabOrder = 2
+    object Label2: TLabel
+      Left = 9
+      Height = 25
+      Top = 80
+      Width = 206
+      Caption = 'Введите конечный пункт:'
+      ParentColor = False
+    end
+    object CheckGroup1: TCheckGroup
+      Left = 8
+      Height = 143
+      Top = 176
+      Width = 368
+      AutoFill = True
+      Caption = 'Дополнительные опции'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 113
+      ClientWidth = 364
+      TabOrder = 0
+      object WideTrunk: TCheckBox
+        Left = 6
+        Height = 51
+        Top = 6
+        Width = 352
+        Caption = 'Большой багажник'
+        TabOrder = 0
+      end
+      object BabySeat: TCheckBox
+        Left = 6
+        Height = 50
+        Top = 57
+        Width = 352
+        Caption = 'Детское кресло (количество:              )'
+        OnChange = BabySeatChange
+        TabOrder = 1
+      end
+    end
+    object Label4: TLabel
+      Left = 19
+      Height = 25
+      Top = 352
+      Width = 162
+      Caption = 'Уровень комфорта:'
+      ParentColor = False
+    end
+    object ComfortRate: TTrackBar
+      Left = 8
+      Height = 29
+      Top = 376
+      Width = 344
+      Max = 5
+      Min = 1
+      OnChange = ComfortRateChange
+      Position = 1
+      TabOrder = 1
+    end
+    object Label5: TLabel
+      AnchorSideLeft.Control = Label4
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideBottom.Control = Label4
+      AnchorSideBottom.Side = asrCenter
+      Left = 186
+      Height = 33
+      Top = 347
+      Width = 19
+      Anchors = [akLeft, akBottom]
+      BorderSpacing.Left = 5
+      Caption = '✪'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -29
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 19
+      Height = 25
+      Top = 432
+      Width = 208
+      Caption = 'Количество пассажиров: '
+      ParentColor = False
+    end
+    object Passengers: TTrackBar
+      Left = 10
+      Height = 29
+      Top = 456
+      Width = 344
+      Max = 8
+      Min = 1
+      OnChange = PassengersChange
+      Position = 1
+      TabOrder = 2
+    end
+    object Label7: TLabel
+      AnchorSideLeft.Control = Label6
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideBottom.Control = Label6
+      AnchorSideBottom.Side = asrCenter
+      Left = 233
+      Height = 33
+      Top = 427
+      Width = 19
+      Anchors = [akLeft, akBottom]
+      BorderSpacing.Left = 6
+      Caption = '❶'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -29
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 17
+      Height = 16
+      Top = 408
+      Width = 7
+      Caption = '1'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 336
+      Height = 16
+      Top = 408
+      Width = 7
+      Caption = '5'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label10: TLabel
+      Left = 19
+      Height = 16
+      Top = 488
+      Width = 7
+      Caption = '1'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label11: TLabel
+      Left = 338
+      Height = 16
+      Top = 488
+      Width = 7
+      Caption = '8'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -13
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label12: TLabel
+      Left = 457
+      Height = 27
+      Top = 209
+      Width = 7
+      Caption = ':'
+      Font.CharSet = RUSSIAN_CHARSET
+      Font.Height = -24
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+    object btnConfirm: TButton
+      Left = 14
+      Height = 48
+      Top = 512
+      Width = 336
+      Caption = 'Далее'
+      OnClick = btnConfirmClick
+      TabOrder = 3
+    end
+    object Label1: TLabel
+      Left = 9
+      Height = 25
+      Top = 8
+      Width = 186
+      Caption = 'Введите адрес подачи:'
+      ParentColor = False
+      OnClick = Label1Click
+    end
+    object AmountOfSeats: TComboBox
+      Left = 288
+      Height = 33
+      Top = 272
+      Width = 56
+      Enabled = False
+      ItemHeight = 25
+      Items.Strings = (
+        '1'
+        '2'
+        '3'
+      )
+      TabOrder = 4
+      Text = '0'
+    end
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 8
+    Height = 33
+    Top = 40
+    Width = 342
+    AutoComplete = True
+    AutoDropDown = True
+    KeyField = 'id'
+    ListField = 'adress'
+    ListFieldIndex = 0
+    ListSource = DataSource1
+    LookupCache = False
+    Sorted = True
+    TabOrder = 0
+  end
+  object DBLookupComboBox2: TDBLookupComboBox
+    Left = 8
+    Height = 33
+    Top = 112
+    Width = 342
+    AutoComplete = True
+    AutoDropDown = True
+    KeyField = 'id'
+    ListField = 'adress'
+    ListFieldIndex = 0
+    ListSource = DataSource2
+    LookupCache = False
+    Sorted = True
+    TabOrder = 1
+  end
+  object DataSource1: TDataSource
+    DataSet = SQLQuery1
+    left = 400
+    top = 8
+  end
+  object DataSource2: TDataSource
+    DataSet = SQLQuery1
+    left = 408
+    top = 72
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'id'
+        DataType = ftAutoInc
+        Precision = -1
+      end    
+      item
+        Name = 'adress'
+        DataType = ftString
+        Precision = -1
+        Size = 66
+      end    
+      item
+        Name = 'x'
+        DataType = ftInteger
+        Precision = -1
+      end    
+      item
+        Name = 'y'
+        DataType = ftInteger
+        Precision = -1
+      end>
+    Database = DataModule1.Connection
+    Transaction = DataModule1.SQLTransaction1
+    SQL.Strings = (
+      'select * from locations;'
+    )
+    Options = []
+    Params = <>
+    left = 448
+    top = 72
+    object SQLQuery1id: TAutoIncField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object SQLQuery1adress: TStringField
+      FieldKind = fkData
+      FieldName = 'adress'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+  end
+end

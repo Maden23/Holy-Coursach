@@ -1,7 +1,7 @@
 object frmDriverLogin: TfrmDriverLogin
-  Left = 831
+  Left = 554
   Height = 247
-  Top = 761
+  Top = 408
   Width = 401
   Caption = 'Вход в систему'
   ClientHeight = 247
@@ -40,7 +40,7 @@ object frmDriverLogin: TfrmDriverLogin
   end
   object Password: TEdit
     Left = 8
-    Height = 33
+    Height = 23
     Top = 136
     Width = 384
     EchoMode = emPassword
@@ -60,7 +60,7 @@ object frmDriverLogin: TfrmDriverLogin
   end
   object DriverNameComboBox: TDBLookupComboBox
     Left = 8
-    Height = 33
+    Height = 23
     Top = 48
     Width = 384
     AutoComplete = True
